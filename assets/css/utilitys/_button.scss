@@ -1,0 +1,21 @@
+.button {
+    padding: 8px 24px !important;
+    color: $cor-p1;
+    border: 3px solid $cor-p1;
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+    font: 600 1.125rem/1.3 'Montserrat', Arial, Helvetica, sans-serif !important;
+    &:hover {
+        color: $cor-p6;
+        background-color: $cor-p1;
+    }
+}
+
+.button.btn-primary {
+    background: $cor-p1;
+    color: $cor-0;
+    &:hover {
+        background: $cor-0;
+        color: $cor-p1;
+    }
+}

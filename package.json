@@ -7,7 +7,7 @@
     "type": "commonjs",
     "main": "index.js",
     "scripts": {
-        "observar": "sass --watch assets/css/style.scss assets/css/teste.css"
+        "observar": "sass --watch assets/css/style.scss assets/css/style.css"
     },
     "devDependencies": {
         "sass": "^1.91.0"

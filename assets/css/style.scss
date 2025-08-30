@@ -1,7 +1,17 @@
-body {
-    background: #000;
-}
+// Vars and Tipographys
+@import 'utilitys/colors';
+@import 'utilitys/tipography';
 
-h1 {
-    color: blue;
-}
+// Global
+@import 'global/global';
+
+// Utilitys
+@import 'utilitys/button';
+
+// Header
+@import 'header/header';
+
+// Main
+@import 'main/introduction';
+@import 'main/goal';
+@import 'main/equipments';
