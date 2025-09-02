@@ -22,25 +22,55 @@
     }
 }
 
-.equipments-list {
+%images-equipments {
+    width: 0 !important;
+    flex: 1 0 auto;
+    transition: all 0.5s ease-in-out;
+    height: 450px;
+    position: relative;
+    border-radius: 24px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    &:hover {
+        width: 40% !important;
+    }
+}
+
+.equipments-images {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 40px;
-    li {
-        border-radius: 50px;
-        width: 0 !important;
-        flex: 1 0 auto;
-        transition: all 0.5s ease-in-out;
-        height: 400px;
-        position: relative;
-        background-size: cover;
-        background-position: center;
-        overflow: hidden;
+    text-transform: uppercase;
+    #bicicleta {
+        @extend %images-equipments;
+        background: url('../img/remo-1.jpg') no-repeat center / cover;
+        &:hover {
+            background: url('../img/remo-2.jpg') no-repeat center / cover;
+        }
     }
-    li#foto-01 {
-        background: url('../../img/academia.jpg');
+    #esteira {
+        @extend %images-equipments;
+        background: url('../img/remo-1.jpg') no-repeat center / cover;
+        &:hover {
+            background: url('../img/remo-2.jpg') no-repeat center / cover;
+        }
+    }
+    #eliptico {
+        @extend %images-equipments;
+        background: url('../img/eliptico-1.jpg') no-repeat center / cover;
+        &:hover {
+            background: url('../img/eliptico-2.jpg') no-repeat center / cover;
+        }
+    }
+    #remo {
+        @extend %images-equipments;
+        background: url('../img/remo-1.jpg') no-repeat center / cover;
+        &:hover {
+            background: url('../img/remo-2.jpg') no-repeat center / cover;
+        }
     }
     a {
         position: absolute;
@@ -48,6 +78,30 @@
         left: 0;
         bottom: 0;
         right: 0;
-        border-radius: 50px;
+        border-radius: 24px;
+        padding: 32px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        transition: all 0.3s ease-in-out;
+        p {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+    }
+    &:hover {
+        a {
+            opacity: 0;
+            &:hover {
+                opacity: 1;
+                background: linear-gradient(
+                    rgba(0, 0, 0, 0.2),
+                    rgba(0, 0, 0, 0.8)
+                );
+                p {
+                    opacity: 1;
+                }
+            }
+        }
     }
 }
