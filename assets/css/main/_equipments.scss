@@ -43,33 +43,38 @@
     justify-content: center;
     align-items: center;
     gap: 40px;
-    text-transform: uppercase;
     #bicicleta {
         @extend %images-equipments;
-        background: url('../img/remo-1.jpg') no-repeat center / cover;
+        background: url('../img/equipments/bike-1.jpg') no-repeat center / cover;
         &:hover {
-            background: url('../img/remo-2.jpg') no-repeat center / cover;
+            background: url('../img/equipments/bike-2.jpg') no-repeat center /
+                cover;
         }
     }
     #esteira {
         @extend %images-equipments;
-        background: url('../img/remo-1.jpg') no-repeat center / cover;
+        background: url('../img/equipments/esteira-1.jpg') no-repeat center /
+            cover;
         &:hover {
-            background: url('../img/remo-2.jpg') no-repeat center / cover;
+            background: url('../img/equipments/esteira-2.jpg') no-repeat center /
+                cover;
         }
     }
     #eliptico {
         @extend %images-equipments;
-        background: url('../img/eliptico-1.jpg') no-repeat center / cover;
+        background: url('../img/equipments/eliptico-1.jpg') no-repeat center /
+            cover;
         &:hover {
-            background: url('../img/eliptico-2.jpg') no-repeat center / cover;
+            background: url('../img/equipments/eliptico-2.jpg') no-repeat center /
+                cover;
         }
     }
     #remo {
         @extend %images-equipments;
-        background: url('../img/remo-1.jpg') no-repeat center / cover;
+        background: url('../img/equipments/remo-1.jpg') no-repeat center / cover;
         &:hover {
-            background: url('../img/remo-2.jpg') no-repeat center / cover;
+            background: url('../img/equipments/remo-2.jpg') no-repeat center /
+                cover;
         }
     }
     a {
@@ -84,9 +89,15 @@
         justify-content: space-between;
         flex-direction: column;
         transition: all 0.3s ease-in-out;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+        h3 {
+            text-transform: uppercase;
+            font-weight: 600;
+        }
         p {
             opacity: 0;
             transition: opacity 0.3s ease-in-out;
+            color: $cor-3;
         }
     }
     &:hover {

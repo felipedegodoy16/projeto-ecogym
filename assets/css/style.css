@@ -279,6 +279,25 @@ img {
   font-weight: bold;
 }
 
+.datas-parallax {
+  background: url("../img/academia.jpg") no-repeat center/cover;
+  background-attachment: fixed;
+}
+
+.datas-bg {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 80px 20px;
+}
+
+.datas {
+  max-width: 1240px;
+  padding: 0 20px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
 .equipments-bg {
   background: #f7f7f7;
   padding: 80px 20px;
@@ -322,31 +341,30 @@ img {
   justify-content: center;
   align-items: center;
   gap: 40px;
-  text-transform: uppercase;
 }
 .equipments-images #bicicleta {
-  background: url("../img/remo-1.jpg") no-repeat center/cover;
+  background: url("../img/equipments/bike-1.jpg") no-repeat center/cover;
 }
 .equipments-images #bicicleta:hover {
-  background: url("../img/remo-2.jpg") no-repeat center/cover;
+  background: url("../img/equipments/bike-2.jpg") no-repeat center/cover;
 }
 .equipments-images #esteira {
-  background: url("../img/remo-1.jpg") no-repeat center/cover;
+  background: url("../img/equipments/esteira-1.jpg") no-repeat center/cover;
 }
 .equipments-images #esteira:hover {
-  background: url("../img/remo-2.jpg") no-repeat center/cover;
+  background: url("../img/equipments/esteira-2.jpg") no-repeat center/cover;
 }
 .equipments-images #eliptico {
-  background: url("../img/eliptico-1.jpg") no-repeat center/cover;
+  background: url("../img/equipments/eliptico-1.jpg") no-repeat center/cover;
 }
 .equipments-images #eliptico:hover {
-  background: url("../img/eliptico-2.jpg") no-repeat center/cover;
+  background: url("../img/equipments/eliptico-2.jpg") no-repeat center/cover;
 }
 .equipments-images #remo {
-  background: url("../img/remo-1.jpg") no-repeat center/cover;
+  background: url("../img/equipments/remo-1.jpg") no-repeat center/cover;
 }
 .equipments-images #remo:hover {
-  background: url("../img/remo-2.jpg") no-repeat center/cover;
+  background: url("../img/equipments/remo-2.jpg") no-repeat center/cover;
 }
 .equipments-images a {
   position: absolute;
@@ -360,10 +378,16 @@ img {
   justify-content: space-between;
   flex-direction: column;
   transition: all 0.3s ease-in-out;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+}
+.equipments-images a h3 {
+  text-transform: uppercase;
+  font-weight: 600;
 }
 .equipments-images a p {
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  color: #dedede;
 }
 .equipments-images:hover a {
   opacity: 0;
