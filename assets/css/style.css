@@ -485,6 +485,22 @@ img {
 }
 .plans .plan-eco ul {
   padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.plans .plan-eco ul li {
+  position: relative;
+  max-width: max-content;
+  margin-left: 36px;
+}
+.plans .plan-eco ul li::before {
+  content: "";
+  background: url("../img/vetores/check-p1.svg") no-repeat;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: -36px;
 }
 .plans .plan-eco img {
   position: absolute;
@@ -506,6 +522,22 @@ img {
 }
 .plans .plan-power ul {
   padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: end;
+}
+.plans .plan-power ul li {
+  position: relative;
+  max-width: max-content;
+}
+.plans .plan-power ul li::before {
+  content: "";
+  background: url("../img/vetores/check-p6.svg") no-repeat;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: -36px;
 }
 .plans .plan-power img {
   position: absolute;

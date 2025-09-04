@@ -26,6 +26,22 @@
         }
         ul {
             padding-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            li {
+                position: relative;
+                max-width: max-content;
+                margin-left: 36px;
+                &::before {
+                    content: '';
+                    background: url('../img/vetores/check-p1.svg') no-repeat;
+                    position: absolute;
+                    width: 24px;
+                    height: 24px;
+                    left: -36px;
+                }
+            }
         }
         img {
             position: absolute;
@@ -47,6 +63,22 @@
         }
         ul {
             padding-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: end;
+            li {
+                position: relative;
+                max-width: max-content;
+                &::before {
+                    content: '';
+                    background: url('../img/vetores/check-p6.svg') no-repeat;
+                    position: absolute;
+                    width: 24px;
+                    height: 24px;
+                    left: -36px;
+                }
+            }
         }
         img {
             position: absolute;
