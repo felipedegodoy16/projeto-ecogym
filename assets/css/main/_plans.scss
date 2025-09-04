@@ -1,0 +1,58 @@
+.plans-bg {
+    background-color: $cor-11;
+    padding: 80px 0;
+}
+
+.plans {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    h2 {
+        grid-column: 1 / -1;
+        text-align: center;
+        margin-bottom: 60px;
+    }
+    .plan-eco {
+        clip-path: polygon(0% 0%, 0% 100%, 85% 100%, 100% 0%);
+        background-color: $cor-12;
+        transform: translateX(5%);
+        display: flex;
+        flex-direction: column;
+        padding: 40px;
+        h3 {
+            padding-bottom: 32px;
+        }
+        ul {
+            padding-bottom: 20px;
+        }
+        img {
+            position: absolute;
+            max-height: 90%;
+            right: 0;
+            bottom: 0;
+        }
+    }
+    .plan-power {
+        clip-path: polygon(15% 0%, 0% 100%, 100% 100%, 100% 0%);
+        background-color: $cor-p1;
+        transform: translateX(-5%);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 40px;
+        h3 {
+            padding-bottom: 32px;
+        }
+        ul {
+            padding-bottom: 20px;
+        }
+        img {
+            position: absolute;
+            max-height: 100%;
+            left: 0;
+            bottom: 0;
+        }
+    }
+}

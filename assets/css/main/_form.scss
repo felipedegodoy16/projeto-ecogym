@@ -1,0 +1,39 @@
+.form {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    label {
+        display: none;
+    }
+    input {
+        padding: 8px 24px;
+        border-radius: 24px;
+        font-style: italic;
+        outline: none;
+        border: 3px solid $cor-0;
+        transition: border-color 0.1s ease-in-out;
+        &:focus {
+            border-color: $cor-p1;
+        }
+    }
+    .icon-visibility {
+        position: relative;
+        &::after {
+            content: '';
+            background: url('../img/vetores/visibility.svg') no-repeat;
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    }
+    button {
+        background: transparent;
+    }
+}
