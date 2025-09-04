@@ -3,7 +3,7 @@
         @if $size == xs {
             font: 500 1.125em/1.3 'Montserrat', Arial, Helvetica, sans-serif;
         } @else if $size == s {
-            font: 600 4em/1.1 'Montserrat', Arial, Helvetica, sans-serif;
+            font: 500 2em/1.3 'Montserrat', Arial, Helvetica, sans-serif;
         } @else if $size == xl {
             font: 600 4em/1.1 'Montserrat', Arial, Helvetica, sans-serif;
         }
@@ -24,6 +24,10 @@
 
 .font-1-s {
     @include font(1, s);
+}
+
+.font-1-xl {
+    @include font(1, xl);
 }
 
 .font-2-xs {
