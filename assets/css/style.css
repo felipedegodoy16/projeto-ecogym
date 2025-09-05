@@ -186,6 +186,7 @@ img {
 
 .logo {
   display: inline-flex;
+  flex: 1;
   align-items: center;
 }
 
@@ -277,12 +278,12 @@ img {
   left: -12px;
   width: 300px;
   height: 300px;
-  background-color: #f7f7f7;
+  background-color: #39b934;
   position: absolute;
 }
 .goal-img::after {
   content: "";
-  background: url("../../img/vetores/deco-foto.svg") no-repeat;
+  background: url("../img/vetores/deco-foto.svg") no-repeat;
   position: absolute;
   bottom: -7px;
   right: -12px;
@@ -460,6 +461,32 @@ img {
   padding: 80px 0;
 }
 
+.plans .plan-power-img .plan-power, .plans .plan-eco-img .plan-eco {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+.plans .plan-power-img .plan-power h3, .plans .plan-eco-img .plan-eco h3 {
+  padding-bottom: 32px;
+}
+.plans .plan-power-img .plan-power ul, .plans .plan-eco-img .plan-eco ul {
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.plans .plan-power-img .plan-power ul li, .plans .plan-eco-img .plan-eco ul li {
+  position: relative;
+  max-width: max-content;
+}
+.plans .plan-power-img .plan-power ul li::before, .plans .plan-eco-img .plan-eco ul li::before {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: -32px;
+}
+
 .plans {
   max-width: 1240px;
   margin: 0 auto;
@@ -472,78 +499,106 @@ img {
   text-align: center;
   margin-bottom: 60px;
 }
-.plans .plan-eco {
+.plans .plan-eco-img {
+  position: relative;
+}
+.plans .plan-eco-img .plan-eco {
   clip-path: polygon(0% 0%, 0% 100%, 85% 100%, 100% 0%);
   background-color: #000;
   transform: translateX(5%);
-  display: flex;
-  flex-direction: column;
-  padding: 40px;
+  height: 100%;
 }
-.plans .plan-eco h3 {
-  padding-bottom: 32px;
+.plans .plan-eco-img .plan-eco ul {
+  margin-left: 32px;
 }
-.plans .plan-eco ul {
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.plans .plan-eco ul li {
-  position: relative;
-  max-width: max-content;
-  margin-left: 36px;
-}
-.plans .plan-eco ul li::before {
-  content: "";
+.plans .plan-eco-img .plan-eco ul li::before {
   background: url("../img/vetores/check-p1.svg") no-repeat;
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  left: -36px;
 }
-.plans .plan-eco img {
+.plans .plan-eco-img img {
   position: absolute;
-  max-height: 90%;
-  right: 0;
+  right: 7%;
   bottom: 0;
 }
-.plans .plan-power {
+.plans .plan-power-img {
+  position: relative;
+}
+.plans .plan-power-img .plan-power {
   clip-path: polygon(15% 0%, 0% 100%, 100% 100%, 100% 0%);
   background-color: #39b934;
   transform: translateX(-5%);
-  display: flex;
-  flex-direction: column;
   align-items: flex-end;
-  padding: 40px;
 }
-.plans .plan-power h3 {
-  padding-bottom: 32px;
-}
-.plans .plan-power ul {
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.plans .plan-power-img .plan-power ul {
   align-items: end;
 }
-.plans .plan-power ul li {
-  position: relative;
-  max-width: max-content;
-}
-.plans .plan-power ul li::before {
-  content: "";
+.plans .plan-power-img .plan-power ul li::before {
   background: url("../img/vetores/check-p6.svg") no-repeat;
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  left: -36px;
 }
-.plans .plan-power img {
+.plans .plan-power-img .plan-power img {
+  left: -50px;
+}
+.plans .plan-power-img img {
   position: absolute;
-  max-height: 100%;
-  left: 0;
+  left: -15%;
   bottom: 0;
+}
+
+.footer-bg {
+  background-color: #000;
+}
+
+.footer {
+  max-width: 1240px;
+  padding: 80px 20px 40px 20px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.footer .contact-footer {
+  display: flex;
+  flex-direction: column;
+}
+.footer .contact-footer .logo-footer {
+  position: relative;
+  margin-bottom: 46px;
+}
+.footer .contact-footer .logo-footer::before {
+  content: "";
+  width: 32px;
+  height: 4px;
+  background-color: #39b934;
+  position: absolute;
+  bottom: -14px;
+}
+.footer .contact-footer p {
+  margin-bottom: 32px;
+}
+.footer .contact-footer span + span {
+  margin-top: 12px;
+}
+.footer .contact-footer > span {
+  position: relative;
+  display: flex;
+}
+.footer .contact-footer > span span {
+  margin-right: 8px;
+}
+.footer .pages-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.footer .pages-footer h3 {
+  margin-bottom: 24px;
+}
+.footer .pages-footer ul li {
+  margin-bottom: 12px;
+}
+.footer .copy-footer {
+  grid-column: 1/-1;
+}
+.footer .copy-footer p {
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -17,12 +17,12 @@
         left: -12px;
         width: 300px;
         height: 300px;
-        background-color: $cor-1;
+        background-color: $cor-p1;
         position: absolute;
     }
     &::after {
         content: '';
-        background: url('../../img/vetores/deco-foto.svg') no-repeat;
+        background: url('../img/vetores/deco-foto.svg') no-repeat;
         position: absolute;
         bottom: -7px;
         right: -12px;

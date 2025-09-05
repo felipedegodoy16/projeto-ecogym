@@ -3,6 +3,32 @@
     padding: 80px 0;
 }
 
+%plans-default {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    h3 {
+        padding-bottom: 32px;
+    }
+    ul {
+        padding-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        li {
+            position: relative;
+            max-width: max-content;
+            &::before {
+                content: '';
+                position: absolute;
+                width: 24px;
+                height: 24px;
+                left: -32px;
+            }
+        }
+    }
+}
+
 .plans {
     max-width: 1240px;
     margin: 0 auto;
@@ -14,77 +40,81 @@
         text-align: center;
         margin-bottom: 60px;
     }
-    .plan-eco {
-        clip-path: polygon(0% 0%, 0% 100%, 85% 100%, 100% 0%);
-        background-color: $cor-12;
-        transform: translateX(5%);
-        display: flex;
-        flex-direction: column;
-        padding: 40px;
-        h3 {
-            padding-bottom: 32px;
-        }
-        ul {
-            padding-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            li {
-                position: relative;
-                max-width: max-content;
-                margin-left: 36px;
-                &::before {
-                    content: '';
-                    background: url('../img/vetores/check-p1.svg') no-repeat;
-                    position: absolute;
-                    width: 24px;
-                    height: 24px;
-                    left: -36px;
+    .plan-eco-img {
+        position: relative;
+        .plan-eco {
+            clip-path: polygon(0% 0%, 0% 100%, 85% 100%, 100% 0%);
+            background-color: $cor-12;
+            transform: translateX(5%);
+            height: 100%;
+            @extend %plans-default;
+            ul {
+                margin-left: 32px;
+                li {
+                    &::before {
+                        background: url('../img/vetores/check-p1.svg') no-repeat;
+                    }
                 }
             }
         }
         img {
             position: absolute;
-            max-height: 90%;
-            right: 0;
+            right: 7%;
             bottom: 0;
         }
     }
-    .plan-power {
-        clip-path: polygon(15% 0%, 0% 100%, 100% 100%, 100% 0%);
-        background-color: $cor-p1;
-        transform: translateX(-5%);
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        padding: 40px;
-        h3 {
-            padding-bottom: 32px;
-        }
-        ul {
-            padding-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            align-items: end;
-            li {
-                position: relative;
-                max-width: max-content;
-                &::before {
-                    content: '';
-                    background: url('../img/vetores/check-p6.svg') no-repeat;
-                    position: absolute;
-                    width: 24px;
-                    height: 24px;
-                    left: -36px;
+    .plan-power-img {
+        position: relative;
+        .plan-power {
+            clip-path: polygon(15% 0%, 0% 100%, 100% 100%, 100% 0%);
+            background-color: $cor-p1;
+            transform: translateX(-5%);
+            @extend %plans-default;
+            align-items: flex-end;
+            ul {
+                align-items: end;
+                li {
+                    &::before {
+                        background: url('../img/vetores/check-p6.svg') no-repeat;
+                    }
                 }
+            }
+            img {
+                left: -50px;
             }
         }
         img {
             position: absolute;
-            max-height: 100%;
-            left: 0;
+            left: -15%;
             bottom: 0;
         }
     }
 }
+
+// @media screen and (width <= 1250px) {
+//     .plans {
+//         align-items: center;
+//         gap: 20px;
+//         .plan-eco-img {
+//             height: max-content;
+//             .plan-eco {
+//                 clip-path: none;
+//                 transform: translateX(0);
+//                 border-radius: 24px;
+//             }
+//             img {
+//                 display: none;
+//             }
+//         }
+//         .plan-power-img {
+//             .plan-power {
+//                 clip-path: none;
+//                 transform: translateX(0);
+//                 border-radius: 24px;
+//             }
+//             img {
+//                 display: none;
+//             }
+//         }
+//     }
+// }
