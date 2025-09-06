@@ -1,5 +1,21 @@
 .footer-bg {
     background-color: $cor-12;
+    position: relative;
+    &::before {
+        content: '';
+        width: 50%;
+        height: 8px;
+        background: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0),
+            $cor-p1,
+            rgba(0, 0, 0, 0)
+        );
+        position: absolute;
+        margin-top: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 .footer {

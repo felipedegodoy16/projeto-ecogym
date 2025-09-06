@@ -6,7 +6,7 @@
 %plans-default {
     display: flex;
     flex-direction: column;
-    padding: 40px;
+    padding: 90px 40px 40px 40px;
     h3 {
         padding-bottom: 32px;
     }
@@ -18,13 +18,8 @@
         li {
             position: relative;
             max-width: max-content;
-            &::before {
-                content: '';
-                position: absolute;
-                width: 24px;
-                height: 24px;
-                left: -32px;
-            }
+            display: flex;
+            align-items: center;
         }
     }
 }
@@ -35,6 +30,7 @@
     padding: 0 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    position: relative;
     h2 {
         grid-column: 1 / -1;
         text-align: center;
@@ -48,11 +44,23 @@
             transform: translateX(5%);
             height: 100%;
             @extend %plans-default;
+            .price {
+                left: 0;
+                background: $cor-11;
+                border-top-right-radius: 24px;
+                border-bottom-right-radius: 24px;
+            }
             ul {
-                margin-left: 32px;
+                margin-left: 20px;
+                flex: 1;
                 li {
                     &::before {
-                        background: url('../img/vetores/check-p1.svg') no-repeat;
+                        content: '';
+                        position: absolute;
+                        width: 12px;
+                        height: 4px;
+                        left: -20px;
+                        background-color: $cor-p1;
                     }
                 }
             }
@@ -71,22 +79,39 @@
             transform: translateX(-5%);
             @extend %plans-default;
             align-items: flex-end;
+            .price {
+                right: 0;
+                background: $cor-p6;
+                border-top-left-radius: 24px;
+                border-bottom-left-radius: 24px;
+            }
             ul {
+                margin-right: 20px;
                 align-items: end;
                 li {
-                    &::before {
-                        background: url('../img/vetores/check-p6.svg') no-repeat;
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        width: 12px;
+                        height: 4px;
+                        right: -20px;
+                        background-color: $cor-p6;
                     }
                 }
-            }
-            img {
-                left: -50px;
             }
         }
         img {
             position: absolute;
             left: -15%;
             bottom: 0;
+        }
+    }
+    .price {
+        position: absolute;
+        padding: 8px 16px;
+        top: 16px;
+        .monthly {
+            font-size: 0.7em;
         }
     }
 }

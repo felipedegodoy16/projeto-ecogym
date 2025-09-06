@@ -464,7 +464,7 @@ img {
 .plans .plan-power-img .plan-power, .plans .plan-eco-img .plan-eco {
   display: flex;
   flex-direction: column;
-  padding: 40px;
+  padding: 90px 40px 40px 40px;
 }
 .plans .plan-power-img .plan-power h3, .plans .plan-eco-img .plan-eco h3 {
   padding-bottom: 32px;
@@ -478,13 +478,8 @@ img {
 .plans .plan-power-img .plan-power ul li, .plans .plan-eco-img .plan-eco ul li {
   position: relative;
   max-width: max-content;
-}
-.plans .plan-power-img .plan-power ul li::before, .plans .plan-eco-img .plan-eco ul li::before {
-  content: "";
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  left: -32px;
+  display: flex;
+  align-items: center;
 }
 
 .plans {
@@ -493,6 +488,7 @@ img {
   padding: 0 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  position: relative;
 }
 .plans h2 {
   grid-column: 1/-1;
@@ -508,11 +504,23 @@ img {
   transform: translateX(5%);
   height: 100%;
 }
+.plans .plan-eco-img .plan-eco .price {
+  left: 0;
+  background: #111;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
 .plans .plan-eco-img .plan-eco ul {
-  margin-left: 32px;
+  margin-left: 20px;
+  flex: 1;
 }
 .plans .plan-eco-img .plan-eco ul li::before {
-  background: url("../img/vetores/check-p1.svg") no-repeat;
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 4px;
+  left: -20px;
+  background-color: #39b934;
 }
 .plans .plan-eco-img img {
   position: absolute;
@@ -528,23 +536,51 @@ img {
   transform: translateX(-5%);
   align-items: flex-end;
 }
+.plans .plan-power-img .plan-power .price {
+  right: 0;
+  background: #034100;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+}
 .plans .plan-power-img .plan-power ul {
+  margin-right: 20px;
   align-items: end;
 }
-.plans .plan-power-img .plan-power ul li::before {
-  background: url("../img/vetores/check-p6.svg") no-repeat;
-}
-.plans .plan-power-img .plan-power img {
-  left: -50px;
+.plans .plan-power-img .plan-power ul li::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 4px;
+  right: -20px;
+  background-color: #034100;
 }
 .plans .plan-power-img img {
   position: absolute;
   left: -15%;
   bottom: 0;
 }
+.plans .price {
+  position: absolute;
+  padding: 8px 16px;
+  top: 16px;
+}
+.plans .price .monthly {
+  font-size: 0.7em;
+}
 
 .footer-bg {
   background-color: #000;
+  position: relative;
+}
+.footer-bg::before {
+  content: "";
+  width: 50%;
+  height: 8px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), #39b934, rgba(0, 0, 0, 0));
+  position: absolute;
+  margin-top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .footer {
