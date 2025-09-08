@@ -468,6 +468,12 @@ img {
 .equipments-images #remo:hover, .equipments-images #eliptico:hover, .equipments-images #esteira:hover, .equipments-images #bicicleta:hover {
   width: 40% !important;
 }
+@media screen and (max-width: 768px) {
+  .equipments-images #remo, .equipments-images #eliptico, .equipments-images #esteira, .equipments-images #bicicleta {
+    flex-basis: 40%;
+    height: 200px;
+  }
+}
 
 .equipments-images {
   display: flex;
@@ -514,6 +520,14 @@ img {
   transition: all 0.3s ease-in-out;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
 }
+@media screen and (max-width: 768px) {
+  .equipments-images a {
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
 .equipments-images a h3 {
   text-transform: uppercase;
   font-weight: 600;
@@ -522,6 +536,11 @@ img {
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
   color: #dedede;
+}
+@media screen and (max-width: 768px) {
+  .equipments-images a p {
+    display: none;
+  }
 }
 .equipments-images:hover a {
   opacity: 0;
