@@ -5,11 +5,26 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
+    @include device(d) {
+        padding: 60px 20px;
+    }
+    @include device(t) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .goal-img {
     max-height: max-content;
     position: relative;
+    @include device(t) {
+        grid-row: 2;
+    }
+    img {
+        @include device(t) {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
     &::before {
         content: '';
         z-index: -1;

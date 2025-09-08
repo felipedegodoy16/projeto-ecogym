@@ -1,3 +1,6 @@
+// Media
+@import 'responsive/media';
+
 // Vars and Tipographys
 @import 'utilitys/colors';
 @import 'utilitys/tipography';
@@ -11,6 +14,7 @@
 
 // Header
 @import 'header/header';
+@import 'footer/footer';
 
 // Main
 @import 'main/introduction';
@@ -19,4 +23,3 @@
 @import 'main/equipments';
 @import 'main/form';
 @import 'main/plans';
-@import 'main/footer';

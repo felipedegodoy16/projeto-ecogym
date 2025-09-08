@@ -23,7 +23,7 @@
     padding: 80px 20px 40px 20px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 5fr 7fr;
     gap: 40px;
     .contact-footer {
         display: flex;
@@ -42,6 +42,10 @@
         }
         p {
             margin-bottom: 32px;
+            max-width: 40ch;
+            @include device(t) {
+                max-width: max-content;
+            }
         }
         span + span {
             margin-top: 12px;
@@ -71,5 +75,11 @@
         p {
             text-align: center;
         }
+    }
+    @include device(t) {
+        grid-template-columns: 1fr;
+    }
+    @include device(m) {
+        grid-template-columns: 1fr;
     }
 }

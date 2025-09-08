@@ -4,19 +4,28 @@
 
 .intro {
     max-width: 1240px;
-    padding: 90px 20px 0 20px;
+    padding: 100px 20px 0 20px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: end;
     gap: 40px;
+    @include device(t) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .intro-texts {
     padding-bottom: 120px;
+    @include device(d) {
+        padding-bottom: 60px;
+    }
     h1 {
         margin-bottom: 32px;
         max-width: 15ch;
+        @include device(d) {
+            max-width: max-content;
+        }
     }
     p {
         color: $cor-5;
@@ -31,32 +40,7 @@
 .intro-img {
     display: flex;
     justify-content: flex-end;
-}
-
-@media (width <= 1000px) {
-    .intro-texts {
-        padding-bottom: 40px;
-    }
-
-    .intro-texts h1 {
-        font-size: 3em;
-    }
-}
-
-@media (width <= 840px) {
-    .intro {
-        grid-template-columns: 1fr;
-    }
-
-    .intro-texts {
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .intro-img {
+    @include device(t) {
         display: none;
     }
 }

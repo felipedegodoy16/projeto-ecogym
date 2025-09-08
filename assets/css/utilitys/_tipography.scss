@@ -24,14 +24,23 @@
 
 .font-1-s {
     @include font(1, s);
+    @include device(m) {
+        font-size: 1.3em;
+    }
 }
 
 .font-1-xl {
     @include font(1, xl);
+    @include device(d) {
+        font-size: 3em;
+    }
 }
 
 .font-2-xs {
     @include font(2, xs);
+    @include device(m) {
+        font-size: 1em;
+    }
 }
 
 .font-2-s {

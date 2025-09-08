@@ -1,0 +1,24 @@
+$first-break: 480px;
+$second-break: 768px;
+$third-break: 1024px;
+$fourth-break: 1250px;
+
+@mixin device($screen) {
+    @if $screen == m {
+        @media screen and (max-width: $first-break) {
+            @content;
+        }
+    } @else if $screen == t {
+        @media screen and (max-width: $second-break) {
+            @content;
+        }
+    } @else if $screen == d {
+        @media screen and (max-width: $third-break) {
+            @content;
+        }
+    } @else if $screen == x {
+        @media screen and (max-width: $fourth-break) {
+            @content;
+        }
+    }
+}
