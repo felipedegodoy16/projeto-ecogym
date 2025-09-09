@@ -28,6 +28,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
+    @include device(d) {
+        gap: 20px;
+    }
     a {
         display: inline-block;
         padding: 12px 0;

@@ -16,9 +16,6 @@
 .goal-img {
     max-height: max-content;
     position: relative;
-    @include device(t) {
-        grid-row: 2;
-    }
     img {
         @include device(t) {
             width: 100%;

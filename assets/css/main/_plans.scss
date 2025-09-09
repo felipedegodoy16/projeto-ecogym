@@ -1,6 +1,5 @@
 .plans-bg {
     background-color: $cor-11;
-    padding: 80px 0;
 }
 
 %plans-default {
@@ -9,6 +8,10 @@
     padding: 90px 40px 40px 40px;
     h3 {
         padding-bottom: 32px;
+        @include device(m) {
+            width: 100%;
+            text-align: center;
+        }
     }
     ul {
         padding-bottom: 20px;
@@ -27,23 +30,43 @@
 .plans {
     max-width: 1240px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 80px 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     position: relative;
+    @include device(d) {
+        padding: 40px 20px;
+    }
+    @include device(t) {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
     h2 {
         grid-column: 1 / -1;
         text-align: center;
         margin-bottom: 60px;
+        @include device(d) {
+            margin-bottom: 32px;
+        }
     }
     .plan-eco-img {
         position: relative;
+        @include device(t) {
+            max-width: 80%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
         .plan-eco {
             clip-path: polygon(0% 0%, 0% 100%, 85% 100%, 100% 0%);
             background-color: $cor-12;
             transform: translateX(5%);
             height: 100%;
             @extend %plans-default;
+            @include device(t) {
+                clip-path: none;
+                transform: translateX(0);
+                border-radius: 24px;
+            }
             .price {
                 left: 0;
                 background: $cor-11;
@@ -69,26 +92,66 @@
             position: absolute;
             right: 7%;
             bottom: 0;
+            @include device(x) {
+                display: none;
+            }
         }
     }
     .plan-power-img {
         position: relative;
+        @include device(t) {
+            grid-row: 2;
+            max-width: 80%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
         .plan-power {
             clip-path: polygon(15% 0%, 0% 100%, 100% 100%, 100% 0%);
             background-color: $cor-p1;
             transform: translateX(-5%);
             @extend %plans-default;
             align-items: flex-end;
+            @include device(t) {
+                clip-path: none;
+                transform: translateX(0);
+                align-items: flex-start;
+                border-radius: 24px;
+            }
             .price {
                 right: 0;
                 background: $cor-p6;
                 border-top-left-radius: 24px;
                 border-bottom-left-radius: 24px;
+                @include device(t) {
+                    left: 0;
+                    right: auto;
+                    border-top-right-radius: 24px;
+                    border-bottom-right-radius: 24px;
+                    border-top-left-radius: 0;
+                    border-bottom-left-radius: 0;
+                }
             }
             ul {
                 margin-right: 20px;
                 align-items: end;
+                @include device(t) {
+                    align-items: start;
+                    margin-right: 0;
+                    margin-left: 20px;
+                }
                 li {
+                    text-align: right;
+                    @include device(t) {
+                        text-align: left;
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            width: 12px;
+                            height: 4px;
+                            left: -20px;
+                            background-color: $cor-p6;
+                        }
+                    }
                     &::after {
                         content: '';
                         position: absolute;
@@ -96,6 +159,9 @@
                         height: 4px;
                         right: -20px;
                         background-color: $cor-p6;
+                        @include device(t) {
+                            display: none;
+                        }
                     }
                 }
             }
@@ -104,6 +170,9 @@
             position: absolute;
             left: -15%;
             bottom: 0;
+            @include device(x) {
+                display: none;
+            }
         }
     }
     .price {

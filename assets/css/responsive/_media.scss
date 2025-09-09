@@ -1,7 +1,7 @@
 $first-break: 480px;
 $second-break: 768px;
 $third-break: 1024px;
-$fourth-break: 1250px;
+$fourth-break: 1200px;
 
 @mixin device($screen) {
     @if $screen == m {
