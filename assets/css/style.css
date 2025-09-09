@@ -95,6 +95,11 @@
     font-size: 3em;
   }
 }
+@media screen and (max-width: 480px) {
+  .font-1-xl {
+    font-size: 2.5em;
+  }
+}
 
 .font-2-xs {
   font: 400 1.2em/1.4 "Roboto", Arial, Helvetica, sans-serif;
@@ -107,6 +112,11 @@
 
 .font-2-s {
   font: 400 1.5em/1.4 "Roboto", Arial, Helvetica, sans-serif;
+}
+@media screen and (max-width: 480px) {
+  .font-2-s {
+    font-size: 1.5em;
+  }
 }
 
 .font-3 {
@@ -607,8 +617,15 @@ img {
   flex-direction: column;
   padding: 90px 40px 40px 40px;
 }
+@media screen and (max-width: 480px) {
+  .plans .plan-power-img .plan-power, .plans .plan-eco-img .plan-eco {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
 .plans .plan-power-img .plan-power h3, .plans .plan-eco-img .plan-eco h3 {
   padding-bottom: 32px;
+  font-weight: 600;
 }
 @media screen and (max-width: 480px) {
   .plans .plan-power-img .plan-power h3, .plans .plan-eco-img .plan-eco h3 {

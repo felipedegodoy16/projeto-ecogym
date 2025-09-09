@@ -6,8 +6,13 @@
     display: flex;
     flex-direction: column;
     padding: 90px 40px 40px 40px;
+    @include device(m) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
     h3 {
         padding-bottom: 32px;
+        font-weight: 600;
         @include device(m) {
             width: 100%;
             text-align: center;
