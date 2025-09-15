@@ -22,6 +22,53 @@
     display: inline-flex;
     flex: 1;
     align-items: center;
+    margin-right: 40px;
+}
+
+.div-icon-hamburguer {
+    display: none;
+    @include device(t) {
+        display: flex;
+    }
+    .icon-hamburguer {
+        cursor: pointer;
+        width: 24px;
+        height: 4px;
+        border-radius: 24px;
+        background-color: $cor-0;
+        position: relative;
+        transition: all 0.3s ease-in-out;
+        &::before,
+        &::after {
+            content: '';
+            display: block;
+            width: 32px;
+            height: 4px;
+            border-radius: 24px;
+            background-color: $cor-0;
+            position: absolute;
+            right: 0;
+            transition: all 0.3s ease-in-out;
+        }
+        &::before {
+            top: -8px;
+        }
+        &::after {
+            bottom: -8px;
+        }
+    }
+}
+
+.active-icon {
+    height: 0 !important;
+    margin-top: 8px;
+    &::before {
+        transform: rotate(-45deg);
+    }
+    &::after {
+        transform: rotate(45deg);
+        top: -8px;
+    }
 }
 
 .links-nav-main {
@@ -31,8 +78,31 @@
     @include device(d) {
         gap: 20px;
     }
+    @include device(t) {
+        opacity: 0;
+        flex-direction: column;
+        transform: translateX(200%);
+        height: 100vh;
+        position: absolute;
+        right: 0;
+        background-color: $cor-12;
+        margin-top: 40px;
+        padding: 32px 20px;
+        text-align: center;
+        min-width: 30%;
+        font-size: 1.25em;
+        transition: all 0.3s ease-in-out;
+    }
+    @include device(m) {
+        min-width: 50%;
+    }
     a {
         display: inline-block;
         padding: 12px 0;
     }
+}
+
+.active-menu {
+    transform: translateX(0);
+    opacity: 1;
 }
