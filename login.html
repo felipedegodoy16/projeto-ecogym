@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoGym - Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto:wght@300;400;500&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/login/login.css">
+</head>
+
+<body id="body-login">
+  <div class="energy-bg" id="energyBg"></div>
+
+  <div class="login-container">
+    <div class="energy-stats">⚡ 2.847 kWh</div>
+
+    <div class="logo-section">
+      <div class="logo">EcoGym</div>
+      <div class="tagline">
+        Transformando <span class="energy-highlight">movimento</span> em energia
+      </div>
+    </div>
+
+    <form id="loginForm">
+      <div class="form-group">
+        <label class="form-label" for="email">E-mail</label>
+        <input type="email" class="form-input" id="email" placeholder="seu@email.com" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="password">Senha</label>
+        <input type="password" class="form-input" id="password" placeholder="Sua senha" required>
+      </div>
+
+      <button type="submit" class="btn-primary">
+        Entrar na Academia
+      </button>
+    </form>
+
+    <div class="forgot-password">
+      <a href="#" onclick="alert('Funcionalidade em desenvolvimento!')">Esqueceu sua senha?</a>
+    </div>
+  </div>
+  <script src="/assets/js/login.js"></script>
+</body>
+
+</html>
