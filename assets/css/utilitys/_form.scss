@@ -1,0 +1,38 @@
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.form-label {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $cor-9;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.form-input {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px solid $cor-3;
+    border-radius: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: $cor-10;
+    background: $cor-1;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: $cor-p2;
+    background: $cor-0;
+    box-shadow: 0 0 0 3px rgba(57, 185, 52, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-group:focus-within .form-label {
+    color: $cor-p2;
+}

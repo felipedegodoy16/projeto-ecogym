@@ -169,45 +169,6 @@
     font-weight: 600;
 }
 
-.form-group {
-    margin-bottom: 1.5rem;
-    position: relative;
-}
-
-.form-label {
-    display: block;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--cor-9);
-    margin-bottom: 0.5rem;
-    transition: color 0.3s ease;
-}
-
-.form-input {
-    width: 100%;
-    padding: 1rem 1.25rem;
-    border: 2px solid var(--cor-3);
-    border-radius: 50px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    color: var(--cor-10);
-    background: var(--cor-1);
-    transition: all 0.3s ease;
-    outline: none;
-}
-
-.form-input:focus {
-    border-color: var(--cor-p2);
-    background: var(--cor-0);
-    box-shadow: 0 0 0 3px rgba(57, 185, 52, 0.1);
-    transform: translateY(-2px);
-}
-
-.form-group:focus-within .form-label {
-    color: var(--cor-p2);
-}
-
 .btn-primary {
     width: 100%;
     padding: 1rem 2rem;
@@ -272,46 +233,6 @@
 .forgot-password a:hover {
     color: var(--cor-p3);
     text-decoration: underline;
-}
-
-.divider {
-    text-align: center;
-    margin: 2rem 0;
-    position: relative;
-}
-
-.divider::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: var(--cor-3);
-}
-
-.divider span {
-    background: var(--cor-0);
-    padding: 0 1rem;
-    color: var(--cor-7);
-    font-size: 0.9rem;
-}
-
-.signup-link {
-    text-align: center;
-    color: var(--cor-7);
-    font-size: 0.9rem;
-}
-
-.signup-link a {
-    color: var(--cor-p2);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.signup-link a:hover {
-    color: var(--cor-p3);
 }
 
 .energy-stats {
