@@ -1,7 +1,6 @@
 /* Reset e Configurações Gerais */
 
 :root {
-
     --cor-0: #fff;
     --cor-1: #f7f7f7;
     --cor-2: #ededed;
@@ -89,8 +88,9 @@ html {
 
 /* Hero Section */
 .hero {
-    min-height: 100vh;
-    background: url('./../img/Imagens_About_US/background.jpg') no-repeat center / cover;
+    /* min-height: 100vh; */
+    background: url('./../img/Imagens_About_US/background.jpg') no-repeat center /
+        cover;
     backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
@@ -191,7 +191,7 @@ html {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7));
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
 }
 
 .card-title {

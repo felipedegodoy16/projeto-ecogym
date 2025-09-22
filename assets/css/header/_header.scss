@@ -3,7 +3,8 @@
     top: 0;
     left: 0;
     right: 0;
-    background-color: $cor-12;
+    background-color: transparent;
+    transition: background 0.3s ease-in-out;
     z-index: 3;
 }
 

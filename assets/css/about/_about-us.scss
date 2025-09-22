@@ -1,6 +1,5 @@
 /* Hero Section */
 .hero-bg {
-    min-height: 100vh;
     background: url('./../img/Imagens_About_US/background.jpg') no-repeat center /
         cover;
     display: flex;
@@ -16,12 +15,18 @@
         right: 0;
         left: 0;
         position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
 .hero {
     max-width: 1240px;
-    padding: 130px 20px 40px 20px;
+    padding: 140px 20px;
+    @include device(t) {
+        padding: 120px 20px;
+    }
     h1 {
         margin-bottom: 20px;
     }
@@ -29,132 +34,40 @@
         color: $cor-5;
         max-width: 55ch;
         margin: 0 auto;
-        margin-bottom: 80px;
     }
 }
 
-/* Cards Section */
-.cards-section {
-    margin: 0 auto;
-}
-
-.cards-container {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    flex-wrap: wrap;
-}
-
-.card {
-    flex: 1;
-    max-width: 350px;
-    min-width: 280px;
-    background: $cor-10;
-    border-radius: 20px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    transform: translateX(-50px);
-    opacity: 0;
-    animation: slideInFromLeft 0.8s ease forwards;
-}
-
-.card:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.card:nth-child(3) {
-    animation-delay: 0.4s;
-}
-
-.card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(44, 167, 39, 0.2);
-}
-
-.card-image {
-    width: 100%;
-    height: 250px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.card-image::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
-}
-
-.card-title {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    color: #2ca727;
-    font-size: 1.5rem;
-    font-weight: bold;
-    z-index: 2;
-}
-
-/* Imagens dos Cards - SUBSTITUA PELOS SEUS ARQUIVOS */
-.historia-img {
-    // background-image: url('./../img/Imagens_About_US/Nossa_historia.jpg');
-}
-
-.missao-img {
-    // background-image: url('./../img/Imagens_About_US/Nossa_missão.jpg');
-}
-
-.equipe-img {
-    // background-image: url('./../img/Imagens_About_US/Time.jpg');
-}
-
 /* Content Sections */
-.content-section {
-    min-height: 100vh;
-    padding: 1rem 2rem 4rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease;
-}
-
-.content-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.content-section:nth-child(even) {
-    background: #111;
-}
-
 .section-content {
     display: grid;
+    max-width: 1240px;
+    padding: 80px 20px;
+    margin: 0 auto;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 40px;
     align-items: center;
     width: 100%;
+    @include device(t) {
+        grid-template-columns: 1fr;
+        padding: 60px 20px;
+    }
 }
 
-.section-text h2 {
-    font-size: 3rem;
-    color: #2ca727;
-    margin-bottom: 2rem;
-}
-
-.section-text p {
-    font-size: 1.2rem;
-    color: #ccc;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
+.section-text {
+    h2 {
+        margin-bottom: 32px;
+        @include device(t) {
+            margin-bottom: 20px;
+        }
+    }
+    p {
+        span {
+            font-weight: bold;
+        }
+    }
+    p + p {
+        margin-top: 16px;
+    }
 }
 
 .section-image {
@@ -165,57 +78,97 @@
     background-position: center;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+// Stats Section
+.stats-section {
+    background: linear-gradient(135deg, $cor-p5 0%, $cor-p3 100%);
+}
+
+.stats-container {
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.stats-title {
+    margin-bottom: 40px;
+    color: $cor-0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+    &:hover {
+        transform: translateY(-10px);
     }
 }
 
-@keyframes slideInFromLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
+.stat-number {
+    font-family: 'Orbitron', monospace;
+    font-size: 3rem;
+    font-weight: 900;
+    color: $cor-0;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+// Missao
+.missao-bg {
+    background: $cor-1;
+}
+
+.missao-list {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.missao-item {
+    background-color: $cor-0;
+    font-weight: 600;
+    cursor: pointer;
+    color: $cor-p1;
+    padding: 12px 12px;
+    border: 2px solid $cor-p1;
+    border-radius: 16px;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        transform: scale(1.01);
+        box-shadow: 0px 1px 5px 0px $cor-p1;
     }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
+// Equipe
+.equipe-bg {
+    background-color: $cor-11;
+}
 
-    .section-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
+// Images
+.historia-img {
+    background-image: url('./../img/Imagens_About_US/Nossa_historia.jpg');
+}
 
-    .section-text h2 {
-        font-size: 2rem;
-    }
+.missao-img {
+    background-image: url('./../img/Imagens_About_US/Nossa_missão.jpg');
+}
 
-    .cards-container {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-content {
-        padding: 0 1rem;
-    }
-
-    .cards-section {
-        padding: 2rem 1rem;
-    }
-
-    .content-section {
-        padding: 6rem 1rem 2rem;
-    }
+.equipe-img {
+    background-image: url('./../img/Imagens_About_US/Time.jpg');
 }

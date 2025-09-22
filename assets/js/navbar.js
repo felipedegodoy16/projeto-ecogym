@@ -8,3 +8,14 @@ function alterMenu() {
     span_icon.classList.toggle('active-icon');
     menu_nav.classList.toggle('active-menu');
 }
+
+window.addEventListener('scroll', changeBackgroundNavbar);
+const header = document.querySelector('.header-bg');
+
+function changeBackgroundNavbar() {
+    if (window.scrollY > 10) {
+        header.style.background = '#000';
+    } else {
+        header.style.background = 'transparent';
+    }
+}
