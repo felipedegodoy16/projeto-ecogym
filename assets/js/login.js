@@ -40,30 +40,7 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
     }
 });
 
-// Energy Counter Animation
-function animateEnergyCounter() {
-    const counter = document.querySelector('.energy-stats');
-    let energy = 2847;
-
-    setInterval(() => {
-        energy += Math.floor(Math.random() * 3);
-        counter.innerHTML = `⚡ ${energy.toLocaleString('pt-BR')} kWh`;
-    }, 5000);
-}
-
 // Initialize animations
 document.addEventListener('DOMContentLoaded', function () {
     createEnergyParticles();
-    animateEnergyCounter();
-});
-
-// Input Focus Animation
-document.querySelectorAll('.form-input').forEach((input) => {
-    input.addEventListener('focus', function () {
-        this.parentElement.style.transform = 'scale(1.02)';
-    });
-
-    input.addEventListener('blur', function () {
-        this.parentElement.style.transform = 'scale(1)';
-    });
 });

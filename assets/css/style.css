@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .cor-0 {
   color: #fff;
 }
@@ -174,7 +173,7 @@ img {
   color: #fff;
 }
 .button.btn-primary:hover {
-  background: #fff;
+  background: transparent;
   color: #39b934;
 }
 .button.btn-color-0 {
@@ -206,7 +205,7 @@ img {
   font-family: "Montserrat", sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
-  color: #404040;
+  color: #717171;
   margin-bottom: 0.5rem;
   transition: color 0.3s ease;
 }
@@ -214,21 +213,19 @@ img {
 .form-input {
   width: 100%;
   padding: 1rem 1.25rem;
-  border: 2px solid #dedede;
+  border: 2px solid #2e2e2e;
   border-radius: 50px;
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
-  color: #2e2e2e;
-  background: #f7f7f7;
+  color: #dedede;
+  background: #111;
   transition: all 0.3s ease;
   outline: none;
 }
-
 .form-input:focus {
   border-color: #2ca727;
-  background: #fff;
-  box-shadow: 0 0 0 3px rgba(57, 185, 52, 0.1);
-  transform: translateY(-2px);
+  background: #000;
+  box-shadow: 0 0 2px #39b934;
 }
 
 .form-group:focus-within .form-label {
@@ -910,7 +907,7 @@ img {
 
 /* Hero Section */
 .hero-bg {
-  background: url("./../img/Imagens_About_US/background.jpg") no-repeat center/cover;
+  background: url("./../img/about-us/background.jpg") no-repeat center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1069,30 +1066,36 @@ img {
 }
 
 .historia-img {
-  background-image: url("./../img/Imagens_About_US/Nossa_historia.jpg");
+  background-image: url("./../img/about-us/our-history.jpg");
 }
 
 .missao-img {
-  background-image: url("./../img/Imagens_About_US/Nossa_missão.jpg");
+  background-image: url("./../img/about-us/our-mission.jpg");
 }
 
 .equipe-img {
-  background-image: url("./../img/Imagens_About_US/Time.jpg");
+  background-image: url("./../img/about-us/our-team.jpg");
 }
 
-#body-login {
+.body-login {
   font-family: "Roboto", sans-serif;
-  background: linear-gradient(135deg, #f7f7f7 0%, #ededed 100%);
+  background: linear-gradient(135deg, #000 0%, #2e2e2e 100%);
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
-  /* Background Energy Animation */
-  /* Responsive Design */
 }
-#body-login .energy-bg {
+.body-login .btn-primary {
+  color: #034100 !important;
+}
+.body-login .btn-primary:hover {
+  color: #39b934 !important;
+}
+
+/* Background Energy Animation */
+.energy-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -1101,7 +1104,8 @@ img {
   pointer-events: none;
   z-index: 0;
 }
-#body-login .energy-particle {
+
+.energy-particle {
   position: absolute;
   width: 4px;
   height: 4px;
@@ -1110,41 +1114,56 @@ img {
   opacity: 0.6;
   animation: floatEnergy 8s infinite linear;
 }
-#body-login .energy-particle:nth-child(odd) {
+.energy-particle:nth-child(odd) {
   background: #2ca727;
   animation-duration: 6s;
 }
-#body-login .energy-particle:nth-child(3n) {
+.energy-particle:nth-child(3n) {
   background: #1e9119;
   animation-duration: 10s;
 }
-#body-login .login-container {
-  background: #fff;
+
+.back-index {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.login-container {
+  background: #000;
   border-radius: 24px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 20px rgba(255, 255, 255, 0.1);
   padding: 3rem;
   width: 100%;
   max-width: 420px;
   position: relative;
   z-index: 1;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
   animation: slideIn 0.8s ease-out;
 }
-#body-login .logo-section {
+@media screen and (max-width: 480px) {
+  .login-container .login-container {
+    padding: 2rem 1.5rem;
+    margin: 1rem;
+    border-radius: 20px;
+  }
+}
+
+.logo-section {
   text-align: center;
   margin-bottom: 2.5rem;
 }
-#body-login .logo-login {
+
+.logo-login {
   font-family: "Montserrat", "Arial";
   font-size: 2.5rem;
-  font-weight: 900;
-  color: #2ca727;
+  font-weight: 700;
+  color: #39b934;
   margin-bottom: 0.5rem;
   position: relative;
   display: inline-block;
 }
-#body-login .logo-login::after {
+.logo-login::after {
   content: "";
   position: absolute;
   bottom: -5px;
@@ -1156,114 +1175,55 @@ img {
   border-radius: 2px;
   animation: energyPulse 2s infinite ease-in-out;
 }
-#body-login .tagline {
+@media screen and (max-width: 480px) {
+  .logo-login .logo-login {
+    font-size: 2rem;
+  }
+}
+
+.tagline {
   font-family: "Montserrat", sans-serif;
   font-size: 0.9rem;
-  color: #717171;
+  color: #dedede;
   font-weight: 400;
   margin-top: 0.5rem;
 }
-#body-login .energy-highlight {
-  color: #2ca727;
+
+.energy-highlight {
+  color: #39b934;
   font-family: "Orbitron", "Montserrat", sans-serif;
   font-weight: 600;
 }
-#body-login .btn-primary {
-  width: 100%;
-  padding: 1rem 2rem;
-  background: #2ca727;
-  color: #fff;
-  border: 2px solid #2ca727;
-  border-radius: 50px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
+
+.btn-login {
+  min-width: 100%;
+  padding: 12px 24px !important;
   cursor: pointer;
-  transition: all 0.3s ease;
-  outline: none;
-  position: relative;
-  overflow: hidden;
 }
-#body-login .btn-primary::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
-}
-#body-login .btn-primary:hover {
-  background: #fff;
-  color: #2ca727;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(57, 185, 52, 0.3);
-}
-#body-login .btn-primary:hover::before {
-  left: 100%;
-}
-#body-login .btn-primary:active {
-  transform: translateY(0);
-}
-#body-login .forgot-password {
+
+.forgot-password {
   text-align: center;
   margin-top: 1.5rem;
 }
-#body-login .forgot-password a {
+.forgot-password a {
   color: #2ca727;
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
   transition: color 0.3s ease;
 }
-#body-login .forgot-password a:hover {
-  color: #1e9119;
-  text-decoration: underline;
+.forgot-password a:hover {
+  color: #0e760a;
 }
-#body-login .energy-stats {
-  position: absolute;
-  top: -15px;
-  right: -15px;
-  background: #39b934;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-family: "Montserrat", "Roboto", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  animation: energyCount 3s infinite ease-in-out;
-}
-@media (max-width: 480px) {
-  #body-login .login-container {
-    padding: 2rem 1.5rem;
-    margin: 1rem;
-    border-radius: 20px;
-  }
-  #body-login .logo-login {
-    font-size: 2rem;
-  }
-  #body-login .form-input {
-    padding: 0.875rem 1rem;
-  }
-  #body-login .btn-primary {
-    padding: 0.875rem 1.5rem;
-  }
-  #body-login .energy-stats {
-    position: static;
-    display: inline-block;
-    margin-bottom: 1rem;
-  }
-}
+
 @media (max-width: 320px) {
-  #body-login .login-container {
+  .login-container {
     padding: 1.5rem 1rem;
   }
-  #body-login .logo-login {
+  .logo-login {
     font-size: 1.8rem;
   }
 }
-
 @keyframes floatEnergy {
   0% {
     transform: translateY(100vh) translateX(0) scale(0);
@@ -1298,14 +1258,6 @@ img {
   50% {
     width: 80px;
     opacity: 0.7;
-  }
-}
-@keyframes energyCount {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
   }
 }
 .fadeInOutRight {

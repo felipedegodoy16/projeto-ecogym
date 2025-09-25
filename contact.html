@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoGym - Fale Conosco</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./assets/img/vetores/logo.svg" type="image/x-icon">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@600&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="header-bg">
+        <div class="header">
+            <a href="#" class="logo"><img src="./assets/img/vetores/ecogym.svg" alt="Logo EcoGym"></a>
+
+            <nav class="nav-main">
+                <div id="div-icon-hamburguer" class="div-icon-hamburguer">
+                    <span id="icon-hamburguer" class="icon-hamburguer"></span>
+                </div>
+                <ul id="links-nav-hamburguer" class="links-nav-main">
+                    <li><a class="font-1-xs" href="#goals">Objetivo</a></li>
+                    <li><a class="font-1-xs" href="#equipments">Equipamentos</a></li>
+                    <li><a class="font-1-xs" href="#plans">Planos</a></li>
+                    <li><a class="font-1-xs" href="#footer">Contato</a></li>
+                    <li><a href="/login.html" class="button">Entrar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section - Fale Conosco -->
+        <section id="contact" class="about-section-bg fadeInOutTop">
+            <div class="hero">
+                <div class="hero-content fade-in">
+                    <h1 class="font-1-xl fadeInOutTop">Fale conosco e faça parte dessa energia sustentável!</h1>
+                    <p class="font-2-xs fadeInOutTop">Estamos prontos para ouvir você, tire suas dúvidas, envie sugestões ou fale sobre parcerias.</p>
+                    <div class="contact-icons fadeInOutTop">
+                        <a href="tel:+5510999999999" class="contact-icon phone-icon" aria-label="Telefone">📞</a>
+                        <a href="https://wa.me/5510999999999" class="contact-icon whatsapp-icon" aria-label="WhatsApp">💬</a>
+                        <a href="mailto:contato@ecogym.com.br" class="contact-icon email-icon" aria-label="Email">✉️</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <!-- Form -->
+                    <div class="form-container slide-in-left">
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <input type="text" id="nome" name="nome" placeholder="Nome completo" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="telefone" name="telefone" placeholder="Telefone" required>
+                            </div>
+                            <div class="form-group">
+                                <select id="assunto" name="assunto" required>
+                                    <option value="">Assunto</option>
+                                    <option value="informacoes">Informações Gerais</option>
+                                    <option value="matricula">Matrícula</option>
+                                    <option value="parcerias">Parcerias</option>
+                                    <option value="sugestoes">Sugestões</option>
+                                    <option value="outros">Outros</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="mensagem" name="mensagem" placeholder="Mensagem" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="button btn-primary">Enviar mensagem</button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="contact-info slide-in-right">
+                        <h3>Informações de contato</h3>
+                        <div class="contact-item">
+                            <span class="contact-icon">📞</span>
+                            <span>+55 10 99999-9999</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">✉️</span>
+                            <span>contato@ecogym.com.br</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <span>Av. Paulista, 2064 - Bela Vista, São Paulo - SP</span>
+                        </div>
+                        <section class="map-section">
+                            <div class="container">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.2936441234538!2d-46.66171072548765!3d-23.55789496146334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c78081607d%3A0xc3171300ff98b9e1!2sCondom%C3%ADnio%20Conjunto%20Arquitet%20Vipasa%20-%20Av.%20Paulista%2C%202064%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-200!5e0!3m2!1spt-BR!2sbr!4v1758242373535!5m2!1spt-BR!2sbr" width="600" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer-bg">
+        <div class="footer">
+            <div class="contact-footer font-2-xs cor-5 fadeInOutTop">
+                <div class="logo-footer">
+                    <img src="./assets/img/vetores/ecogym.svg" alt="Logo EcoGym no rodapé do site.">
+                </div>
+                <p>Estamos sempre à disposição para esclarecer suas dúvidas e ouvir suas sugestões. Entre em contato conosco, será um prazer responder sua mensagem.</p>
+                <span><span><img src="./assets/img/vetores/phone.svg"></span>+55 19 99817-4730</span>
+                <span><span><img src="./assets/img/vetores/email.svg"></span>contato@ecogym.com.br</span>
+            </div>
+            <div class="pages-footer">
+                <div class="navigation-footer fadeInOutTop">
+                    <h3 class="font-1-s">Navegação</h3>
+                    <ul class="font-2-xs">
+                        <li><a href="#">Sobre nós</a></li>
+                        <li><a href="#">Área do Aluno</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="security-footer fadeInOutTop">
+                    <h3 class="font-1-s">Segurança</h3>
+                    <ul class="font-2-xs">
+                        <li><a href="#">Políticas de Privacidade</a></li>
+                        <li><a href="#">Termos e Condições</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copy-footer fadeInOutTop">
+                <p class="font-2-xs cor-8">EcoGym 2025 &copy; Alguns direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="./assets/js/navbar.js"></script>
+    <script src="./assets/js/animations.js"></script>
+
+    <script src="Assets/JS/scriptcontato.js"></script>
+</body>
+
+</html>

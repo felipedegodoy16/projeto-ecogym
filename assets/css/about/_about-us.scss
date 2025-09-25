@@ -1,7 +1,6 @@
 /* Hero Section */
 .hero-bg {
-    background: url('./../img/Imagens_About_US/background.jpg') no-repeat center /
-        cover;
+    background: url('./../img/about-us/background.jpg') no-repeat center / cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -162,13 +161,13 @@
 
 // Images
 .historia-img {
-    background-image: url('./../img/Imagens_About_US/Nossa_historia.jpg');
+    background-image: url('./../img/about-us/our-history.jpg');
 }
 
 .missao-img {
-    background-image: url('./../img/Imagens_About_US/Nossa_missão.jpg');
+    background-image: url('./../img/about-us/our-mission.jpg');
 }
 
 .equipe-img {
-    background-image: url('./../img/Imagens_About_US/Time.jpg');
+    background-image: url('./../img/about-us/our-team.jpg');
 }
