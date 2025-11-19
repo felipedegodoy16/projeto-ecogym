@@ -1,0 +1,107 @@
+main#admin {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  @include device(d) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.side-nav-admin {
+  position: sticky;
+  max-height: 100vh;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  background: $cor-12;
+  transition: transform 0.3s ease-in-out;
+  ul {
+    li a {
+      display: flex;
+      align-items: center;
+      margin: 0.25rem 0.25rem 0.25rem 0;
+      padding: 1.25rem 2.5rem;
+      transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      border-radius: 0 10px 10px 0;
+      &:hover,
+      &.active-link-admin {
+        background-color: rgba($color: #fff, $alpha: 0.09);
+        box-shadow: inset 2px 0 0 $cor-p1;
+      }
+      svg {
+        margin-right: 0.625rem;
+        fill: $cor-p1;
+      }
+    }
+  }
+  @include device(d) {
+    position: fixed;
+    transform: translateX(-100%);
+  }
+}
+
+.body-section {
+  min-height: 100vh;
+  background: $cor-11;
+  padding: 2.5rem 2.5rem;
+  display: none;
+  &.body-section-active {
+    display: block;
+  }
+  @include device(m) {
+    padding: 1.25rem 1.25rem;
+  }
+}
+
+.header-pages-admin {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+}
+
+.btn-add-item {
+  display: flex;
+  align-items: center;
+  &:hover {
+    svg {
+      fill: $cor-p1;
+    }
+  }
+  svg {
+    margin-right: 0.625em;
+    fill: $cor-p6;
+    transition: fill 0.3s ease-in-out;
+  }
+}
+
+.users-body-items {
+  .form-container-modal {
+    overflow-y: scroll;
+    padding: 2.5rem;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    &.active-form-modal {
+      align-items: flex-start;
+    }
+  }
+}
+
+#users-list {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.list-items {
+  display: grid;
+  gap: 2.5rem 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  @include device(t) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}

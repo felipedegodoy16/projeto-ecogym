@@ -1,0 +1,129 @@
+.equipments-bg {
+  background: $cor-1;
+}
+
+.equipments {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  @include device(d) {
+    padding: 40px 20px;
+  }
+}
+
+.equipments-header {
+  > span {
+    color: $cor-5;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  h2 {
+    color: $cor-12;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+}
+
+%images-equipments {
+  width: 0 !important;
+  flex: 1 0 auto;
+  transition: all 0.5s ease-in-out;
+  height: 450px;
+  position: relative;
+  border-radius: 24px;
+  &:hover {
+    width: 40% !important;
+  }
+  @include device(d) {
+    flex-basis: 40%;
+    height: 200px;
+  }
+}
+
+.equipments-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  #bicicleta {
+    @extend %images-equipments;
+    background: url("../assets/equipments/bike-1.jpg") no-repeat center / cover;
+    &:hover {
+      background: url("../assets/equipments/bike-2.jpg") no-repeat center /
+        cover;
+    }
+  }
+  #esteira {
+    @extend %images-equipments;
+    background: url("../assets/equipments/esteira-1.jpg") no-repeat center /
+      cover;
+    &:hover {
+      background: url("../assets/equipments/esteira-2.jpg") no-repeat center /
+        cover;
+    }
+  }
+  #eliptico {
+    @extend %images-equipments;
+    background: url("../assets/equipments/eliptico-1.jpg") no-repeat center /
+      cover;
+    &:hover {
+      background: url("../assets/equipments/eliptico-2.jpg") no-repeat center /
+        cover;
+    }
+  }
+  #remo {
+    @extend %images-equipments;
+    background: url("../assets/equipments/remo-1.jpg") no-repeat center / cover;
+    &:hover {
+      background: url("../assets/equipments/remo-2.jpg") no-repeat center /
+        cover;
+    }
+  }
+  a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 24px;
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+    @include device(d) {
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+    h3 {
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    p {
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      color: $cor-3;
+      @include device(d) {
+        display: none;
+      }
+    }
+  }
+  &:hover {
+    a {
+      opacity: 0;
+      &:hover {
+        opacity: 1;
+        background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
+        p {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

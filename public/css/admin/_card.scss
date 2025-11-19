@@ -1,0 +1,240 @@
+.card-focus-bg {
+  padding: 2.5rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  z-index: 1000;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  @include device(t) {
+    padding: 1.25rem;
+  }
+  .card-user {
+    cursor: auto;
+    min-width: 500px;
+    box-shadow: inset 0 0 0 2px;
+    &:hover {
+      transform: scale(1);
+    }
+    .card-id {
+      position: absolute;
+      top: 1.25rem;
+      left: 1.25rem;
+    }
+    .card-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 2.5rem;
+      @include device(m) {
+        grid-template-columns: 1fr;
+      }
+      li {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        border-bottom: none;
+        &:last-child {
+          flex-direction: row;
+          grid-column: 1/-1;
+        }
+        .card-tag {
+          max-width: fit-content;
+        }
+        .card-actions {
+          margin-left: 1.25rem;
+        }
+      }
+      .aditional-informations {
+        grid-column: 1/-1;
+        padding: 0;
+        margin-top: 1rem;
+        margin-left: 10px;
+        padding-left: 18px;
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 12px;
+          height: 4px;
+          background: linear-gradient(to right, $cor-p1, $cor-p3);
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+}
+
+.card-focus-bg-active {
+  display: flex;
+}
+
+.card-item {
+  max-width: 100%;
+  background: $cor-12;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 1.25rem;
+  gap: 2rem;
+  .card-actions {
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 3px solid $warning;
+    background-color: $warning;
+    color: $warningDark;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: $cor-12;
+      color: $warning;
+    }
+    &:last-child {
+      margin-left: 0.5rem;
+      border-color: $error;
+      background-color: $error;
+      color: $errorDark;
+      &:hover {
+        background-color: $cor-12;
+        color: $error;
+      }
+    }
+  }
+  @include device(t) {
+    flex-direction: column;
+  }
+}
+
+.card-user {
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 2.5rem;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: inset 0 0 0 2px;
+  }
+  .card-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.25rem;
+    @include device(m) {
+      justify-content: center;
+      gap: 1.25rem;
+    }
+    .card-name {
+      text-align: center;
+      flex: 1;
+      @include device(m) {
+        text-align: center;
+      }
+    }
+  }
+  .card-body {
+    padding-left: 0;
+  }
+}
+
+.card-img {
+  background: url("./../assets/academia.jpg") center / cover no-repeat;
+  min-width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 3px solid currentColor;
+  box-shadow: inset 0 0 0 6px $cor-12;
+}
+
+.card-body {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  li {
+    display: flex;
+    border-bottom: 3px solid $cor-10;
+    padding: 1.25rem 0;
+    &.card-situation {
+      color: currentColor;
+    }
+    &:last-child {
+      border-bottom: none;
+      display: flex;
+      align-items: center;
+    }
+    span {
+      flex: 1;
+      &.card-tag {
+        flex-grow: 0;
+        padding: 4px 12px;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.card-active {
+  color: $cor-p1;
+  box-shadow: inset 0 0 0 0 $cor-p1;
+  span.card-tag {
+    background-color: $cor-p1;
+    color: $cor-p6;
+  }
+}
+
+.card-inactive {
+  color: $error;
+  box-shadow: inset 0 0 0 0 $errorDark;
+  span.card-tag {
+    background-color: $error;
+    color: $errorDark;
+  }
+}
+
+.card-maintenance {
+  color: $warning;
+  box-shadow: inset 0 0 0 0 $warningDark;
+  span.card-tag {
+    background-color: $warning;
+    color: $warningDark;
+  }
+}
+
+.card-focus-visible {
+  animation-name: cardVisible;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes cardVisible {
+  0% {
+    display: flex;
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    display: flex;
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    display: flex;
+    opacity: 1;
+    transform: scale(1);
+  }
+}

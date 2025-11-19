@@ -1,0 +1,46 @@
+.button {
+  padding: 8px 24px !important;
+  color: $cor-p1;
+  border: 3px solid $cor-p1;
+  border-radius: 30px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  @include font(1, xs);
+  font-weight: 600;
+  max-width: max-content;
+  &:hover {
+    color: $cor-p6;
+    background-color: $cor-p1;
+  }
+  &.btn-primary {
+    background: $cor-p1;
+    color: $cor-0;
+    &:hover {
+      background: transparent;
+      color: $cor-p1;
+    }
+  }
+  &.btn-color-0 {
+    color: $cor-0;
+    border-color: $cor-0;
+    &:hover {
+      background: $cor-0;
+      color: $cor-p1;
+    }
+  }
+  &.btn-primary-p6 {
+    color: $cor-p6 !important;
+    &:hover {
+      color: $cor-p1 !important;
+    }
+  }
+  &.btn-close {
+    background: $error;
+    border-color: $error;
+    color: $errorDark;
+    &:hover {
+      background: transparent;
+      color: $error;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+@mixin font($family, $size: n) {
+  @if $family == 1 {
+    @if $size == xs {
+      font: 500 1.125em/1.3 "Montserrat", Arial, Helvetica, sans-serif;
+    } @else if $size == s {
+      font: 500 2em/1.3 "Montserrat", Arial, Helvetica, sans-serif;
+    } @else if $size == l {
+      font: 600 3em/1.1 "Montserrat", Arial, Helvetica, sans-serif;
+    } @else if $size == xl {
+      font: 600 4em/1.1 "Montserrat", Arial, Helvetica, sans-serif;
+    }
+  } @else if $family == 2 {
+    @if $size == xs {
+      font: 400 1.2em/1.4 "Roboto", Arial, Helvetica, sans-serif;
+    } @else if $size == s {
+      font: 400 1.5em/1.4 "Roboto", Arial, Helvetica, sans-serif;
+    }
+  } @else if $family == 3 {
+    font-family: "Orbitron", "Montserrat", Arial, Helvetica, sans-serif;
+  }
+}
+
+.font-1-xs {
+  @include font(1, xs);
+}
+
+.font-1-s {
+  @include font(1, s);
+  @include device(m) {
+    font-size: 1.3em;
+  }
+}
+
+.font-1-l {
+  @include font(1, l);
+  @include device(d) {
+    font-size: 2.5em;
+  }
+  @include device(m) {
+    font-size: 2em;
+  }
+}
+
+.font-1-xl {
+  @include font(1, xl);
+  @include device(d) {
+    font-size: 3em;
+  }
+  @include device(m) {
+    font-size: 2.5em;
+  }
+}
+
+.font-2-xs {
+  @include font(2, xs);
+  @include device(m) {
+    font-size: 1em;
+  }
+}
+
+.font-2-s {
+  @include font(2, s);
+  @include device(m) {
+    font-size: 1.5em;
+  }
+}
+
+.font-3 {
+  @include font(3);
+}

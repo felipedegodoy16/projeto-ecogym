@@ -1,0 +1,80 @@
+/* FAQ */
+.faq-section-bg {
+  background: $cor-2;
+}
+
+.faq-section {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  @include device(t) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  padding: 80px 20px;
+  dl > div {
+    padding: 20px;
+    border-radius: 24px;
+  }
+  dl > div:nth-child(odd) {
+    background: $cor-1;
+  }
+  button {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 8px;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 12px;
+      height: 4px;
+      background: linear-gradient(to right, $cor-p1, $cor-p3);
+    }
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 14px;
+      height: 6px;
+      background: url("./../../assets/vetores/arrow-down.svg");
+      transition: 0.3s;
+    }
+  }
+  dd {
+    max-width: 80ch;
+    max-height: 0;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    &.active-faq {
+      max-height: 500px;
+      opacity: 1;
+      padding-left: 20px;
+      padding-top: 16px;
+    }
+  }
+}
+
+.faq-section button:hover::after,
+.faq-section button[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+.title-faq {
+  margin-bottom: 2rem;
+  position: relative;
+  &::after {
+    content: "";
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, $cor-p1, $cor-p3);
+    position: absolute;
+    left: 2px;
+    bottom: -4px;
+  }
+}

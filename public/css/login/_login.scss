@@ -1,0 +1,247 @@
+.body-login {
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(135deg, $cor-12 0%, $cor-10 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+/* Background Energy Animation */
+.energy-bg {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.energy-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: $cor-p1;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: floatEnergy 8s infinite linear;
+  &:nth-child(odd) {
+    background: $cor-p2;
+    animation-duration: 6s;
+  }
+
+  &:nth-child(3n) {
+    background: $cor-p3;
+    animation-duration: 10s;
+  }
+}
+
+.back-index {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.login-container {
+  display: none;
+  background: $cor-12;
+  border-radius: 50px;
+  box-shadow: 5px 5px 20px rgba(255, 255, 255, 0.1);
+  padding: 3rem;
+  width: 100%;
+  max-width: 420px;
+  margin: 84px 20px;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+  opacity: 1;
+  animation: slideIn 0.8s ease-out;
+  transition: all 0.3s ease-in-out;
+  @include device(m) {
+    .login-container {
+      padding: 2rem 1.5rem;
+      margin: 1rem;
+      border-radius: 20px;
+    }
+  }
+}
+
+.cadastro-container {
+  max-width: 720px;
+}
+
+.position-icon-input {
+  max-width: fit-content;
+  height: 24px;
+  position: absolute;
+  right: 16px;
+  top: 43px;
+  img {
+    cursor: pointer;
+    opacity: 0.3;
+  }
+}
+
+.reveal-password {
+  img {
+    transition: opacity 0.3s ease-in-out;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+.active-form {
+  display: block;
+}
+
+.open-login-form,
+.open-cadastro-form {
+  color: $cor-p1;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+  &:hover {
+    color: $cor-p4;
+  }
+}
+
+.divisor {
+  height: 2px;
+  background-color: $cor-10;
+  width: 100%;
+  border-radius: 10px;
+  grid-column: 1/-1;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.logo-section {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.logo-login {
+  font-family: "Montserrat", "Arial";
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: $cor-p1;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, $cor-p1, $cor-p3);
+    border-radius: 2px;
+    animation: energyPulse 2s infinite ease-in-out;
+  }
+  @include device(m) {
+    .logo-login {
+      font-size: 2rem;
+    }
+  }
+}
+
+.tagline {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  color: $cor-3;
+  font-weight: 400;
+  margin-top: 0.5rem;
+}
+
+.energy-highlight {
+  color: $cor-p1;
+  font-family: "Orbitron", "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.btn-login {
+  min-width: 100%;
+  padding: 12px 24px !important;
+  cursor: pointer;
+}
+
+.btn-cadastro {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.forgot-password {
+  margin-top: 0.5rem;
+  a {
+    color: $cor-p2;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    &:hover {
+      color: $cor-p4;
+    }
+  }
+}
+
+.div-open-login,
+.div-open-cadastro {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+@media (max-width: 320px) {
+  .login-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .logo-login {
+    font-size: 1.8rem;
+  }
+}
+
+@keyframes floatEnergy {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.6;
+  }
+
+  90% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translateY(-10vh) translateX(50px) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes energyPulse {
+  0%,
+  100% {
+    width: 60px;
+    opacity: 1;
+  }
+
+  50% {
+    width: 80px;
+    opacity: 0.7;
+  }
+}
