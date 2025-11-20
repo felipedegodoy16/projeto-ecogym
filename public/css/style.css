@@ -220,7 +220,7 @@ img {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
   .form-cadastro {
     grid-template-columns: 1fr;
   }
@@ -2403,6 +2403,38 @@ main#admin {
   .list-items {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
+}
+
+.form-prac-item {
+  max-width: 80%;
+}
+
+.exer-list {
+  grid-column: 1/-1;
+}
+.exer-list .div-form-exercise {
+  border: 1px solid #39b934;
+  border-radius: 24px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 768px) {
+  .exer-list .div-form-exercise {
+    flex-direction: column;
+  }
+}
+.exer-list .div-form-exercise .form-group {
+  flex: 1;
+}
+.exer-list .div-form-exercise .btn-remove-exer-form {
+  min-width: 100%;
+}
+
+.div-btn-add-exercise {
+  grid-column: 1/-1;
+  margin-bottom: 1.25rem;
 }
 
 .card-focus-bg {

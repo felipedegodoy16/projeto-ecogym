@@ -32,6 +32,15 @@ function verifyActiveLink(link) {
       equips.classList.add("body-section-active");
       waitResponseEquips();
     }
+  } else if (link.innerText.toUpperCase() === "TREINOS") {
+    const prac = document.querySelector("#prac-section");
+
+    if (!prac.classList.contains("body-section-active")) {
+      body_active.querySelector("ul").innerHTML = "";
+      body_active.classList.remove("body-section-active");
+      prac.classList.add("body-section-active");
+      // waitResponseEquips();
+    }
   }
 }
 

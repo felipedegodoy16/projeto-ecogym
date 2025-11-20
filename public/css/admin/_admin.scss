@@ -105,3 +105,34 @@ main#admin {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
+
+// Treinos
+.form-prac-item {
+  max-width: 80%;
+}
+
+.exer-list {
+  grid-column: 1/-1;
+  .div-form-exercise {
+    border: 1px solid $cor-p1;
+    border-radius: 24px;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    @include device(t) {
+      flex-direction: column;
+    }
+    .form-group {
+      flex: 1;
+    }
+    .btn-remove-exer-form {
+      min-width: 100%;
+    }
+  }
+}
+
+.div-btn-add-exercise {
+  grid-column: 1/-1;
+  margin-bottom: 1.25rem;
+}

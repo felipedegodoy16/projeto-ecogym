@@ -1,7 +1,7 @@
 .form-cadastro {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  @include device(m) {
+  @include device(t) {
     grid-template-columns: 1fr;
   }
   .form-group {

@@ -40,9 +40,12 @@
         <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px">
               <path d="M480-480.67q-66 0-109.67-43.66Q326.67-568 326.67-634t43.66-109.67Q414-787.33 480-787.33t109.67 43.66Q633.33-700 633.33-634t-43.66 109.67Q546-480.67 480-480.67Zm-320 254V-260q0-36.67 18.5-64.17T226.67-366q65.33-30.33 127.66-45.5 62.34-15.17 125.67-15.17t125.33 15.5q62 15.5 127.28 45.3 30.54 14.42 48.96 41.81Q800-296.67 800-260v33.33q0 27.5-19.58 47.09Q760.83-160 733.33-160H226.67q-27.5 0-47.09-19.58Q160-199.17 160-226.67Zm66.67 0h506.66V-260q0-14.33-8.16-27-8.17-12.67-20.5-19-60.67-29.67-114.34-41.83Q536.67-360 480-360t-111 12.17Q314.67-335.67 254.67-306q-12.34 6.33-20.17 19-7.83 12.67-7.83 27v33.33ZM480-547.33q37 0 61.83-24.84Q566.67-597 566.67-634t-24.84-61.83Q517-720.67 480-720.67t-61.83 24.84Q393.33-671 393.33-634t24.84 61.83Q443-547.33 480-547.33Zm0-86.67Zm0 407.33Z" />
             </svg>Usuários</a></li>
+        <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#39b934">
+              <path d="M200-160q-85 0-142.5-57.5T0-360q0-85 58.5-142.5T200-560q77 0 129.5 46T396-400h26l-72-200h-30q-17 0-28.5-11.5T280-640q0-17 11.5-28.5T320-680h120q17 0 28.5 11.5T480-640q0 17-11.5 28.5T440-600h-4l14 40h192l-58-160h-64q-17 0-28.5-11.5T480-760q0-17 11.5-28.5T520-800h64q26 0 46.5 14t29.5 38l68 186h32q83 0 141.5 58.5T960-362q0 84-58 143t-142 59q-72 0-126.5-45T564-320H396q-14 69-68 114.5T200-160Zm0-80q41 0 70.5-22.5T312-320h-72q-17 0-28.5-11.5T200-360q0-17 11.5-28.5T240-400h72q-12-36-41.5-58T200-480q-51 0-85.5 34.5T80-360q0 50 34.5 85t85.5 35Zm308-160h56q5-23 13.5-43t22.5-37H478l30 80Zm252 160q51 0 85.5-35t34.5-85q0-51-34.5-85.5T760-480h-4l26 69q6 16-1 30.5T758-360q-16 6-31-1t-21-23l-24-68q-20 17-31 40t-11 52q0 50 34.5 85t85.5 35ZM196-360Zm564 0Z" />
+            </svg>Equipamentos</a></li>
         <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px">
               <path d="m826-585-56-56 30-31-128-128-31 30-57-57 30-31q23-23 57-22.5t57 23.5l129 129q23 23 23 56.5T857-615l-31 30ZM346-104q-23 23-56.5 23T233-104L104-233q-23-23-23-56.5t23-56.5l30-30 57 57-31 30 129 129 30-31 57 57-30 30Zm397-336 57-57-303-303-57 57 303 303ZM463-160l57-58-302-302-58 57 303 303Zm-6-234 110-109-64-64-109 110 63 63Zm63 290q-23 23-57 23t-57-23L104-406q-23-23-23-57t23-57l57-57q23-23 56.5-23t56.5 23l63 63 110-110-63-62q-23-23-23-57t23-57l57-57q23-23 56.5-23t56.5 23l303 303q23 23 23 56.5T857-441l-57 57q-23 23-57 23t-57-23l-62-63-110 110 63 63q23 23 23 56.5T577-161l-57 57Z" />
-            </svg>Equipamentos</a></li>
+            </svg>Treinos</a></li>
         <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px">
               <path d="M425-80q-18.33 0-32.17-12-13.83-12-16.5-30l-13-84.67q-17-6.33-34.83-16.66-17.83-10.34-32.17-21.67l-78 35.33Q200.67-202 183-208q-17.67-6-27.67-22.33L101-327q-10-16.33-5.67-34.33 4.34-18 19.34-29.67l71-52.67q-1.67-8.33-2-18.16-.34-9.84-.34-18.17 0-8.33.34-18.17.33-9.83 2-18.16l-71-52.67q-15-11.67-19.34-29.67Q91-616.67 101-633l54.33-96.67Q165.33-746 183-752t35.33 1.67l78 35.33q14.34-11.33 32.34-21.67 18-10.33 34.66-16l13-85.33q2.67-18 16.5-30 13.84-12 32.17-12h110q18.33 0 32.17 12 13.83 12 16.5 30l13 84.67q17 6.33 35.16 16.33 18.17 10 31.84 22l78-35.33q17.66-7.67 35-1.67Q794-746 804-729.67L859-633q10 16.33 5.67 34.67Q860.33-580 845.33-569l-71 51.33q1.67 9 2 18.84.34 9.83.34 18.83 0 9-.34 18.5Q776-452 774-443l71 52q15 11 19.33 29.33 4.34 18.34-5.66 34.67L804-230.33Q794-214 776.33-208q-17.66 6-35.33-1.67L663.67-245q-14.34 11.33-32 22-17.67 10.67-35 16.33l-13 84.67q-2.67 18-16.5 30Q553.33-80 535-80H425Zm12.33-66.67h85l14-110q32.34-8 60.84-24.5T649-321l103.67 44.33 39.66-70.66L701-415q4.33-16 6.67-32.17Q710-463.33 710-480q0-16.67-2-32.83-2-16.17-7-32.17l91.33-67.67-39.66-70.66L649-638.67q-22.67-25-50.83-41.83-28.17-16.83-61.84-22.83l-13.66-110h-85l-14 110q-33 7.33-61.5 23.83T311-639l-103.67-44.33-39.66 70.66L259-545.33Q254.67-529 252.33-513 250-497 250-480q0 16.67 2.33 32.67 2.34 16 6.67 32.33l-91.33 67.67 39.66 70.66L311-321.33q23.33 23.66 51.83 40.16 28.5 16.5 60.84 24.5l13.66 110Zm43.34-200q55.33 0 94.33-39T614-480q0-55.33-39-94.33t-94.33-39q-55.67 0-94.5 39-38.84 39-38.84 94.33t38.84 94.33q38.83 39 94.5 39ZM480-480Z" />
             </svg>Configurações</a></li>
@@ -266,6 +269,77 @@
       </div>
     </section>
 
+    <!-- Section Practices -->
+    <section class="body-section" id="prac-section">
+      <header class="header-pages-admin">
+        <h2 class="font-1-l cor-3">Treinos</h2>
+        <a class="button btn-primary btn-primary-p6 btn-add-item btn-visible-form"><svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px">
+            <path d="M446.67-446.67H233.33q-14.16 0-23.75-9.61-9.58-9.62-9.58-23.84 0-14.21 9.58-23.71 9.59-9.5 23.75-9.5h213.34v-213.34q0-14.16 9.61-23.75 9.62-9.58 23.84-9.58 14.21 0 23.71 9.58 9.5 9.59 9.5 23.75v213.34h213.34q14.16 0 23.75 9.61 9.58 9.62 9.58 23.84 0 14.21-9.58 23.71-9.59 9.5-23.75 9.5H513.33v213.34q0 14.16-9.61 23.75-9.62 9.58-23.84 9.58-14.21 0-23.71-9.58-9.5-9.59-9.5-23.75v-213.34Z" />
+          </svg>Novo</a>
+      </header>
+
+      <div class="loading-container">
+        <div class="spinner-container">
+          <div class="spinner"></div>
+        </div>
+      </div>
+
+      <div class="prac-body-items">
+        <div class="form-container-modal">
+          <form class="form-hidden form-visibility form-prac-item form-cadastro" id="cadastroPrac">
+            <input type="hidden" id="prac-id" value="">
+            <div class="form-group">
+              <label class="form-label" for="prac-name">Nome</label>
+              <input type="text" class="form-input" id="prac-name" name="prac-name" placeholder="Treino">
+              <span class="font-2-xs warning-data">Preencha este campo</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="prac-relax">Descanso</label>
+              <select class="form-select" name="prac-relax" id="prac-relax">
+                <option value="fail-relax">Selecione</option>
+                <option value="30">30s</option>
+                <option value="45">45s</option>
+                <option value="60">1min</option>
+                <option value="90">1min 30s</option>
+                <option value="105">1min 45s</option>
+                <option value="120">2min</option>
+              </select>
+              <span class="font-2-xs warning-data">Preencha este campo</span>
+              <!-- <span class="position-icon-input"><img src="./assets/img/vetores/arrow-down.svg" alt=""></span> -->
+            </div>
+
+            <!-- <ul id="exer-list"></ul> -->
+
+            <div class="exer-list"></div>
+
+            <div class="div-btn-add-exercise">
+              <button class="button btn-primary btn-primary-p6">Adicionar Exercício</button>
+            </div>
+
+            <!-- <form class="form-cadastro-moviment">
+              <div class="form-group">
+                <label class="form-label" for="movi-name">Nome</label>
+                <input type="text" class="form-input" id="prac-name" name="prac-name" placeholder="Treino">
+                <span class="font-2-xs warning-data">Preencha este campo</span>
+              </div>
+            </form> -->
+
+            <div class="btn-actions">
+              <button class="button btn-primary btn-primary-p6 btn-add-edit">
+                Adicionar
+              </button>
+              <a class="button btn-close btn-visible-form">
+                Fechar
+              </a>
+            </div>
+          </form>
+        </div>
+
+        <ul class="list-items" id="prac-list"></ul>
+      </div>
+    </section>
+
     <div class="card-focus-bg" id="cardFocusBg">
       <div class="card-focus card-item card-user card-focus-visible" id="cardFocus">
         <span class="card-id font-1-s" id="id-card-focus"></span>
@@ -333,6 +407,8 @@
   </footer>
 
   <script type="module" src="./js/admin/sidenav.js"></script>
+  <script src="./js/admin/exer.js"></script>
+  <script type="module" src="./js/admin/prac.js"></script>
   <script type="module" src="./js/admin/admin.js"></script>
   <script src="./js/animations.js"></script>
   <script src="./js/buscaCep.js"></script>
