@@ -38,9 +38,11 @@ async function handleSubmitUser(e) {
     form.reset();
 
     if (id) {
-      const ul = document.querySelector("#equips-list");
-      ul.replaceChildren(waitResponseUsers());
-      document.querySelector("#equip-id").value = "";
+      const ul = document.querySelector("#users-list");
+      ul.innerHTML = "";
+
+      waitResponseUsers();
+      document.querySelector("#user-id").value = "";
     } else {
       addUsers(res["datas"]);
     }
@@ -79,9 +81,7 @@ async function handleEditUser(datas) {
   const form = document.querySelector("#cadastroForm");
   formVisibility(form);
 
-  let input_id = document.querySelector("#user-id");
-  input_id = input_id.value;
-
+  const input_id = document.querySelector("#user-id");
   const input_name = document.querySelector("#register-name");
   const input_cpf = document.querySelector("#register-cpf");
   const input_email = document.querySelector("#register-email");
@@ -114,12 +114,16 @@ async function handleEditUser(datas) {
     }
   });
 
+  input_id.value = datas["ID_USUARIO"];
   input_name.value = datas["NOME"];
   input_cpf.value = datas["CPF"];
   input_email.value = datas["EMAIL"];
   input_phone.value = datas["TELEFONE"];
-  input_password.parentNode.style.display = "none";
-  input_confirm_password.parentNode.style.display = "none";
+
+  if (input_password.parentNode.style.display !== "none") {
+    input_password.parentNode.style.display = "none";
+    input_confirm_password.parentNode.style.display = "none";
+  }
 
   input_cep.value = datas["CEP"];
   input_city.value = datas["CIDADE"];
@@ -127,14 +131,8 @@ async function handleEditUser(datas) {
   input_street.value = datas["LOGRADOURO"];
   input_number.value = datas["NUMERO_RESIDENCIAL"];
 
-  // const res = await deleteUser(id);
-
-  // showModal(res["status"], res["title"], res["message"]);
-
-  // if (res["status"] === "success") {
-  //   const card_item = document.getElementById(`${id}`);
-  //   card_item.remove();
-  // }
+  const btn_submit = form.querySelector(".btn-add-edit");
+  btn_submit.innerText = "Alterar";
 }
 
 // Function Focus Card
@@ -192,6 +190,11 @@ function openFocusCard(datas) {
       closeCardFocus(card_focus_bg);
     }
   });
+
+  const btn_edit_user = document.querySelector("#edit-user");
+  btn_edit_user.addEventListener("click", () => {
+    handleEditUser(datas);
+  });
 }
 
 // Add Event Delete
@@ -202,9 +205,18 @@ btn_delete_user.addEventListener("click", () => {
   }
 });
 
-const btn_edit_user = document.querySelector("#edit-user");
-btn_edit_user.addEventListener("click", () => {
-  handleEditUser();
+// Add Event Btn Close
+const btn_close_user = document.querySelector("#btn-close-user");
+btn_close_user.addEventListener("click", () => {
+  const input_password = document.querySelector("#register-password");
+  const input_confirm_password = document.querySelector(
+    "#register-password-confirm"
+  );
+
+  if (input_password.parentNode.style.display === "none") {
+    input_password.parentNode.style.display = "block";
+    input_confirm_password.parentNode.style.display = "block";
+  }
 });
 
 // Fecha Card Focus

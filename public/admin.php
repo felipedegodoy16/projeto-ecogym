@@ -198,7 +198,7 @@
               <button class="button btn-primary btn-primary-p6 btn-add-edit">
                 Adicionar
               </button>
-              <a class="button btn-close btn-visible-form">
+              <a class="button btn-close btn-visible-form" id="btn-close-user">
                 Fechar
               </a>
             </div>

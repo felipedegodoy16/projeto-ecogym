@@ -4,7 +4,11 @@ export function validateInput(e) {
 
   const inputs = e.querySelectorAll("input");
   inputs.forEach((input) => {
-    if (!input.value && input.getAttribute("type") !== "hidden") {
+    if (
+      !input.value &&
+      input.getAttribute("type") !== "hidden" &&
+      input.parentNode.style.display !== "none"
+    ) {
       const errorElement = input.parentNode.querySelector(".warning-data");
 
       if (errorElement) {
