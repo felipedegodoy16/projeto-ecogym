@@ -1590,6 +1590,7 @@ tbody tr:nth-child(10) {
 @media screen and (max-width: 768px) {
   .plans {
     grid-template-columns: 1fr;
+    place-items: center;
     gap: 20px;
   }
 }
@@ -1618,8 +1619,11 @@ tbody tr:nth-child(10) {
 @media screen and (max-width: 768px) {
   .plan-eco-img {
     max-width: 80%;
-    left: 50%;
-    transform: translateX(-50%);
+  }
+}
+@media screen and (max-width: 480px) {
+  .plan-eco-img {
+    max-width: 100%;
   }
 }
 .plan-eco-img .plan-eco {
@@ -1671,8 +1675,11 @@ tbody tr:nth-child(10) {
   .plan-power-img {
     grid-row: 2;
     max-width: 80%;
-    left: 50%;
-    transform: translateX(-50%);
+  }
+}
+@media screen and (max-width: 480px) {
+  .plan-power-img {
+    max-width: 100%;
   }
 }
 .plan-power-img .plan-power {

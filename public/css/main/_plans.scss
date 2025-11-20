@@ -44,6 +44,7 @@
   }
   @include device(t) {
     grid-template-columns: 1fr;
+    place-items: center;
     gap: 20px;
   }
   h2 {
@@ -68,8 +69,9 @@
   position: relative;
   @include device(t) {
     max-width: 80%;
-    left: 50%;
-    transform: translateX(-50%);
+  }
+  @include device(m) {
+    max-width: 100%;
   }
   .plan-eco {
     clip-path: polygon(0% 0%, 0% 100%, 85% 100%, 100% 0%);
@@ -118,8 +120,9 @@
   @include device(t) {
     grid-row: 2;
     max-width: 80%;
-    left: 50%;
-    transform: translateX(-50%);
+  }
+  @include device(m) {
+    max-width: 100%;
   }
   .plan-power {
     clip-path: polygon(15% 0%, 0% 100%, 100% 100%, 100% 0%);

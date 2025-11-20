@@ -170,10 +170,10 @@
             try {
 
                 // Query
-                $sql = "SELECT * FROM usuarios u INNER JOIN cep ce ON u.FK_CEP_ID = ce.ID_CEP INNER JOIN bairro b ON ce.FK_BAIRRO_ID = b.ID_BAIRRO INNER JOIN cidade ci ON b.FK_CIDADE_ID = ci.ID_CIDADE INNER JOIN estado e ON ci.FK_ESTADO_ID = e.ID_ESTADO WHERE u.ATIVO = 'A';";
+                $sql = "SELECT * FROM usuarios u LEFT JOIN cep ce ON u.FK_CEP_ID = ce.ID_CEP LEFT JOIN bairro b ON ce.FK_BAIRRO_ID = b.ID_BAIRRO LEFT JOIN cidade ci ON b.FK_CIDADE_ID = ci.ID_CIDADE LEFT JOIN estado e ON ci.FK_ESTADO_ID = e.ID_ESTADO WHERE u.ATIVO = 'A';";
 
                 // Conectando ao banco e preparando a query
-                $stmt = ConnectionFactory::getConnection()->prepare($sql);  
+                $stmt = ConnectionFactory::getConnection()->prepare($sql);
 
                 $stmt->execute() or die(print_r($stmt->errorInfo(), true));
                 $datas = $stmt->fetchAll(PDO::FETCH_ASSOC);

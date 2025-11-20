@@ -205,29 +205,7 @@
           </form>
         </div>
 
-        <ul class="list-items" id="users-list">
-          <div class="card-focus-bg" id="cardFocusBg">
-            <div class="card-focus card-item card-user card-focus-visible" id="cardFocus">
-              <span class="card-id font-1-s" id="id-card-focus"></span>
-              <div class="card-header">
-                <div class="card-img"></div>
-                <h3 class="card-name font-1-l" id="name-user-card-focus"></h3>
-              </div>
-              <ul class="card-body">
-                <li class="font-1-xs cor-8 aditional-informations">Dados Pessoais</li>
-                <li class="font-2-xs cor-4" id="cpf-user-card-focus"></li>
-                <li class="font-2-xs cor-4" id="dataNasc-user-card-focus"></li>
-                <li class="font-1-xs cor-8 aditional-informations">Contato</li>
-                <li class="font-2-xs cor-4" id="phone-user-card-focus"></li>
-                <li class="font-2-xs cor-4" id="email-user-card-focus"></li>
-                <li class="font-1-xs cor-8 aditional-informations">Dados Contratuais</li>
-                <li class="font-2-xs cor-4"><span>Plano:</span> EcoGym</li>
-                <li class="font-2-xs cor-4 card-situation"><span class="card-tag" id="situation-user-card-focus"></span></li>
-                <li class="font-2-xs cor-4"><span>Ações:</span> <a class="card-actions" id="edit-user">Editar</a><a class="card-actions" id="delete-user">Excluir</a></li>
-              </ul>
-            </div>
-          </div>
-        </ul>
+        <ul class="list-items" id="users-list"></ul>
       </div>
     </section>
 
@@ -258,7 +236,7 @@
 
             <div class="form-group">
               <label class="form-label" for="equip-kcal">Kcal/h</label>
-              <input type="text" class="form-input" id="equip-kcal" name="equip-kcal" placeholder="99.9">
+              <input type="text" class="form-input" id="equip-kcal" name="equip-kcal" maxlength="5" data-mask="#0.00" placeholder="99.99">
               <span class="font-2-xs warning-data">Preencha este campo</span>
             </div>
 
@@ -287,6 +265,28 @@
         <ul class="list-items" id="equips-list"></ul>
       </div>
     </section>
+
+    <div class="card-focus-bg" id="cardFocusBg">
+      <div class="card-focus card-item card-user card-focus-visible" id="cardFocus">
+        <span class="card-id font-1-s" id="id-card-focus"></span>
+        <div class="card-header">
+          <div class="card-img"></div>
+          <h3 class="card-name font-1-l" id="name-user-card-focus"></h3>
+        </div>
+        <ul class="card-body">
+          <li class="font-1-xs cor-8 aditional-informations">Dados Pessoais</li>
+          <li class="font-2-xs cor-4" id="cpf-user-card-focus"></li>
+          <li class="font-2-xs cor-4" id="dataNasc-user-card-focus"></li>
+          <li class="font-1-xs cor-8 aditional-informations">Contato</li>
+          <li class="font-2-xs cor-4" id="phone-user-card-focus"></li>
+          <li class="font-2-xs cor-4" id="email-user-card-focus"></li>
+          <li class="font-1-xs cor-8 aditional-informations">Dados Contratuais</li>
+          <li class="font-2-xs cor-4"><span>Plano:</span> EcoGym</li>
+          <li class="font-2-xs cor-4 card-situation"><span class="card-tag" id="situation-user-card-focus"></span></li>
+          <li class="font-2-xs cor-4"><span>Ações:</span> <a class="card-actions" id="edit-user">Editar</a><a class="card-actions" id="delete-user">Excluir</a></li>
+        </ul>
+      </div>
+    </div>
   </main>
 
   <!-- Modal de Sucesso/Erro -->
