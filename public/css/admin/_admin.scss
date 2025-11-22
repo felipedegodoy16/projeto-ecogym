@@ -79,7 +79,8 @@ main#admin {
   }
 }
 
-.users-body-items {
+.users-body-items,
+.prac-body-items {
   .form-container-modal {
     overflow-y: scroll;
     padding: 2.5rem;
@@ -93,7 +94,8 @@ main#admin {
   }
 }
 
-#users-list {
+#users-list,
+#prac-list {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 

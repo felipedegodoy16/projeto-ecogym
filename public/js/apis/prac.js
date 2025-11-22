@@ -21,7 +21,7 @@ export async function insert(datas) {
   }
 }
 
-// Function Select Equipments
+// Function Select Pracs
 export async function select() {
   try {
     const res = await fetch(API_URL + "select.php", {

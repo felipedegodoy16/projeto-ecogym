@@ -1,4 +1,5 @@
 import { waitResponseEquips } from "./equips.js";
+import { waitResponsePracs } from "./prac.js";
 import { callRanking } from "./table.js";
 import { waitResponseUsers } from "./users.js";
 
@@ -39,7 +40,7 @@ function verifyActiveLink(link) {
       body_active.querySelector("ul").innerHTML = "";
       body_active.classList.remove("body-section-active");
       prac.classList.add("body-section-active");
-      // waitResponseEquips();
+      waitResponsePracs();
     }
   }
 }

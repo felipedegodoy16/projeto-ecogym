@@ -228,7 +228,7 @@ function closeCardFocus(card_focus_bg) {
   card_focus.classList.remove("card-maintenance");
 }
 
-// Function Build Card Equip
+// Function Build Card User
 function buildUser(datas) {
   const li = document.createElement("li");
   const div_header = document.createElement("div");
@@ -268,7 +268,7 @@ function buildUser(datas) {
   return li;
 }
 
-// Add Equips
+// Add Users
 function addUsers(res) {
   const users_list = document.querySelector("#users-list");
 

@@ -309,21 +309,11 @@
               <!-- <span class="position-icon-input"><img src="./assets/img/vetores/arrow-down.svg" alt=""></span> -->
             </div>
 
-            <!-- <ul id="exer-list"></ul> -->
-
             <div class="exer-list"></div>
 
             <div class="div-btn-add-exercise">
               <button class="button btn-primary btn-primary-p6">Adicionar Exercício</button>
             </div>
-
-            <!-- <form class="form-cadastro-moviment">
-              <div class="form-group">
-                <label class="form-label" for="movi-name">Nome</label>
-                <input type="text" class="form-input" id="prac-name" name="prac-name" placeholder="Treino">
-                <span class="font-2-xs warning-data">Preencha este campo</span>
-              </div>
-            </form> -->
 
             <div class="btn-actions">
               <button class="button btn-primary btn-primary-p6 btn-add-edit">

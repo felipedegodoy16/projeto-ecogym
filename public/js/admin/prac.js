@@ -1,5 +1,5 @@
 import { loadingToggle } from "../loading.js";
-import { insert } from "../apis/prac.js";
+import { insert, select } from "../apis/prac.js";
 import { showModal } from "../modal.js";
 import { formVisibility } from "./admin.js";
 import { validateInput, validateSelect } from "../validFields.js";
@@ -56,5 +56,57 @@ document
     if (res["status"] === "success") {
       form.reset();
       formVisibility(form);
+
+      const exer_list = document.querySelector(".exer-list");
+      exer_list.innerHTML = "";
+
+      addPracs(res["datas"]);
     }
   });
+
+// Function Build Card User
+function buildPrac(datas) {
+  const li = document.createElement("li");
+  const h3 = document.createElement("h3");
+  const span = document.createElement("span");
+
+  li.className = "card-item card-prac card-active";
+  h3.className = "card-name font-1-s";
+  span.className = "card-name font-2-xs";
+
+  const ex_length = datas["exercises"].length;
+
+  h3.innerHTML = `${datas["name_treino"]}`;
+  span.innerHTML = `Exercícios: ${ex_length}`;
+
+  li.append(h3, span);
+
+  return li;
+}
+
+// Add Pracs
+function addPracs(res) {
+  const prac_list = document.querySelector("#prac-list");
+
+  res.forEach((prac) => {
+    prac_list.append(buildPrac(prac));
+  });
+}
+
+// Function Wait Select Reponse
+export async function waitResponsePracs() {
+  const loadingContainer = document
+    .querySelector(".body-section-active")
+    .querySelector(".loading-container");
+
+  loadingToggle(loadingContainer);
+
+  const res = await select();
+
+  loadingToggle(loadingContainer);
+
+  if (res) {
+    addPracs(res);
+    return;
+  }
+}

@@ -17,8 +17,6 @@
 
   $stmt->bindValue(":prac_name", $practice['name'], PDO::PARAM_STR);
   $stmt->bindValue(":relax", $practice['relax'], PDO::PARAM_INT);
-  // $stmt->bindValue(":prac_name", 'teste', PDO::PARAM_STR);
-  // $stmt->bindValue(":relax", '32', PDO::PARAM_INT);
   $stmt->execute() or die(print_r($stmt->errorInfo(), true));
 
   $id_prac = ConnectionFactory::getConnection()->lastInsertId();
@@ -34,36 +32,48 @@
       $stmt2->bindValue(":id_prac", $id_prac, PDO::PARAM_INT);
       $stmt2->execute() or die(print_r($stmt->errorInfo(), true));
   }
+
+  $sql = "SELECT * FROM treino t LEFT JOIN exercicio e ON t.ID_TREINO = e.FK_TREINO_ID WHERE t.ID_TREINO = :id_prac;";
+
+  // Conectando ao banco e preparando a query
+  $stmt3 = ConnectionFactory::getConnection()->prepare($sql);
+
+  $stmt3->bindValue(":id_prac", $id_prac, PDO::PARAM_INT);
+  $stmt3->execute() or die(print_r($stmt->errorInfo(), true));
+  $datas = $stmt3->fetchAll(PDO::FETCH_ASSOC);
+
+  $group_datas = [];
+
+  foreach ($datas as $d) {
+      $id_treino = $d['ID_TREINO'];
+      
+      if (!isset($group_datas[$id_treino])) {
+          $group_datas[$id_treino] = [
+              'id_treino' => $id_treino,
+              'name_treino' => $d['TREINO'],
+              'relax' => $d['DESCANSO'],
+              'exercises' => []
+          ];
+      }
+      
+      if ($d['ID_EXERCICIO'] != null) { // Garante que há um produto real
+          $group_datas[$id_treino]['exercises'][] = [
+              'id_exercise' => $d['ID_EXERCICIO'],
+              'name_exercise' => $d['EXERCICIO'],
+              'series' => $d['SERIES'],
+              'reps' => $d['REPETICOES'],
+              'charge' => $d['CARGA']
+          ];
+      }
+  }
+
+  $final_datas = array_values($group_datas);
+
+  if($final_datas){
+
+    echo json_encode(["status" => "success", "title" => "Sucesso!", "message" => "Treino cadastrado com sucesso.", "datas" => $final_datas]);
+    exit();
+
+  }
     
-  echo json_encode(["status" => "success", "title" => "Sucesso!", "message" => "Treino cadastrado com sucesso."]);
-
-  ////////////////////
-// $treino = $input["treino"];
-// $exercicios = $input["exercicios"];
-
-// // Conexão com o banco
-// $conn = new mysqli("localhost", "root", "", "academia");
-
-// // Salva o treino
-// $stmt = $conn->prepare("INSERT INTO treino (nome, obs) VALUES (?, ?)");
-// $stmt->bind_param("ss", $treino["nome"], $treino["obs"]);
-// $stmt->execute();
-
-// $idTreino = $stmt->insert_id;
-
-// // Insere exercícios
-// $stmt2 = $conn->prepare("INSERT INTO exercicio (id_treino, nome, series, reps, carga)
-//                          VALUES (?, ?, ?, ?, ?)");
-
-// foreach ($exercicios as $ex) {
-//     $stmt2->bind_param("isiii",
-//         $idTreino,
-//         $ex["nome"],
-//         $ex["series"],
-//         $ex["reps"],
-//         $ex["carga"]
-//     );
-//     $stmt2->execute();
-// }
-
-// echo json_encode(["status" => "ok", "msg" => "Treino e exercícios salvos"]);
+  echo json_encode(["status" => "error", "title" => "Erro!", "message" => "Não foi possível cadastrar o treino."]);

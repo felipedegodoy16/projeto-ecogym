@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .card {
+      width: 300px;
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      color: white;
+    }
+
+    .exercicios {
+      max-height: 80px;
+      overflow: hidden;
+      position: relative;
+      transition: max-height 0.3s ease;
+    }
+
+    /* Efeito do “...” enquanto está fechado */
+    .exercicios.collapsed::after {
+      content: "...";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding-left: 20px;
+      background: linear-gradient(to right, transparent, #1a1a1a 70%);
+    }
+
+    .btn-toggle {
+      margin-top: 10px;
+      background: #0f0;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h3>Treino A</h3>
+
+    <div class="exercicios" id="listaExercicios">
+      <p>Supino reto</p>
+      <p>Supino inclinado</p>
+      <p>Crucifixo</p>
+      <p>Flexão</p>
+      <p>Cross over</p>
+      <p>Peck deck</p>
+      <p>Tríceps testa</p>
+      <p>Tríceps corda</p>
+    </div>
+
+    <button class="btn-toggle" onclick="toggleExercicios()">Ver mais</button>
+  </div>
+
+
+  <script>
+    function toggleExercicios() {
+      const lista = document.getElementById("listaExercicios");
+      const botao = document.querySelector(".btn-toggle");
+
+      if (lista.classList.contains("collapsed")) {
+        lista.style.maxHeight = "500px"; // expande
+        lista.classList.remove("collapsed");
+        botao.textContent = "Ver menos";
+      } else {
+        lista.style.maxHeight = "80px"; // fecha
+        lista.classList.add("collapsed");
+        botao.textContent = "Ver mais";
+      }
+    }
+
+    document.getElementById("listaExercicios").classList.add("collapsed");
+
+  </script>
+</body>
+
+</html>
