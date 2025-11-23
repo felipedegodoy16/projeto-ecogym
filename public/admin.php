@@ -67,7 +67,7 @@
               </svg></div>
             <div class="stat-label">Energia Total Gerada</div>
             <div class="stat-value" id="kwh-generated">...</div>
-            <div class="stat-change">↑ 12.5% este mês</div>
+            <div class="stat-change" id="month-kwh">...</div>
           </div>
 
           <div class="stat-card">
@@ -76,7 +76,7 @@
               </svg></div>
             <div class="stat-label">Total de Alunos</div>
             <div class="stat-value" id="total-users">...</div>
-            <div class="stat-change">↑ 28 novos alunos</div>
+            <div class="stat-change" id="new-users">...</div>
           </div>
 
           <div class="stat-card">
@@ -87,12 +87,33 @@
             <div class="stat-value" id="active-equips">...</div>
             <div class="stat-change" id="perc-equips">...</div>
           </div>
+        </div>
 
-          <div class="stat-card">
-            <div class="stat-icon">🌱</div>
-            <div class="stat-label">CO₂ Evitado</div>
-            <div class="stat-value">8.2 ton</div>
-            <div class="stat-change">Equivalente a 410 árvores</div>
+        <div class="content-grid">
+          <!-- Ranking de Alunos -->
+          <div class="card" id="rankingUsers">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#39b934">
+                    <path d="M440-200v-124q-49-11-87.5-41.5T296-442q-75-9-125.5-65.5T120-640v-40q0-33 23.5-56.5T200-760h80q0-33 23.5-56.5T360-840h240q33 0 56.5 23.5T680-760h80q33 0 56.5 23.5T840-680v40q0 76-50.5 132.5T664-442q-18 46-56.5 76.5T520-324v124h120q17 0 28.5 11.5T680-160q0 17-11.5 28.5T640-120H320q-17 0-28.5-11.5T280-160q0-17 11.5-28.5T320-200h120ZM280-528v-152h-80v40q0 38 22 68.5t58 43.5Zm200 128q50 0 85-35t35-85v-240H360v240q0 50 35 85t85 35Zm200-128q36-13 58-43.5t22-68.5v-40h-80v152Zm-200-52Z" />
+                  </svg> Top 5 Alunos</h2>
+                <p class="card-subtitle">Maiores geradores de energia</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Atividade Semanal -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">📅 Energia Gerada - Últimos 7 Dias</h2>
+                <p class="card-subtitle">Acompanhe a produção diária de energia</p>
+              </div>
+            </div>
+
+            <div class="chart-area-container">
+              <canvas id="energyChart" width="400" height="200"></canvas>
+            </div>
           </div>
         </div>
 

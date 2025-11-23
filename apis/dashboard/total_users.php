@@ -17,18 +17,18 @@
   $total_users = $stmt->fetchAll(PDO::FETCH_ASSOC)[0]["COUNT(*)"];
 
   // Select Active Users Current Month
-  $formatted_data = date("Y") . '-' . date("m") . '-01';
+  $formatted_date = date("Y") . '-' . date("m") . '-01';
   
-  $sql = "SELECT COUNT(*) FROM usuarios WHERE ATIVO = 'A' AND DATA_CADASTRO >= :formatted_data;";
+  $sql = "SELECT COUNT(*) FROM usuarios WHERE ATIVO = 'A' AND DATA_CADASTRO >= :formatted_date;";
 
   $stmt = ConnectionFactory::getConnection()->prepare($sql);
 
-  $stmt->bindValue(":formatted_data", $formatted_data, PDO::PARAM_STR);
+  $stmt->bindValue(":formatted_date", $formatted_date, PDO::PARAM_STR);
   $stmt->execute() or die(print_r($stmt->errorInfo(), true));
-  $total_month = $stmt->fetchAll(PDO::FETCH_ASSOC)[0]["COUNT(*)"];
+  $new_users = $stmt->fetchAll(PDO::FETCH_ASSOC)[0]["COUNT(*)"];
 
   if($stmt->rowCount()) {
-    echo json_encode(["total_users" => $total_users, "total_month" => $total_month]);
+    echo json_encode(["total_users" => $total_users, "new_users" => $new_users]);
     exit();
   }
 

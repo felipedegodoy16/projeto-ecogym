@@ -1,4 +1,4 @@
-/* Stats Cards Grid */
+// Stats Cards Grid
 #dashboard-section {
   .stats-grid {
     display: grid;
@@ -44,5 +44,110 @@
   .stat-change {
     font-size: 0.75rem;
     color: $cor-p2;
+  }
+
+  /* Content Grid */
+  .content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .card {
+    background: $cor-11;
+    border: 2px solid $cor-p6;
+    border-radius: 1.25rem;
+    padding: 1.75rem;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $cor-2;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .card-subtitle {
+    font-size: 0.85rem;
+    color: $cor-7;
+    margin-top: 4px;
+  }
+
+  /* Ranking Items */
+  .ranking-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: $cor-12;
+    border-radius: 0.75rem;
+    margin-bottom: 0.75rem;
+    border: 2px solid $cor-10;
+    transition: all 0.3s ease;
+    &:hover {
+      background: rgba($color: $cor-p6, $alpha: 0.5);
+      border-color: $cor-p6;
+      transform: translateX(5px);
+    }
+  }
+
+  .rank-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.875rem;
+    flex-shrink: 0;
+    background: rgba($color: $cor-p6, $alpha: 0.8);
+    color: $cor-p1;
+  }
+
+  .rank-1 {
+    background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
+    color: $cor-12;
+  }
+
+  .rank-2 {
+    background: linear-gradient(135deg, #c0c0c0 0%, #808080 100%);
+    color: $cor-12;
+  }
+
+  .rank-3 {
+    background: linear-gradient(135deg, #cd7f32 0%, #8b4513 100%);
+    color: #fff;
+  }
+
+  .ranking-info {
+    flex: 1;
+  }
+
+  .ranking-name {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .ranking-detail {
+    font-size: 0.75rem;
+    color: $cor-7;
+  }
+
+  .ranking-value {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: $cor-p1;
   }
 }

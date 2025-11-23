@@ -67,8 +67,8 @@
                 }
 
                 // Query SQL
-                $sql = "INSERT INTO usuarios (ID_USUARIO, NOME, EMAIL, GENERO, SENHA, CPF, TELEFONE, FK_CEP_ID, NUMERO_RESIDENCIAL, PERMISSAO, SITUACAO, ATIVO) VALUES 
-                (DEFAULT, :nome, :email, :genre, :senha, :cpf, :phone, :cep_id, :res_number, 'U', 'M', 'A');";
+                $sql = "INSERT INTO usuarios (ID_USUARIO, NOME, EMAIL, GENERO, SENHA, CPF, TELEFONE, FK_CEP_ID, NUMERO_RESIDENCIAL, DATA_CADASTRO, PERMISSAO, SITUACAO, ATIVO) VALUES 
+                (DEFAULT, :nome, :email, :genre, :senha, :cpf, :phone, :cep_id, :res_number, :date_cadastro, 'U', 'M', 'A');";
 
                 // Conectando o banco e preparando a query
                 $stmt = ConnectionFactory::getConnection()->prepare($sql);
@@ -80,6 +80,7 @@
                 $stmt->bindValue(":phone", $this->getUser()->getPhone(), PDO::PARAM_STR);
                 $stmt->bindValue(":cep_id", $this->getUser()->getAddress()->getId(), PDO::PARAM_STR);
                 $stmt->bindValue(":res_number", $this->getUser()->getAddress()->getNumber(), PDO::PARAM_STR);
+                $stmt->bindValue(":date_cadastro", date('Y-m-d'), PDO::PARAM_STR);
                 $stmt->execute() or die(print_r($stmt->errorInfo(), true));
 
                 // Executando a query no banco

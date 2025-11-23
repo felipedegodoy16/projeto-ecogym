@@ -2704,7 +2704,10 @@ main#admin {
     transform: scale(1);
   }
 }
-/* Stats Cards Grid */
+#dashboard-section {
+  /* Content Grid */
+  /* Ranking Items */
+}
 #dashboard-section .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -2744,6 +2747,95 @@ main#admin {
 #dashboard-section .stat-change {
   font-size: 0.75rem;
   color: #2ca727;
+}
+#dashboard-section .content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+#dashboard-section .card {
+  background: #111;
+  border: 2px solid #034100;
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+}
+#dashboard-section .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+#dashboard-section .card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ededed;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+#dashboard-section .card-subtitle {
+  font-size: 0.85rem;
+  color: #717171;
+  margin-top: 4px;
+}
+#dashboard-section .ranking-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #000;
+  border-radius: 0.75rem;
+  margin-bottom: 0.75rem;
+  border: 2px solid #2e2e2e;
+  transition: all 0.3s ease;
+}
+#dashboard-section .ranking-item:hover {
+  background: rgba(3, 65, 0, 0.5);
+  border-color: #034100;
+  transform: translateX(5px);
+}
+#dashboard-section .rank-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+  background: rgba(3, 65, 0, 0.8);
+  color: #39b934;
+}
+#dashboard-section .rank-1 {
+  background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
+  color: #000;
+}
+#dashboard-section .rank-2 {
+  background: linear-gradient(135deg, #c0c0c0 0%, #808080 100%);
+  color: #000;
+}
+#dashboard-section .rank-3 {
+  background: linear-gradient(135deg, #cd7f32 0%, #8b4513 100%);
+  color: #fff;
+}
+#dashboard-section .ranking-info {
+  flex: 1;
+}
+#dashboard-section .ranking-name {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+#dashboard-section .ranking-detail {
+  font-size: 0.75rem;
+  color: #717171;
+}
+#dashboard-section .ranking-value {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #39b934;
 }
 
 .fadeInOutRight {
