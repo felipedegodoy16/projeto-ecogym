@@ -283,6 +283,9 @@ export async function waitResponseUsers() {
     .querySelector(".body-section-active")
     .querySelector(".loading-container");
 
+  const users_list = document.querySelector("#users-list");
+  users_list.innerHTML = "";
+
   loadingToggle(loadingContainer);
 
   const res = await select();

@@ -11,15 +11,13 @@ function verifyActiveLink(link) {
     const dashboard = document.querySelector("#dashboard-section");
 
     if (!dashboard.classList.contains("body-section-active")) {
-      body_active.querySelector("ul").innerHTML = "";
       body_active.classList.remove("body-section-active");
       dashboard.classList.add("body-section-active");
-      callRanking();
+      // callRanking();
     }
   } else if (link.innerText.toUpperCase() === "USUÁRIOS") {
     const users = document.querySelector("#users-section");
     if (!users.classList.contains("body-section-active")) {
-      body_active.querySelector("ul").innerHTML = "";
       body_active.classList.remove("body-section-active");
       users.classList.add("body-section-active");
       waitResponseUsers();
@@ -28,7 +26,6 @@ function verifyActiveLink(link) {
     const equips = document.querySelector("#equips-section");
 
     if (!equips.classList.contains("body-section-active")) {
-      body_active.querySelector("ul").innerHTML = "";
       body_active.classList.remove("body-section-active");
       equips.classList.add("body-section-active");
       waitResponseEquips();
@@ -37,7 +34,6 @@ function verifyActiveLink(link) {
     const prac = document.querySelector("#prac-section");
 
     if (!prac.classList.contains("body-section-active")) {
-      body_active.querySelector("ul").innerHTML = "";
       body_active.classList.remove("body-section-active");
       prac.classList.add("body-section-active");
       waitResponsePracs();

@@ -2418,7 +2418,7 @@ main#admin {
   grid-column: 1/-1;
 }
 .exer-list .div-form-exercise {
-  border: 1px solid #39b934;
+  border: 2px solid #39b934;
   border-radius: 24px;
   padding: 1.25rem;
   margin-bottom: 1.25rem;
@@ -2704,6 +2704,48 @@ main#admin {
     transform: scale(1);
   }
 }
+/* Stats Cards Grid */
+#dashboard-section .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+#dashboard-section .stat-card {
+  background: #111;
+  border: 2px solid #034100;
+  border-radius: 1.5rem;
+  padding: 1.75rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+#dashboard-section .stat-card:hover {
+  transform: translateY(-5px);
+  border-color: #39b934;
+  box-shadow: 0 10px 20px #034100;
+}
+#dashboard-section .stat-icon {
+  margin-bottom: 0.75rem;
+}
+#dashboard-section .stat-label {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #9c9c9c;
+}
+#dashboard-section .stat-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: #39b934;
+  margin-bottom: 0.5rem;
+}
+#dashboard-section .stat-change {
+  font-size: 0.75rem;
+  color: #2ca727;
+}
+
 .fadeInOutRight {
   transform: translateX(-50px);
   opacity: 0;

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Academia Sustentável</title>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      background: #f4f6f9;
+      font-family: Arial;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h2 {
+      font-size: 16px;
+      margin: 0 0 10px 0;
+      opacity: .7;
+    }
+
+    .card p {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .section-title {
+      margin-top: 40px;
+      font-size: 22px;
+    }
+
+    .list {
+      margin-top: 10px;
+    }
+
+    .item {
+      background: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <h1>Dashboard - Academia Sustentável</h1>
+
+    <!-- CARDS -->
+    <div class="cards">
+      <div class="card">
+        <h2>Energia Total Gerada</h2>
+        <p>12.450 Wh</p>
+      </div>
+
+      <div class="card">
+        <h2>Total de Alunos</h2>
+        <p>187</p>
+      </div>
+
+      <div class="card">
+        <h2>Produtividade Média</h2>
+        <p>178 Wh / aluno</p>
+      </div>
+    </div>
+
+    <!-- GRÁFICO -->
+    <h2 class="section-title">Energia Gerada por Semana</h2>
+    <div class="card">
+      <canvas id="graficoEnergia"></canvas>
+    </div>
+
+    <!-- RANKING ALUNOS -->
+    <h2 class="section-title">Ranking de Alunos</h2>
+    <div class="list">
+      <div class="item"><span>João Silva</span> <strong>3200 Wh</strong></div>
+      <div class="item"><span>Maria Souza</span> <strong>2800 Wh</strong></div>
+      <div class="item"><span>Pedro Lima</span> <strong>2500 Wh</strong></div>
+    </div>
+
+    <!-- RANKING EQUIPAMENTOS -->
+    <h2 class="section-title">Equipamentos que Mais Geraram Energia</h2>
+    <div class="list">
+      <div class="item"><span>Bicicleta Geradora</span> <strong>5400 Wh</strong></div>
+      <div class="item"><span>Esteira Sustentável</span> <strong>4100 Wh</strong></div>
+      <div class="item"><span>Remo Gerador</span> <strong>2900 Wh</strong></div>
+    </div>
+
+  </div>
+
+  <!-- SCRIPT DO GRÁFICO -->
+  <script>
+    const ctx = document.getElementById('graficoEnergia');
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+        datasets: [{
+          label: 'Energia Gerada (Wh)',
+          data: [120, 160, 140, 200, 180, 220, 90],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

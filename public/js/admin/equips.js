@@ -161,6 +161,9 @@ export async function waitResponseEquips() {
     .querySelector(".body-section-active")
     .querySelector(".loading-container");
 
+  const equips_list = document.querySelector("#equips-list");
+  equips_list.innerHTML = "";
+
   loadingToggle(loadingContainer);
 
   const res = await select();

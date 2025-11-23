@@ -99,6 +99,9 @@ export async function waitResponsePracs() {
     .querySelector(".body-section-active")
     .querySelector(".loading-container");
 
+  const prac_list = document.querySelector("#prac-list");
+  prac_list.innerHTML = "";
+
   loadingToggle(loadingContainer);
 
   const res = await select();

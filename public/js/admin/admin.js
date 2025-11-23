@@ -1,4 +1,4 @@
-import { callRanking } from "./table.js";
+// import { callRanking } from "./table.js";
 
 // Function Alternate Visibility Form
 export function formVisibility(form) {
@@ -26,5 +26,5 @@ btns_visible_form.forEach((btn) => {
 
 // Adding Event to Page
 document.addEventListener("DOMContentLoaded", () => {
-  callRanking();
+  // callRanking();
 });

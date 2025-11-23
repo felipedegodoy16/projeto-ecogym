@@ -55,12 +55,50 @@
     <!-- Section Dashboard -->
     <section class="body-section body-section-active" id="dashboard-section">
       <header class="header-pages-admin">
-        <h2 class="font-1-l cor-3 fadeInOutRight">Dashboard</h2>
+        <h2 class="font-1-l cor-3">Dashboard</h2>
       </header>
 
       <div>
-        <ul id="dashboards-list"></ul>
+        <!-- Stats Cards -->
+        <div class="stats-grid" id="stats-cards">
+          <div class="stat-card">
+            <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#39b934">
+                <path d="m422-232 207-248H469l29-227-185 267h139l-30 208Zm-62-128H236q-24 0-35.5-21.5T203-423l299-430q10-14 26-19.5t33 .5q17 6 25 21t6 32l-32 259h155q26 0 36.5 23t-6.5 43L416-100q-11 13-27 17t-31-3q-15-7-23.5-21.5T328-139l32-221Zm111-110Z" />
+              </svg></div>
+            <div class="stat-label">Energia Total Gerada</div>
+            <div class="stat-value" id="kwh-generated">...</div>
+            <div class="stat-change">↑ 12.5% este mês</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#39b934">
+                <path d="M40-272q0-34 17.5-62.5T104-378q62-31 126-46.5T360-440q66 0 130 15.5T616-378q29 15 46.5 43.5T680-272v32q0 33-23.5 56.5T600-160H120q-33 0-56.5-23.5T40-240v-32Zm800 112H738q11-18 16.5-38.5T760-240v-40q0-44-24.5-84.5T666-434q51 6 96 20.5t84 35.5q36 20 55 44.5t19 53.5v40q0 33-23.5 56.5T840-160ZM360-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm400-160q0 66-47 113t-113 47q-11 0-28-2.5t-28-5.5q27-32 41.5-71t14.5-81q0-42-14.5-81T544-792q14-5 28-6.5t28-1.5q66 0 113 47t47 113ZM120-240h480v-32q0-11-5.5-20T580-306q-54-27-109-40.5T360-360q-56 0-111 13.5T140-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T440-640q0-33-23.5-56.5T360-720q-33 0-56.5 23.5T280-640q0 33 23.5 56.5T360-560Zm0 320Zm0-400Z" />
+              </svg></div>
+            <div class="stat-label">Total de Alunos</div>
+            <div class="stat-value" id="total-users">...</div>
+            <div class="stat-change">↑ 28 novos alunos</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#39b934">
+                <path d="M200-280q-85 0-142.5-57.5T0-480q0-85 58.5-142.5T200-680q77 0 129.5 46T396-520h26l-72-200h-30q-17 0-28.5-11.5T280-760q0-17 11.5-28.5T320-800h120q17 0 28.5 11.5T480-760q0 17-11.5 28.5T440-720h-4l14 40h192l-58-160h-64q-17 0-28.5-11.5T480-880q0-17 11.5-28.5T520-920h64q26 0 46.5 14t29.5 38l68 186h32q83 0 141.5 58.5T960-482q0 84-58 143t-142 59q-72 0-126.5-45T564-440H396q-14 69-68 114.5T200-280Zm0-80q41 0 70.5-22.5T312-440h-72q-17 0-28.5-11.5T200-480q0-17 11.5-28.5T240-520h72q-12-36-41.5-58T200-600q-51 0-85.5 34.5T80-480q0 50 34.5 85t85.5 35Zm308-160h56q5-23 13.5-43t22.5-37H478l30 80Zm252 160q51 0 85.5-35t34.5-85q0-51-34.5-85.5T760-600h-4l26 69q6 16-1 30.5T758-480q-16 6-31-1t-21-23l-24-68q-20 17-31 40t-11 52q0 50 34.5 85t85.5 35ZM520-120v48q0 11-9.5 17T491-54l-173-87q-7-4-5.5-11.5t9.5-7.5h118v-48q0-11 9.5-17t19.5-1l173 87q7 4 5.5 11.5T638-120H520ZM196-480Zm564 0Z" />
+              </svg></div>
+            <div class="stat-label">Equipamentos Ativos</div>
+            <div class="stat-value" id="active-equips">...</div>
+            <div class="stat-change" id="perc-equips">...</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">🌱</div>
+            <div class="stat-label">CO₂ Evitado</div>
+            <div class="stat-value">8.2 ton</div>
+            <div class="stat-change">Equivalente a 410 árvores</div>
+          </div>
+        </div>
+
+        <!-- <ul id="dashboards-list"></ul> -->
       </div>
+
       <div class="loading-container">
         <div class="spinner-container">
           <div class="spinner"></div>
@@ -397,6 +435,7 @@
   </footer>
 
   <script type="module" src="./js/admin/sidenav.js"></script>
+  <script type="module" src="./js/admin/dashboard.js"></script>
   <script src="./js/admin/exer.js"></script>
   <script type="module" src="./js/admin/prac.js"></script>
   <script type="module" src="./js/admin/admin.js"></script>
