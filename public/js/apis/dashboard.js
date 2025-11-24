@@ -73,6 +73,24 @@ export async function bar_chart() {
   }
 }
 
+// Function Return Datas Bar Chart
+export async function doghnut_chart() {
+  try {
+    const res = await fetch(API_URL + "doghnut_chart.php", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
+    return await res.json();
+  } catch (erro) {
+    console.log(erro);
+    return {
+      status: "error",
+      title: "Erro!",
+      message: "Erro no servidor, tente novamente mais tarde.",
+    };
+  }
+}
+
 // Function Return Ranking Users
 export async function ranking_users() {
   try {

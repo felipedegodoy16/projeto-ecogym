@@ -377,67 +377,37 @@
   <!-- Chart.js CDN and script to create charts -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
-    // sample data matching reference image
-    const labels = ['6h', '9h', '12h', '15h', '18h', '21h'];
-    const data = [45, 120, 85, 95, 180, 75];
+    // // sample data matching reference image
+    // const labels = ['6h', '9h', '12h', '15h', '18h', '21h'];
+    // const data = [45, 120, 85, 95, 180, 75];
 
-    const ctx = document.getElementById('barChart').getContext('2d');
+    // 
 
-    // Animação com delay por barra — cada barra aparece em sequência
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: labels,
-        datasets: [
-          {
-            label: 'kWh',
-            data: data,
-            borderRadius: 6,
-            backgroundColor: '#39b934',
-            maxBarThickness: 44,
-          },
-        ],
-      },
-      options: {
-        animation: {
-          duration: 1200,
-          easing: "easeOutQuart",
-
-          delay: (ctx) => {
-            // animação por barra
-            if (ctx.type === "data" && ctx.mode === "default") {
-              return ctx.dataIndex * 200; // 200ms de espaçamento
-            }
-            return 0;
-          },
-
-          // garante que a barra cresce do zero
-          fn: function (from, to, factor) {
-            return from + (to - from) * factor;
-          },
-        },
-
-        // necessário para manter consistência visual
-        transitions: {
-          active: {
-            animation: {
-              duration: 300,
-            },
-          },
-        },
-
-        plugins: {
-          legend: { display: false },
-        },
-        scales: {
-          x: { grid: { display: false }, ticks: { color: '#9aa19a' } },
-          y: {
-            grid: { color: 'rgba(255,255,255,0.03)' },
-            ticks: { color: '#9aa19a' },
-          },
-        },
-      },
-    });
+    // const ctx = document.getElementById('barChart').getContext('2d');
+    // new Chart(ctx, {
+    //   type: 'bar',
+    //   data: {
+    //     labels: labels,
+    //     datasets: [{
+    //       data: [current, target - current],
+    //       backgroundColor: ['#15b22b', 'rgba(255,255,255,0.07)'],
+    //       hoverOffset: 4,
+    //       borderWidth: 0,
+    //       borderRadius: 50,
+    //       borderAlign: 'inner', function(context) {
+    //         return getComputedStyle(document.documentElement).getPropertyValue('--accent') || '#15b22b'
+    //       },
+    //       maxBarThickness: 44
+    //     }]
+    //   },
+    //   options: {
+    //     plugins: { legend: { display: false } },
+    //     scales: {
+    //       x: { grid: { display: false }, ticks: { color: '#9aa19a' } },
+    //       y: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#9aa19a' } }
+    //     }
+    //   }
+    // });
 
     // doughnut
     const dough = document.getElementById('doughnut').getContext('2d');

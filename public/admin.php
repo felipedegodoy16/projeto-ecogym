@@ -94,28 +94,28 @@
           <div class="card">
             <h2 class="card-title"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#39b934">
                 <path d="M200-120q-33 0-56.5-23.5T120-200v-600q0-17 11.5-28.5T160-840q17 0 28.5 11.5T200-800v600h600q17 0 28.5 11.5T840-160q0 17-11.5 28.5T800-120H200Zm80-120q-17 0-28.5-11.5T240-280v-280q0-17 11.5-28.5T280-600h80q17 0 28.5 11.5T400-560v280q0 17-11.5 28.5T360-240h-80Zm200 0q-17 0-28.5-11.5T440-280v-480q0-17 11.5-28.5T480-800h80q17 0 28.5 11.5T600-760v480q0 17-11.5 28.5T560-240h-80Zm200 0q-17 0-28.5-11.5T640-280v-120q0-17 11.5-28.5T680-440h80q17 0 28.5 11.5T800-400v120q0 17-11.5 28.5T760-240h-80Z" />
-              </svg> Distribuição de Energia por Horário</h2>
-            <p class="card-subtitle">Maiores geradores de energia</p>
+              </svg> Distribuição de Energia no Ano</h2>
+            <p class="card-subtitle">Energia gerada dividida por mês</p>
             <div class="chart-wrap">
               <canvas id="barChart"></canvas>
             </div>
           </div>
-          <div class="card" style="display:flex;flex-direction:column;">
+          <div class="card">
             <h2 class="card-title"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#39b934">
                 <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-130 75-234t199-145q29-10 53.5 7t24.5 46q0 20-11.5 36.5T391-747q-86 27-138.5 100.5T200-480q0 117 81.5 198.5T480-200q52 0 100.5-18t86.5-52q15-14 36.5-14t36.5 14q23 21 24 47.5T742-176q-54 47-120.5 71.5T480-80Zm280-400q0-92-53-165.5T568-747q-18-6-29.5-22.5T527-806q0-29 24.5-46t53.5-7q125 42 200 146t75 233q0 18-1.5 36.5T873-403q-5 29-29.5 41.5T790-360q-19-7-29.5-25.5T754-424q3-17 4.5-30t1.5-26Z" />
-              </svg> Metas de Energia Mensal</h2>
-            <p class="card-subtitle">Maiores geradores de energia</p>
-            <div style="display:flex;align-items:center;gap:24px;">
-              <div style="width:220px;height:220px;position:relative">
-                <canvas id="doughnut" width="220" height="220"></canvas>
-                <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
-                  <div style="font-size:28px;font-weight:700;color:var(--accent)" id="pct">77%</div>
-                  <div style="font-size:12px;color:var(--muted)" id="raw">3847 / 5000 kWh</div>
+              </svg> Meta de Energia Mensal</h2>
+            <p class="card-subtitle">Exibição do quanto falta para a meta</p>
+            <div class="card-body-doughnut">
+              <div class="doughnut-chart-body">
+                <canvas id="doughnut"></canvas>
+                <div class="doughnut-inside">
+                  <div class="cor-p1 perc-legend" id="pct">...</div>
+                  <div class="cor-3 rest-legend" id="raw">...</div>
                 </div>
               </div>
-              <div style="text-align:left">
-                <div style="font-weight:700;color:var(--accent)">Meta: 5000 kWh</div>
-                <div class="muted" style="margin-top:8px">Faltam: <strong>1153 kWh</strong></div>
+              <div class="doughnut-legend">
+                <div class="cor-p1 meta-legend" id="meta-legend">...</div>
+                <div class="cor-2 generated-legend" id="generated-legend">...</div>
               </div>
             </div>
           </div>

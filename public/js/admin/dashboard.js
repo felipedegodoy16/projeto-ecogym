@@ -5,6 +5,7 @@ import {
   ranking_users,
   ranking_equips,
   bar_chart,
+  doghnut_chart,
 } from "../apis/dashboard.js";
 
 const formatDec = new Intl.NumberFormat("pt-BR", {
@@ -53,12 +54,6 @@ async function callActiveEquips() {
   )}% operacionais`;
 }
 
-callEnergyGenerated();
-callTotalUsers();
-callActiveEquips();
-
-setInterval(callEnergyGenerated, 100000);
-
 async function callBarChart() {
   const res = await bar_chart();
 
@@ -68,7 +63,7 @@ async function callBarChart() {
   const currentYear = new Date().getFullYear();
 
   res.forEach((el) => {
-    labels.push(el["ANO_MES"].replace(`${currentYear}-`, "").slice(0, 3));
+    labels.push(el["MES"]);
     data.push(el["KWH"]);
   });
 
@@ -82,24 +77,23 @@ async function callBarChart() {
           label: "kWh",
           data: data,
           borderRadius: 6,
-          backgroundColor: function (context) {
-            return (
-              getComputedStyle(document.documentElement).getPropertyValue(
-                "--accent"
-              ) || "#39b934"
-            );
-          },
+          backgroundColor: "#39b934",
           maxBarThickness: 44,
         },
       ],
     },
     options: {
+      animation: {
+        duration: 800,
+        easing: "easeOutCubic",
+      },
       plugins: { legend: { display: false } },
       scales: {
         x: { grid: { display: false }, ticks: { color: "#9aa19a" } },
         y: {
           grid: { color: "rgba(255,255,255,0.03)" },
           ticks: { color: "#9aa19a" },
+          beginAtZero: true,
         },
       },
     },
@@ -107,25 +101,31 @@ async function callBarChart() {
 }
 
 async function callDoghnutChart() {
-  const res = await bar_chart();
-
-  const labels = [];
-  const data = [];
-
-  const currentYear = new Date().getFullYear();
-
-  res.forEach((el) => {
-    labels.push(el["ANO_MES"].replace(`${currentYear}-`, "").slice(0, 3));
-    data.push(el["KWH"]);
-  });
+  const res = await doghnut_chart();
 
   // Doghnut
   const dough = document.getElementById("doughnut").getContext("2d");
-  const current = 3847;
-  const target = 5000;
+  const current = res;
+  const target = 5;
   const pct = Math.round((current / target) * 100);
   document.getElementById("pct").innerText = pct + "%";
-  document.getElementById("raw").innerText = current + " / " + target + " kWh";
+  document.getElementById("raw").innerText =
+    formatDec.format(current) + " / " + target + " kWh";
+
+  let goal = 0;
+  let data_chart = target - current;
+
+  if (target - current > 0) {
+    goal = `Faltam: <strong>${formatDec.format(target - current)} kWh</strong>`;
+  } else {
+    goal = `<strong>${formatDec.format(
+      current - target
+    )} kWh</strong> Acima da meta.`;
+    data_chart = target;
+  }
+
+  document.querySelector("#meta-legend").innerText = `Meta: ${target} kWh`;
+  document.querySelector("#generated-legend").innerHTML = goal;
 
   new Chart(dough, {
     type: "doughnut",
@@ -133,18 +133,27 @@ async function callDoghnutChart() {
       labels: ["progresso", "restante"],
       datasets: [
         {
-          data: [current, target - current],
-          backgroundColor: ["#39b934", "rgba(255,255,255,0.07)"],
+          data: [current, -2.5],
+          backgroundColor: ["#39b934", "rgba(255,255,255,0.1)"],
           hoverOffset: 4,
+          borderWidth: 0,
+          borderRadius: 50,
+          borderAlign: "inner",
         },
       ],
     },
-    options: { cutout: "75%", plugins: { legend: { display: false } } },
+    options: {
+      cutout: "75%",
+      animation: {
+        animateRotate: true,
+        animateScale: true,
+        duration: 1200,
+        easing: "easeOutQuart",
+      },
+      plugins: { legend: { display: false } },
+    },
   });
 }
-
-callBarChart();
-callDoghnutChart();
 
 async function callRankingUsers() {
   const rankingUsers = document.querySelector("#rankingUsers");
@@ -187,5 +196,14 @@ async function callRankingEquips() {
   });
 }
 
-callRankingUsers();
-callRankingEquips();
+document.addEventListener("DOMContentLoaded", () => {
+  callEnergyGenerated();
+  callTotalUsers();
+  callActiveEquips();
+  setInterval(callEnergyGenerated, 100000);
+
+  callBarChart();
+  callDoghnutChart();
+  callRankingUsers();
+  callRankingEquips();
+});

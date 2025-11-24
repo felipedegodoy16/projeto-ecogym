@@ -8,30 +8,21 @@
   header("Access-Control-Allow-Methods: GET");
   header("Access-Control-Allow-Headers: Content-Type");
 
+  $formatted_date = date("Y") . '-' . date("m") . '-01';
+
   // Selecting All Equips
-  $sql = "SELECT DATE_FORMAT(DATA_MOVIMENTO, '%Y-%m') AS ANO_MES, SUM(CALORIA_GASTA) AS CALORIA FROM movimento GROUP BY ANO_MES;";
+  $sql = "SELECT SUM(CALORIA_GASTA) AS CALORIA FROM movimento WHERE DATA_MOVIMENTO >= :formatted_date;";
 
   $stmt = ConnectionFactory::getConnection()->prepare($sql);
 
+  $stmt->bindValue(":formatted_date", $formatted_date, PDO::PARAM_STR);
   $stmt->execute() or die(print_r($stmt->errorInfo(), true));
-  $kcal_month = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $kcal_month = $stmt->fetchAll(PDO::FETCH_ASSOC)[0]['CALORIA'];
 
-  $month_datas = [];
-
-  $months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
-
-  $currentYear = date('Y');
-
-  foreach($kcal_month as $month) {
-    if(str_contains($month["ANO_MES"], $currentYear)) {
-      $month["MES"] = $months[intval(substr($month["ANO_MES"], 5, 3)) - 1];
-      $month["KWH"] = $month["CALORIA"] * 0.001163;
-      array_push($month_datas, $month);
-    }
-  }
+  $month_kwh = $kcal_month * 0.001163;
 
   if($stmt->rowCount()) {
-    echo json_encode($month_datas);
+    echo json_encode($month_kwh);
     exit();
   }
 
