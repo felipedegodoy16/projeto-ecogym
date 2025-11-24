@@ -167,6 +167,14 @@
       margin-bottom: 24px;
     }
 
+    /* Charts Section */
+    .charts-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
     .card {
       background: rgba(20, 20, 20, 0.8);
       border: 1px solid rgba(57, 185, 52, 0.1);
@@ -263,8 +271,6 @@
       color: #39b934;
     }
 
-    /* /////////////////////////////////////////////////////// */
-
     /* Equipment Cards */
     .equipment-grid {
       display: grid;
@@ -309,11 +315,11 @@
     }
 
     /* Chart Area */
-    /* .chart-area-container {
+    .chart-area-container {
       padding: 20px 10px;
       height: 250px;
       position: relative;
-    } */
+    }
 
     #energyChart {
       width: 100% !important;
@@ -323,6 +329,10 @@
     /* Responsive */
     @media (max-width: 1200px) {
       .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .charts-section {
         grid-template-columns: 1fr;
       }
     }
@@ -388,7 +398,7 @@
 
 <body>
   <!-- Sidebar -->
-  <!-- <aside class="sidebar">
+  <aside class="sidebar">
     <nav>
       <a href="#" class="menu-item active">
         <span class="menu-icon">📊</span>
@@ -411,7 +421,7 @@
         <span>Configurações</span>
       </a>
     </nav>
-  </aside> -->
+  </aside>
 
   <!-- Main Content -->
   <main class="main-content">
@@ -425,7 +435,7 @@
     </div>
 
     <!-- Stats Cards -->
-    <!-- <div class="stats-grid">
+    <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-icon">⚡</div>
         <div class="stat-label">Energia Total Gerada</div>
@@ -453,7 +463,7 @@
         <div class="stat-value">8.2 ton</div>
         <div class="stat-change">Equivalente a 410 árvores</div>
       </div>
-    </div> -->
+    </div>
 
     <!-- Content Grid -->
     <div class="content-grid">
@@ -527,6 +537,35 @@
       </div>
     </div>
 
+    <!-- Nova Seção: Gráficos Adicionais -->
+    <div class="charts-section">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">📊 Distribuição de Energia por Horário</h2>
+            <p class="card-subtitle">Picos de geração ao longo do dia</p>
+          </div>
+        </div>
+
+        <div class="chart-area-container">
+          <canvas id="hourlyChart" width="400" height="200"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">🎯 Metas de Energia Mensal</h2>
+            <p class="card-subtitle">Progresso em relação à meta estabelecida</p>
+          </div>
+        </div>
+
+        <div class="chart-area-container">
+          <canvas id="goalChart" width="400" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+
     <!-- Equipamentos -->
     <div class="card">
       <div class="card-header">
@@ -583,15 +622,15 @@
   </main>
 
   <script>
-    // Dados do gráfico
+    // Dados do gráfico semanal
     const dias = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'];
     const energiaGerada = [145, 168, 132, 185, 156, 98, 67];
 
-    // Configuração do Canvas
+    // Configuração do Canvas - Gráfico Semanal
     const canvas = document.getElementById('energyChart');
     const ctx = canvas.getContext('2d');
 
-    // Função para desenhar o gráfico
+    // Função para desenhar o gráfico semanal
     function desenharGrafico() {
       const width = canvas.width;
       const height = canvas.height;
@@ -599,10 +638,8 @@
       const chartWidth = width - padding * 2;
       const chartHeight = height - padding * 2;
 
-      // Limpa o canvas
       ctx.clearRect(0, 0, width, height);
 
-      // Valores máximo e mínimo
       const maxValue = Math.max(...energiaGerada);
       const minValue = 0;
 
@@ -616,7 +653,6 @@
         ctx.lineTo(width - padding, y);
         ctx.stroke();
 
-        // Labels do eixo Y
         const value = maxValue - (maxValue / 5) * i;
         ctx.fillStyle = '#666';
         ctx.font = '11px Arial';
@@ -624,7 +660,7 @@
         ctx.fillText(Math.round(value) + ' kWh', padding - 10, y + 4);
       }
 
-      // Desenha área preenchida (gradiente)
+      // Desenha área preenchida
       const gradient = ctx.createLinearGradient(0, padding, 0, height - padding);
       gradient.addColorStop(0, 'rgba(57, 185, 52, 0.4)');
       gradient.addColorStop(1, 'rgba(57, 185, 52, 0.05)');
@@ -635,12 +671,7 @@
       energiaGerada.forEach((valor, index) => {
         const x = padding + (chartWidth / (energiaGerada.length - 1)) * index;
         const y = height - padding - ((valor - minValue) / (maxValue - minValue)) * chartHeight;
-
-        if (index === 0) {
-          ctx.lineTo(x, y);
-        } else {
-          ctx.lineTo(x, y);
-        }
+        ctx.lineTo(x, y);
       });
 
       ctx.lineTo(width - padding, height - padding);
@@ -673,19 +704,16 @@
         const x = padding + (chartWidth / (energiaGerada.length - 1)) * index;
         const y = height - padding - ((valor - minValue) / (maxValue - minValue)) * chartHeight;
 
-        // Ponto externo
         ctx.beginPath();
         ctx.arc(x, y, 6, 0, Math.PI * 2);
         ctx.fillStyle = '#39b934';
         ctx.fill();
 
-        // Ponto interno
         ctx.beginPath();
         ctx.arc(x, y, 3, 0, Math.PI * 2);
         ctx.fillStyle = '#0a0a0a';
         ctx.fill();
 
-        // Label do dia
         ctx.fillStyle = '#888';
         ctx.font = '11px Arial';
         ctx.textAlign = 'center';
@@ -693,17 +721,119 @@
       });
     }
 
-    // Desenha o gráfico quando a página carregar
-    window.addEventListener('load', () => {
-      desenharGrafico();
-    });
+    // Gráfico de Barras - Energia por Horário
+    function desenharGraficoHorario() {
+      const canvas2 = document.getElementById('hourlyChart');
+      const ctx2 = canvas2.getContext('2d');
+      const width = canvas2.width;
+      const height = canvas2.height;
+      const padding = 40;
 
-    // Redesenha ao redimensionar
-    window.addEventListener('resize', () => {
-      desenharGrafico();
-    });
+      const horarios = ['6h', '9h', '12h', '15h', '18h', '21h'];
+      const energiaPorHora = [45, 120, 85, 95, 180, 75];
+      const maxValue = Math.max(...energiaPorHora);
 
-    // Interatividade - mostra valor ao passar o mouse
+      ctx2.clearRect(0, 0, width, height);
+
+      // Grade
+      ctx2.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+      ctx2.lineWidth = 1;
+      for (let i = 0; i <= 5; i++) {
+        const y = padding + ((height - padding * 2) / 5) * i;
+        ctx2.beginPath();
+        ctx2.moveTo(padding, y);
+        ctx2.lineTo(width - padding, y);
+        ctx2.stroke();
+      }
+
+      // Barras
+      const barWidth = (width - padding * 2) / horarios.length - 20;
+      horarios.forEach((hora, index) => {
+        const x = padding + (width - padding * 2) / horarios.length * index + 10;
+        const barHeight = ((energiaPorHora[index] / maxValue) * (height - padding * 2));
+        const y = height - padding - barHeight;
+
+        // Gradiente da barra
+        const gradient = ctx2.createLinearGradient(0, y, 0, height - padding);
+        gradient.addColorStop(0, '#39b934');
+        gradient.addColorStop(1, '#2ca727');
+
+        ctx2.fillStyle = gradient;
+        ctx2.fillRect(x, y, barWidth, barHeight);
+
+        // Valor acima da barra
+        ctx2.fillStyle = '#39b934';
+        ctx2.font = 'bold 12px Arial';
+        ctx2.textAlign = 'center';
+        ctx2.fillText(energiaPorHora[index] + ' kWh', x + barWidth / 2, y - 8);
+
+        // Label do horário
+        ctx2.fillStyle = '#888';
+        ctx2.font = '11px Arial';
+        ctx2.fillText(hora, x + barWidth / 2, height - padding + 20);
+      });
+    }
+
+    // Gráfico de Meta - Circular
+    function desenharGraficoMeta() {
+      const canvas3 = document.getElementById('goalChart');
+      const ctx3 = canvas3.getContext('2d');
+      const width = canvas3.width;
+      const height = canvas3.height;
+
+      const centerX = width / 2;
+      const centerY = height / 2;
+      const radius = 80;
+
+      const metaMensal = 5000; // kWh
+      const energiaAtual = 3847; // kWh
+      const percentual = (energiaAtual / metaMensal) * 100;
+      const angulo = (percentual / 100) * 2 * Math.PI - Math.PI / 2;
+
+      ctx3.clearRect(0, 0, width, height);
+
+      // Círculo de fundo
+      ctx3.beginPath();
+      ctx3.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+      ctx3.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+      ctx3.lineWidth = 20;
+      ctx3.stroke();
+
+      // Círculo de progresso
+      ctx3.beginPath();
+      ctx3.arc(centerX, centerY, radius, -Math.PI / 2, angulo);
+      const gradient = ctx3.createLinearGradient(centerX - radius, centerY, centerX + radius, centerY);
+      gradient.addColorStop(0, '#39b934');
+      gradient.addColorStop(1, '#2ca727');
+      ctx3.strokeStyle = gradient;
+      ctx3.lineWidth = 20;
+      ctx3.lineCap = 'round';
+      ctx3.stroke();
+
+      // Texto central - Percentual
+      ctx3.fillStyle = '#39b934';
+      ctx3.font = 'bold 32px Arial';
+      ctx3.textAlign = 'center';
+      ctx3.textBaseline = 'middle';
+      ctx3.fillText(Math.round(percentual) + '%', centerX, centerY - 10);
+
+      // Texto - Meta
+      ctx3.fillStyle = '#888';
+      ctx3.font = '12px Arial';
+      ctx3.fillText(energiaAtual + ' / ' + metaMensal + ' kWh', centerX, centerY + 20);
+
+      // Labels laterais
+      ctx3.fillStyle = '#39b934';
+      ctx3.font = 'bold 14px Arial';
+      ctx3.textAlign = 'left';
+      ctx3.fillText('Meta: ' + metaMensal + ' kWh', 20, height - 30);
+
+      ctx3.fillStyle = '#666';
+      ctx3.font = '12px Arial';
+      ctx3.fillText('Faltam: ' + (metaMensal - energiaAtual) + ' kWh', 20, height - 10);
+    }
+
+    // Interatividade no gráfico semanal
     canvas.addEventListener('mousemove', (e) => {
       const rect = canvas.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -714,7 +844,6 @@
       const chartHeight = canvas.height - padding * 2;
       const maxValue = Math.max(...energiaGerada);
 
-      // Verifica se está próximo de algum ponto
       energiaGerada.forEach((valor, index) => {
         const pointX = padding + (chartWidth / (energiaGerada.length - 1)) * index;
         const pointY = canvas.height - padding - ((valor / maxValue)) * chartHeight;
@@ -723,11 +852,8 @@
 
         if (distance < 15) {
           canvas.style.cursor = 'pointer';
-
-          // Redesenha tudo
           desenharGrafico();
 
-          // Destaca o ponto
           const ctx = canvas.getContext('2d');
           ctx.beginPath();
           ctx.arc(pointX, pointY, 8, 0, Math.PI * 2);
@@ -735,7 +861,6 @@
           ctx.lineWidth = 2;
           ctx.stroke();
 
-          // Mostra tooltip
           ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
           ctx.fillRect(pointX - 40, pointY - 35, 80, 25);
 
@@ -754,7 +879,20 @@
       canvas.style.cursor = 'default';
     });
 
-    // Atualiza valores em tempo real (simulação)
+    // Inicializa todos os gráficos
+    window.addEventListener('load', () => {
+      desenharGrafico();
+      desenharGraficoHorario();
+      desenharGraficoMeta();
+    });
+
+    window.addEventListener('resize', () => {
+      desenharGrafico();
+      desenharGraficoHorario();
+      desenharGraficoMeta();
+    });
+
+    // Atualiza valores em tempo real
     setInterval(() => {
       const energyValue = document.querySelector('.stat-value');
       if (energyValue && energyValue.textContent.includes('kWh')) {

@@ -89,6 +89,38 @@
           </div>
         </div>
 
+        <!-- Charts Area -->
+        <div class="charts-section">
+          <div class="card">
+            <h2 class="card-title"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#39b934">
+                <path d="M200-120q-33 0-56.5-23.5T120-200v-600q0-17 11.5-28.5T160-840q17 0 28.5 11.5T200-800v600h600q17 0 28.5 11.5T840-160q0 17-11.5 28.5T800-120H200Zm80-120q-17 0-28.5-11.5T240-280v-280q0-17 11.5-28.5T280-600h80q17 0 28.5 11.5T400-560v280q0 17-11.5 28.5T360-240h-80Zm200 0q-17 0-28.5-11.5T440-280v-480q0-17 11.5-28.5T480-800h80q17 0 28.5 11.5T600-760v480q0 17-11.5 28.5T560-240h-80Zm200 0q-17 0-28.5-11.5T640-280v-120q0-17 11.5-28.5T680-440h80q17 0 28.5 11.5T800-400v120q0 17-11.5 28.5T760-240h-80Z" />
+              </svg> Distribuição de Energia por Horário</h2>
+            <p class="card-subtitle">Maiores geradores de energia</p>
+            <div class="chart-wrap">
+              <canvas id="barChart"></canvas>
+            </div>
+          </div>
+          <div class="card" style="display:flex;flex-direction:column;">
+            <h2 class="card-title"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#39b934">
+                <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-130 75-234t199-145q29-10 53.5 7t24.5 46q0 20-11.5 36.5T391-747q-86 27-138.5 100.5T200-480q0 117 81.5 198.5T480-200q52 0 100.5-18t86.5-52q15-14 36.5-14t36.5 14q23 21 24 47.5T742-176q-54 47-120.5 71.5T480-80Zm280-400q0-92-53-165.5T568-747q-18-6-29.5-22.5T527-806q0-29 24.5-46t53.5-7q125 42 200 146t75 233q0 18-1.5 36.5T873-403q-5 29-29.5 41.5T790-360q-19-7-29.5-25.5T754-424q3-17 4.5-30t1.5-26Z" />
+              </svg> Metas de Energia Mensal</h2>
+            <p class="card-subtitle">Maiores geradores de energia</p>
+            <div style="display:flex;align-items:center;gap:24px;">
+              <div style="width:220px;height:220px;position:relative">
+                <canvas id="doughnut" width="220" height="220"></canvas>
+                <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+                  <div style="font-size:28px;font-weight:700;color:var(--accent)" id="pct">77%</div>
+                  <div style="font-size:12px;color:var(--muted)" id="raw">3847 / 5000 kWh</div>
+                </div>
+              </div>
+              <div style="text-align:left">
+                <div style="font-weight:700;color:var(--accent)">Meta: 5000 kWh</div>
+                <div class="muted" style="margin-top:8px">Faltam: <strong>1153 kWh</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="content-grid">
           <!-- Ranking de Alunos -->
           <div class="card" id="rankingUsers">
@@ -103,16 +135,14 @@
           </div>
 
           <!-- Atividade Semanal -->
-          <div class="card">
+          <div class="card" id="rankingEquips">
             <div class="card-header">
               <div>
-                <h2 class="card-title">📅 Energia Gerada - Últimos 7 Dias</h2>
-                <p class="card-subtitle">Acompanhe a produção diária de energia</p>
+                <h2 class="card-title"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#39b934">
+                    <path d="M480-160q75 0 127.5-52.5T660-340q0-75-52.5-127.5T480-520q-75 0-127.5 52.5T300-340q0 75 52.5 127.5T480-160ZM363-572q20-11 42.5-17.5T451-598L350-800H250l113 228ZM256-208q-17-29-26.5-62.5T220-340q0-36 9.5-69.5T256-472q-42 14-69 49.5T160-340q0 47 27 82.5t69 49.5Zm448 0q42-14 69-49.5t27-82.5q0-47-27-82.5T704-472q17 29 26.5 62.5T740-340q0 36-9.5 69.5T704-208ZM480-80q-40 0-76.5-11.5T336-123q-9 2-18 2.5t-19 .5q-91 0-155-64T80-339q0-87 58-149t143-69L149-822q-10-20 1.5-39t34.5-19h166q23 0 41.5 12t29.5 32l58 116 58-116q11-20 29.5-32t41.5-12h166q23 0 34.5 19t1.5 39L680-559q85 8 142.5 70T880-340q0 92-64 156t-156 64q-9 0-18.5-.5T623-123q-31 20-67 31.5T480-80Zm0-260ZM363-572 250-800l113 228Zm117 286-49 37q-6 5-12 .5t-4-11.5l19-61-49-35q-6-5-4-11.5t10-6.5h60l19-65q2-7 10-7t10 7l19 65h60q8 0 10 6.5t-4 11.5l-49 35 19 61q2 7-4 11.5t-12-.5l-49-37Zm117-286 114-228H610l-85 170 19 38q14 4 27 8.5t26 11.5Z" />
+                  </svg> Top 5 Equipamentos</h2>
+                <p class="card-subtitle">Nossos equipamentos campeões</p>
               </div>
-            </div>
-
-            <div class="chart-area-container">
-              <canvas id="energyChart" width="400" height="200"></canvas>
             </div>
           </div>
         </div>
@@ -454,6 +484,8 @@
       </div>
     </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <script type="module" src="./js/admin/sidenav.js"></script>
   <script type="module" src="./js/admin/dashboard.js"></script>

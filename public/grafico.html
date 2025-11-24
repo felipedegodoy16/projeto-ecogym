@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exemplo de Gráfico com Chart.js</title>
+  <!-- Importa o Chart.js via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <h2>Gráfico de Vendas Mensais</h2>
+  <!-- O canvas onde o gráfico será desenhado -->
+  <canvas id="meuGrafico" width="600" height="400"></canvas>
+
+  <script>
+    // Pega o contexto 2D do canvas
+    const ctx = document.getElementById('meuGrafico').getContext('2d');
+
+    // Dados do gráfico
+    const data = {
+      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+      datasets: [{
+        label: 'Vendas (unidades)',
+        data: [65, 59, 80, 81, 56, 55],
+        backgroundColor: [
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(75, 192, 192, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    };
+
+    // Opções do gráfico
+    const options = {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true // eixo Y começa em zero
+        }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Vendas por mês'
+        },
+        tooltip: {
+          enabled: true
+        }
+      }
+    };
+
+    // Cria o gráfico
+    const meuGrafico = new Chart(ctx, {
+      type: 'bar', // tipo: barra
+      data: data,
+      options: options
+    });
+  </script>
+</body>
+
+</html>
