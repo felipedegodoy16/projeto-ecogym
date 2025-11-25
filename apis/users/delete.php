@@ -12,6 +12,11 @@
 
   $id = $data['id'];
 
+  if($_SESSION['id'] === $id) {
+    echo json_encode(["status" => "error", "title" => "Error!", "message" => "Não é possível excluir o seu próprio usuário."]);
+    exit();
+  }
+
   $user = new User();
   $userDAO = new UserDAO($user);
 

@@ -36,3 +36,21 @@ links_nav.forEach((link) => {
     }
   }
 });
+
+// Function Dropdown
+const btn = document.getElementById("userMenuBtn");
+const dropdown = document.getElementById("userDropdown");
+
+if (btn) {
+  btn.addEventListener("click", () => {
+    dropdown.style.display =
+      dropdown.style.display === "flex" ? "none" : "flex";
+  });
+}
+
+// fechar ao clicar fora
+document.addEventListener("click", (e) => {
+  if (btn && !btn.contains(e.target) && !dropdown.contains(e.target)) {
+    dropdown.style.display = "none";
+  }
+});

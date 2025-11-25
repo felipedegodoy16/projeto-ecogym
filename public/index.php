@@ -37,7 +37,21 @@
           <li><a class="font-1-xs" href="./contact-new.php">Fale Conosco</a></li>
           <?php 
             if($_SESSION && $_SESSION['logged']) {
-              echo '<li><a href="?logout=1" class="button">Sair</a></li>';
+              echo '<li>
+                      <div class="user-menu font-1-xs">
+                        <button class="user-btn" id="userMenuBtn">
+                          <div class="img-user"><img src="./assets/academia.jpg"></div>' . $_SESSION['name'] . ' ▾
+                        </button> 
+
+                        <div class="user-dropdown" id="userDropdown">
+                          <a href="/perfil">Meu Perfil</a>
+                          <a href="/treinos">Meus Treinos</a>' . 
+                          (($_SESSION && $_SESSION['logged'] && $_SESSION['permissao'] === "A") ? '<a href="admin.php">Admin</a>' : '')
+                          . '
+                          <a href="?logout=1" class="logout">Sair</a>
+                        </div>
+                      </div>
+                    </li>';
             } else {
               echo '<li><a href="./login.php" class="button">Entrar</a></li>';
             }

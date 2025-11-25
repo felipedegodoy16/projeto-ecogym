@@ -106,7 +106,7 @@ async function handleSubmit(e) {
       return;
     }
 
-    window.location.href = `http://localhost/projeto-ecogym/apis/files/start_session.php?id=${res["id"]}&email=${res["email"]}&permissao=${res["permissao"]}`;
+    window.location.href = `http://localhost/projeto-ecogym/apis/files/start_session.php?id=${res["id"]}&name=${res["name"]}&email=${res["email"]}&permissao=${res["permissao"]}`;
 
     return;
   }

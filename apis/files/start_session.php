@@ -9,6 +9,7 @@
 
   $_SESSION['logged'] = true;
   $_SESSION['id'] = $_GET['id'];
+  $_SESSION['name'] = $_GET['name'];
   $_SESSION['email'] = $_GET['email'];
   $_SESSION['permissao'] = $_GET['permissao'];
 
