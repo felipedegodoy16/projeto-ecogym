@@ -248,7 +248,7 @@ function closeCardFocus(card_focus_bg) {
   card_focus.classList.remove("card-maintenance");
 
   const ul_address = document.querySelector("#address-informations-focus");
-  ul_address.classList.toggle("oppen-card-address");
+  ul_address.classList.remove("oppen-card-address");
 }
 
 // Function Build Card User

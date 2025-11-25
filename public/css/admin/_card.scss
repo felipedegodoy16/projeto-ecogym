@@ -91,7 +91,12 @@
 }
 
 .address-informations {
-  cursor: pointer !important;
+  cursor: pointer;
+  flex-direction: row !important;
+  gap: 0.5rem;
+  span {
+    opacity: 0.3;
+  }
 }
 
 @keyframes close_address {

@@ -1,0 +1,49 @@
+// Media
+@import "responsive/media";
+
+// Vars and Tipographys
+@import "utilitys/colors_light";
+@import "utilitys/tipography";
+
+// Global
+@import "global/global";
+
+// Utilitys
+@import "utilitys/button";
+@import "utilitys/form";
+@import "utilitys/modal";
+@import "utilitys/loading";
+@import "utilitys/table";
+
+// Header
+@import "header/header";
+@import "footer/footer";
+
+// Main
+@import "main/introduction";
+@import "main/stats";
+@import "main/goal";
+@import "main/datas";
+@import "main/equipments";
+@import "main/plans";
+
+// Hero
+@import "utilitys/hero";
+
+// About Us
+@import "about/about-us";
+
+// Contact
+@import "contact/contact";
+@import "contact/faq";
+
+// Login
+@import "login/login";
+
+// Admin
+@import "admin/admin";
+@import "admin/card";
+@import "admin/dashboard";
+
+// Animations
+@import "animations/animations";

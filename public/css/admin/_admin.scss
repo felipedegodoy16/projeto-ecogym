@@ -17,6 +17,10 @@ main#admin {
   background: $cor-12;
   transition: transform 0.3s ease-in-out;
   ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
     li a {
       display: flex;
       align-items: center;
@@ -26,13 +30,19 @@ main#admin {
       border-radius: 0 10px 10px 0;
       &:hover,
       &.active-link-admin {
-        background-color: rgba($color: #fff, $alpha: 0.09);
-        box-shadow: inset 2px 0 0 $cor-p1;
+        background-color: rgba($color: $cor-p1, $alpha: 0.1);
+        box-shadow: inset 3px 0 0 $cor-p1;
       }
       svg {
         margin-right: 0.625rem;
         fill: $cor-p1;
       }
+    }
+    li:last-child {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
     }
   }
   @include device(d) {

@@ -54,7 +54,6 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 1.5rem;
-    margin-bottom: 1.5rem;
     @include device(t) {
       grid-template-columns: 1fr;
     }
@@ -158,13 +157,12 @@
     align-items: center;
     gap: 1rem;
     padding: 1rem;
-    background: rgba($color: $cor-12, $alpha: 0.3);
     border-radius: 0.75rem;
     margin-bottom: 0.75rem;
-    border: 1px solid $cor-10;
+    border: 2px solid $cor-10;
     transition: all 0.3s ease;
     &:hover {
-      background: rgba($color: $cor-p6, $alpha: 0.5);
+      background: rgba($color: $cor-p1, $alpha: 0.1);
       border-color: $cor-p6;
       transform: translateX(5px);
     }
@@ -210,7 +208,7 @@
 
   .ranking-detail {
     font-size: 0.75rem;
-    color: $cor-7;
+    color: $cor-6;
     margin-top: 0.25rem;
   }
 
@@ -248,5 +246,31 @@
 
   .stat-card:nth-child(3) {
     animation-delay: 0.3s;
+  }
+}
+
+.btn-css-theme {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1001;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid $cor-p1;
+  background-color: $cor-12;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: $cor-p1;
+    svg {
+      fill: $cor-p6;
+    }
+    .theme-icon-moon {
+      fill: $cor-12;
+    }
   }
 }

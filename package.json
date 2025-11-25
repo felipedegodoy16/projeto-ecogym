@@ -7,7 +7,8 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "observar": "sass --watch public/css/style.scss public/css/style.css"
+    "observar": "sass --watch public/css/style.scss public/css/style.css",
+    "observar-light": "sass --watch public/css/style-light.scss public/css/style-light.css"
   },
   "devDependencies": {
     "sass": "^1.91.0"
