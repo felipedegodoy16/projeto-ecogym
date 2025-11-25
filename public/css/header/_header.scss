@@ -149,14 +149,14 @@
 }
 
 .user-btn:hover {
-  /* background: #22c55e; */
+  color: $cor-p4;
 }
 
 .img-user img {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 2px solid $cor-p1;
+  border: 2px solid currentColor;
 }
 
 .user-dropdown {
