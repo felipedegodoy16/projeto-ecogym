@@ -73,17 +73,36 @@ function comparePassword() {
   const password = document.querySelector("#register-password");
   const passwordConfirm = document.querySelector("#register-password-confirm");
 
-  const dataWarning = passwordConfirm.parentNode.querySelector(".warning-data");
+  const dataWarningPassword =
+    password.parentNode.querySelector(".warning-data");
+
+  const dataWarningCompare =
+    passwordConfirm.parentNode.querySelector(".warning-data");
+
+  if (password.value.length < 8) {
+    password.classList.add("warning-field");
+
+    dataWarningPassword.innerText = "Mínimo 8 caracteres";
+    dataWarningPassword.style.display = "block";
+
+    return;
+  } else {
+    password.classList.remove("warning-field");
+
+    dataWarningPassword.innerText = "Preencha este campo";
+    dataWarningPassword.style.display = "none";
+  }
+
   if (passwordConfirm.value !== password.value) {
     passwordConfirm.classList.add("warning-field");
 
-    dataWarning.innerText = "As senhas divergem";
-    dataWarning.style.display = "block";
+    dataWarningCompare.innerText = "As senhas divergem";
+    dataWarningCompare.style.display = "block";
   } else {
     passwordConfirm.classList.remove("warning-field");
 
-    dataWarning.innerText = "Preencha este campo";
-    dataWarning.style.display = "none";
+    dataWarningCompare.innerText = "Preencha este campo";
+    dataWarningCompare.style.display = "none";
   }
 }
 
@@ -124,6 +143,15 @@ async function handleSubmit(e) {
   }
 
   const datas = Object.fromEntries(new FormData(e.target));
+  if (datas["register-password"].length < 8) {
+    showModal(
+      "error",
+      "Senha Frágil!",
+      "A senha precisa de no mínimo 8 caracteres."
+    );
+    return;
+  }
+
   const res = await insert(datas);
 
   showModal(res["status"], res["title"], res["message"]);

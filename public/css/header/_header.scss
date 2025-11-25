@@ -165,7 +165,7 @@
   margin-top: 0.5rem;
   background: $cor-12;
   border: 2px solid $cor-10;
-  width: 180px;
+  min-width: 180px;
   border-radius: 0.625rem;
   display: none;
   flex-direction: column;
@@ -173,6 +173,10 @@
   animation: fadeDown 0.2s ease;
   z-index: 100;
   padding: 0.25rem 0;
+  @include device(d) {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 .user-dropdown a {
@@ -182,6 +186,9 @@
   transition: all 0.3s ease-in-out;
   &::after {
     display: none;
+  }
+  @include device(d) {
+    padding: 1rem 0.625rem;
   }
 }
 
@@ -200,11 +207,9 @@
 @keyframes fadeDown {
   from {
     opacity: 0;
-    transform: translateY(-5px);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }

@@ -1189,7 +1189,7 @@ tbody tr:nth-child(10) {
   margin-top: 0.5rem;
   background: #000;
   border: 2px solid #2e2e2e;
-  width: 180px;
+  min-width: 180px;
   border-radius: 0.625rem;
   display: none;
   flex-direction: column;
@@ -1197,6 +1197,12 @@ tbody tr:nth-child(10) {
   animation: fadeDown 0.2s ease;
   z-index: 100;
   padding: 0.25rem 0;
+}
+@media screen and (max-width: 1024px) {
+  .user-dropdown {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 .user-dropdown a {
@@ -1207,6 +1213,11 @@ tbody tr:nth-child(10) {
 }
 .user-dropdown a::after {
   display: none;
+}
+@media screen and (max-width: 1024px) {
+  .user-dropdown a {
+    padding: 1rem 0.625rem;
+  }
 }
 
 .user-dropdown a:hover {
@@ -1224,11 +1235,9 @@ tbody tr:nth-child(10) {
 @keyframes fadeDown {
   from {
     opacity: 0;
-    transform: translateY(-5px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 .footer-bg {
