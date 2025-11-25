@@ -37,6 +37,20 @@
       @include device(m) {
         grid-template-columns: 1fr;
       }
+      &#address-informations-focus {
+        max-height: 0;
+        grid-column: 1/-1;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+        &.oppen-card-address {
+          min-height: fit-content;
+        }
+        #number-user-card-focus {
+          flex-direction: column;
+          align-items: flex-start;
+          grid-column: 2;
+        }
+      }
       li {
         display: flex;
         flex-direction: column;
@@ -53,7 +67,8 @@
           margin-left: 1.25rem;
         }
       }
-      .aditional-informations {
+      .aditional-informations,
+      .address-informations {
         grid-column: 1/-1;
         padding: 0;
         margin-top: 1rem;
@@ -72,6 +87,34 @@
         }
       }
     }
+  }
+}
+
+.address-informations {
+  cursor: pointer !important;
+}
+
+@keyframes close_address {
+  0% {
+    height: 100%;
+    opacity: 1;
+  }
+  100% {
+    height: 0px;
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes open_address {
+  0% {
+    height: 0px;
+    opacity: 0;
+    display: grid;
+  }
+  100% {
+    height: 100%;
+    opacity: 1;
   }
 }
 

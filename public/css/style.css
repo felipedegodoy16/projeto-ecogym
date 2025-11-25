@@ -2488,6 +2488,20 @@ main#admin {
     grid-template-columns: 1fr;
   }
 }
+.card-focus-bg .card-user .card-body#address-informations-focus {
+  max-height: 0;
+  grid-column: 1/-1;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.card-focus-bg .card-user .card-body#address-informations-focus.oppen-card-address {
+  min-height: fit-content;
+}
+.card-focus-bg .card-user .card-body#address-informations-focus #number-user-card-focus {
+  flex-direction: column;
+  align-items: flex-start;
+  grid-column: 2;
+}
 .card-focus-bg .card-user .card-body li {
   display: flex;
   flex-direction: column;
@@ -2504,7 +2518,8 @@ main#admin {
 .card-focus-bg .card-user .card-body li .card-actions {
   margin-left: 1.25rem;
 }
-.card-focus-bg .card-user .card-body .aditional-informations {
+.card-focus-bg .card-user .card-body .aditional-informations,
+.card-focus-bg .card-user .card-body .address-informations {
   grid-column: 1/-1;
   padding: 0;
   margin-top: 1rem;
@@ -2512,7 +2527,8 @@ main#admin {
   padding-left: 18px;
   position: relative;
 }
-.card-focus-bg .card-user .card-body .aditional-informations::before {
+.card-focus-bg .card-user .card-body .aditional-informations::before,
+.card-focus-bg .card-user .card-body .address-informations::before {
   content: "";
   position: absolute;
   width: 12px;
@@ -2523,6 +2539,32 @@ main#admin {
   transform: translateY(-50%);
 }
 
+.address-informations {
+  cursor: pointer !important;
+}
+
+@keyframes close_address {
+  0% {
+    height: 100%;
+    opacity: 1;
+  }
+  100% {
+    height: 0px;
+    opacity: 0;
+    display: none;
+  }
+}
+@keyframes open_address {
+  0% {
+    height: 0px;
+    opacity: 0;
+    display: grid;
+  }
+  100% {
+    height: 100%;
+    opacity: 1;
+  }
+}
 .card-focus-bg-active {
   display: flex;
 }
@@ -2805,6 +2847,7 @@ main#admin {
 }
 #dashboard-section .card-body-doughnut {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 1.5rem;
 }
@@ -2836,6 +2879,10 @@ main#admin {
 }
 #dashboard-section .doughnut-legend .generated-legend {
   margin-top: 0.5rem;
+}
+#dashboard-section canvas {
+  height: auto;
+  max-width: 100%;
 }
 #dashboard-section .ranking-item {
   display: flex;

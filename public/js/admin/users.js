@@ -174,6 +174,20 @@ function openFocusCard(datas) {
   const situation_card_focus = card_focus_bg.querySelector(
     "#situation-user-card-focus"
   );
+  const cep_card_focus = card_focus_bg.querySelector("#cep-user-card-focus");
+  const state_card_focus = card_focus_bg.querySelector(
+    "#state-user-card-focus"
+  );
+  const city_card_focus = card_focus_bg.querySelector("#city-user-card-focus");
+  const bairro_card_focus = card_focus_bg.querySelector(
+    "#bairro-user-card-focus"
+  );
+  const street_card_focus = card_focus_bg.querySelector(
+    "#street-user-card-focus"
+  );
+  const number_card_focus = card_focus_bg.querySelector(
+    "#number-user-card-focus"
+  );
 
   card_focus_bg.classList.add("card-focus-bg-active");
   card_focus.classList.add(class_situation);
@@ -183,6 +197,12 @@ function openFocusCard(datas) {
   dataNasc_card_focus.innerHTML = `<span>Data Nasc.:</span> ${data_nasc_text}`;
   phone_card_focus.innerHTML = `<span>Telefone:</span> ${phone_text}`;
   email_card_focus.innerHTML = `<span>Email:</span> ${datas["EMAIL"]}`;
+  cep_card_focus.innerHTML = `<span>CEP:</span> ${datas["CEP"]}`;
+  state_card_focus.innerHTML = `<span>Estado:</span> ${datas["UF"]}`;
+  city_card_focus.innerHTML = `<span>Cidade:</span> ${datas["CIDADE"]}`;
+  bairro_card_focus.innerHTML = `<span>Bairro:</span> ${datas["BAIRRO"]}`;
+  street_card_focus.innerHTML = `<span>Rua:</span> ${datas["LOGRADOURO"]}`;
+  number_card_focus.innerHTML = `<span>Número:</span> ${datas["NUMERO_RESIDENCIAL"]}`;
   situation_card_focus.innerHTML = situation;
 
   card_focus_bg.addEventListener("click", function (e) {
@@ -226,6 +246,9 @@ function closeCardFocus(card_focus_bg) {
   card_focus.classList.remove("card-active");
   card_focus.classList.remove("card-inactive");
   card_focus.classList.remove("card-maintenance");
+
+  const ul_address = document.querySelector("#address-informations-focus");
+  ul_address.classList.toggle("oppen-card-address");
 }
 
 // Function Build Card User

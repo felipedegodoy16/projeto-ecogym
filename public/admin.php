@@ -436,6 +436,18 @@
           <li class="font-1-xs cor-8 aditional-informations">Dados Contratuais</li>
           <li class="font-2-xs cor-4"><span>Plano:</span> EcoGym</li>
           <li class="font-2-xs cor-4 card-situation"><span class="card-tag" id="situation-user-card-focus"></span></li>
+
+          <li class="font-1-xs cor-8 address-informations" id="li-address-informations">Dados de Endereço</li>
+
+          <ul class="card-body" id="address-informations-focus">
+            <li class="font-2-xs cor-4" id="cep-user-card-focus"></li>
+            <li class="font-2-xs cor-4" id="state-user-card-focus"></li>
+            <li class="font-2-xs cor-4" id="city-user-card-focus"></li>
+            <li class="font-2-xs cor-4" id="bairro-user-card-focus"></li>
+            <li class="font-2-xs cor-4" id="street-user-card-focus"></li>
+            <li class="font-2-xs cor-4" id="number-user-card-focus"></li>
+          </ul>
+
           <li class="font-2-xs cor-4"><span>Ações:</span> <a class="card-actions" id="edit-user">Editar</a><a class="card-actions" id="delete-user">Excluir</a></li>
         </ul>
       </div>

@@ -26,5 +26,9 @@ btns_visible_form.forEach((btn) => {
 
 // Adding Event to Page
 document.addEventListener("DOMContentLoaded", () => {
-  // callRanking();
+  const active_address = document.querySelector("#li-address-informations");
+  const ul_address = document.querySelector("#address-informations-focus");
+  active_address.addEventListener("click", () => {
+    ul_address.classList.toggle("oppen-card-address");
+  });
 });

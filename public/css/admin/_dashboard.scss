@@ -110,6 +110,7 @@
 
   .card-body-doughnut {
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 1.5rem;
   }
@@ -146,10 +147,10 @@
     }
   }
 
-  // canvas {
-  //   height: auto;
-  //   max-width: 100%;
-  // }
+  canvas {
+    height: auto;
+    max-width: 100%;
+  }
 
   // Ranking Items
   .ranking-item {

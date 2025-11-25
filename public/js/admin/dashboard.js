@@ -60,8 +60,6 @@ async function callBarChart() {
   const labels = [];
   const data = [];
 
-  const currentYear = new Date().getFullYear();
-
   res.forEach((el) => {
     labels.push(el["MES"]);
     data.push(el["KWH"]);
@@ -93,7 +91,6 @@ async function callBarChart() {
         y: {
           grid: { color: "rgba(255,255,255,0.03)" },
           ticks: { color: "#9aa19a" },
-          beginAtZero: true,
         },
       },
     },
@@ -121,7 +118,7 @@ async function callDoghnutChart() {
     goal = `<strong>${formatDec.format(
       current - target
     )} kWh</strong> Acima da meta.`;
-    data_chart = target;
+    data_chart = 0;
   }
 
   document.querySelector("#meta-legend").innerText = `Meta: ${target} kWh`;
@@ -133,7 +130,7 @@ async function callDoghnutChart() {
       labels: ["progresso", "restante"],
       datasets: [
         {
-          data: [current, -2.5],
+          data: [current, data_chart],
           backgroundColor: ["#39b934", "rgba(255,255,255,0.1)"],
           hoverOffset: 4,
           borderWidth: 0,
