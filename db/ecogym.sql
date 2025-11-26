@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24/11/2025 às 23:06
+-- Tempo de geração: 27/11/2025 às 00:13
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -135,21 +135,21 @@ CREATE TABLE `equipamento` (
 --
 
 INSERT INTO `equipamento` (`ID_EQUIPAMENTO`, `NOME`, `KCAL_HORA`, `FK_ACADEMIA_ID`, `SITUACAO`, `ATIVO`) VALUES
-(1, 'Bicicleta Spinning A1', 420, 1, 'L', 'S'),
-(2, 'Esteira Pro Run', 520, 1, 'L', 'S'),
-(3, 'Elíptico MaxFit', 460, 1, 'L', 'S'),
-(4, 'Remo Indoor R5', 600, 1, 'L', 'S'),
-(5, 'Bicicleta Horizontal HR1', 380, 1, 'L', 'S'),
-(6, 'Step Eletrônico S200', 300, 1, 'L', 'S'),
-(7, 'Escada PowerClimb', 650, 1, 'L', 'S'),
-(8, 'Bike Spinning X-PRO', 500, 1, 'L', 'S'),
-(9, 'Esteira Runner 300', 480, 1, 'L', 'S'),
-(10, 'Elíptico SoftMotion', 410, 1, 'L', 'S'),
-(11, 'Remo Force R7', 590, 1, 'L', 'S'),
-(12, 'Step Aeróbico Digital', 320, 1, 'L', 'S'),
-(13, 'Escada Climber XT', 670, 1, 'L', 'S'),
-(14, 'Corrida Air Runner', 550, 1, 'L', 'S'),
-(15, 'Bike Indoor SprintMaster', 480, 1, 'L', 'S');
+(1, 'Bicicleta Spinning A1', 420, 1, 'I', 'A'),
+(2, 'Esteira Pro Run', 520, 1, 'A', 'A'),
+(3, 'Elíptico MaxFit', 460, 1, 'I', 'A'),
+(4, 'Remo Indoor R5', 600, 1, 'A', 'A'),
+(5, 'Bicicleta Horizontal HR1', 380, 1, 'I', 'A'),
+(6, 'Step Eletrônico S200', 300, 1, 'A', 'A'),
+(7, 'Escada PowerClimb', 650, 1, 'A', 'A'),
+(8, 'Bike Spinning X-PRO', 500, 1, 'A', 'A'),
+(9, 'Esteira Runner 300', 480, 1, 'A', 'A'),
+(10, 'Elíptico SoftMotion', 410, 1, 'A', 'A'),
+(11, 'Remo Force R7', 590, 1, 'I', 'A'),
+(12, 'Step Aeróbico Digital', 320, 1, 'A', 'A'),
+(13, 'Escada Climber XT', 670, 1, 'M', 'A'),
+(14, 'Corrida Air Runner', 550, 1, 'A', 'A'),
+(15, 'Bike Indoor SprintMaster', 480, 1, 'A', 'A');
 
 -- --------------------------------------------------------
 
@@ -398,27 +398,28 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID_USUARIO`, `NOME`, `EMAIL`, `GENERO`, `SENHA`, `CPF`, `TELEFONE`, `DATA_NASCIMENTO`, `FK_PLANO_ID`, `FK_ACADEMIA_ID`, `FK_CEP_ID`, `NUMERO_RESIDENCIAL`, `DATA_CADASTRO`, `PERMISSAO`, `SITUACAO`, `ATIVO`) VALUES
-(1, 'Carlos Silva', 'carlos.silva@gmail.com', 'Masculino', '123', '12345678901', '11988887777', '1990-01-15', 1, 1, 1, '101', '2023-05-01', 'U', 'A', 'S'),
-(2, 'Ana Pereira', 'ana.pereira@gmail.com', 'Feminino', '123', '98765432100', '11999991111', '1992-03-20', 2, 1, 2, '220', '2023-04-10', 'U', 'A', 'S'),
-(3, 'João Almeida', 'joao.almeida@gmail.com', 'Masculino', '123', '45678912366', '11944445555', '1988-10-08', 1, 1, 3, '300', '2023-07-18', 'U', 'A', 'S'),
-(4, 'Mariana Costa', 'mariana.costa@gmail.com', 'Feminino', '123', '11223344556', '21988884444', '1995-05-07', 3, 1, 4, '180', '2023-09-05', 'U', 'A', 'S'),
-(5, 'Lucas Andrade', 'lucas.andrade@gmail.com', 'Masculino', '123', '99887766554', '41977775555', '1998-12-22', 2, 1, 5, '950', '2023-02-22', 'U', 'A', 'S'),
-(6, 'Fernanda Rocha', 'fernanda.rocha@gmail.com', 'Feminino', '123', '55443322119', '11966668888', '1991-06-29', 1, 1, 1, '201', '2023-03-10', 'U', 'A', 'S'),
-(7, 'Ricardo Braga', 'ricardo.braga@gmail.com', 'Masculino', '123', '90909090888', '11955556666', '1985-02-14', 3, 1, 2, '102', '2023-01-16', 'U', 'A', 'S'),
-(8, 'Juliana Martins', 'juliana.martins@gmail.com', 'Feminino', '123', '78787878700', '21933334444', '1994-07-03', 2, 1, 3, '50', '2023-06-02', 'U', 'A', 'S'),
-(9, 'Pedro Carvalho', 'pedro.carvalho@gmail.com', 'Masculino', '123', '67676767611', '11922223333', '1993-09-28', 1, 1, 4, '600', '2023-10-11', 'U', 'A', 'S'),
-(10, 'Isabela Gomes', 'isabela.gomes@gmail.com', 'Feminino', '123', '56565656588', '11911112222', '1996-08-14', 3, 1, 5, '178', '2023-08-15', 'U', 'A', 'S'),
-(11, 'Roberto Nunes', 'roberto.nunes@gmail.com', 'Masculino', '123', '45454545422', '11988882222', '1989-11-11', 1, 1, 1, '725', '2023-06-21', 'U', 'A', 'S'),
-(12, 'Patrícia Araujo', 'patricia.araujo@gmail.com', 'Feminino', '123', '34343434355', '21999996666', '1997-04-12', 2, 1, 2, '888', '2023-06-17', 'U', 'A', 'S'),
-(13, 'Thiago Ramos', 'thiago.ramos@gmail.com', 'Masculino', '123', '23232323277', '11911114444', '1992-02-18', 3, 1, 3, '123', '2023-03-12', 'U', 'A', 'S'),
-(14, 'Amanda Farias', 'amanda.farias@gmail.com', 'Feminino', '123', '12121212199', '11955553333', '1990-05-22', 1, 1, 4, '321', '2023-04-12', 'U', 'A', 'S'),
-(15, 'Diego Batista', 'diego.batista@gmail.com', 'Masculino', '123', '01010101033', '21922221111', '1987-01-01', 2, 1, 5, '47', '2023-05-02', 'U', 'A', 'S'),
-(16, 'Bruna Melo', 'bruna.melo@gmail.com', 'Feminino', '123', '89898989866', '31977776666', '1999-06-05', 3, 1, 1, '130', '2023-01-10', 'U', 'A', 'S'),
-(17, 'Eduardo Teles', 'eduardo.teles@gmail.com', 'Masculino', '123', '78787878744', '11944443333', '1986-09-19', 1, 1, 2, '233', '2023-03-11', 'U', 'A', 'S'),
-(18, 'Cláudia Moraes', 'claudia.moraes@gmail.com', 'Feminino', '123', '67676767655', '11922224444', '1993-03-01', 2, 1, 3, '345', '2023-02-28', 'U', 'A', 'S'),
-(19, 'Felipe Barros', 'felipe.barros@gmail.com', 'Masculino', '123', '56565656599', '11911113333', '1995-12-12', 3, 1, 4, '556', '2023-05-19', 'U', 'A', 'S'),
-(20, 'Larissa Cunha', 'larissa.cunha@gmail.com', 'Feminino', '123', '45454545411', '11944445555', '1998-10-10', 1, 1, 5, '77', '2023-04-23', 'U', 'A', 'S'),
-(21, 'Felipe', 'felipe@gmail.com', NULL, '$2y$10$Yzy8jPuiiJLH8Ay7RtUMB./OB6ETQ37TDP6EvvXkbu0.yu8f/rSHW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'A', 'M', 'A');
+(1, 'Carlos Silva', 'carlos.silva@gmail.com', 'Masculino', '123', '12345678901', '11988887777', '1990-01-15', 1, 1, 1, '101', '2023-05-01', 'U', 'I', 'I'),
+(2, 'Ana Pereira', 'ana.pereira@gmail.com', 'Feminino', '123', '98765432100', '11999991111', '1992-03-20', 2, 1, 2, '220', '2023-04-10', 'U', 'A', 'A'),
+(3, 'João Almeida', 'joao.almeida@gmail.com', 'Masculino', '123', '45678912366', '11944445555', '1988-10-08', 1, 1, 3, '300', '2023-07-18', 'U', 'A', 'A'),
+(4, 'Mariana Costa', 'mariana.costa@gmail.com', 'Feminino', '123', '11223344556', '21988884444', '1995-05-07', 3, 1, 4, '180', '2023-09-05', 'U', 'A', 'A'),
+(5, 'Lucas Andrade', 'lucas.andrade@gmail.com', 'Masculino', '123', '99887766554', '41977775555', '1998-12-22', 2, 1, 5, '950', '2025-11-22', 'U', 'A', 'A'),
+(6, 'Fernanda Rocha', 'fernanda.rocha@gmail.com', 'Feminino', '123', '55443322119', '11966668888', '1991-06-29', 1, 1, 1, '201', '2025-03-10', 'U', 'A', 'I'),
+(7, 'Ricardo Braga', 'ricardo.braga@gmail.com', 'Masculino', '123', '90909090888', '11955556666', '1985-02-14', 3, 1, 2, '102', '2025-11-11', 'U', 'I', 'A'),
+(8, 'Juliana Martins', 'juliana.martins@gmail.com', 'Feminino', '123', '78787878700', '21933334444', '1994-07-03', 2, 1, 3, '50', '2023-06-02', 'U', 'I', 'A'),
+(9, 'Pedro Carvalho', 'pedro.carvalho@gmail.com', 'Masculino', '123', '67676767611', '11922223333', '1993-09-28', 1, 1, 4, '600', '2023-10-11', 'U', 'A', 'A'),
+(10, 'Isabela Gomes', 'isabela.gomes@gmail.com', 'Feminino', '123', '56565656588', '11911112222', '1996-08-14', 3, 1, 5, '178', '2023-08-15', 'U', 'M', 'A'),
+(11, 'Roberto Nunes', 'roberto.nunes@gmail.com', 'Masculino', '123', '45454545422', '11988882222', '1989-11-11', 1, 1, 1, '725', '2023-06-21', 'U', 'A', 'A'),
+(12, 'Patrícia Araujo', 'patricia.araujo@gmail.com', 'Feminino', '123', '34343434355', '21999996666', '1997-04-12', 2, 1, 2, '888', '2023-06-17', 'U', 'I', 'A'),
+(13, 'Thiago Ramos', 'thiago.ramos@gmail.com', 'Masculino', '123', '23232323277', '11911114444', '1992-02-18', 3, 1, 3, '123', '2023-03-12', 'U', 'A', 'A'),
+(14, 'Amanda Farias', 'amanda.farias@gmail.com', 'Feminino', '123', '12121212199', '11955553333', '1990-05-22', 1, 1, 4, '321', '2023-04-12', 'U', 'A', 'A'),
+(15, 'Diego Batista', 'diego.batista@gmail.com', 'Masculino', '123', '01010101033', '21922221111', '1987-01-01', 2, 1, 5, '47', '2023-05-02', 'U', 'I', 'A'),
+(16, 'Bruna Melo', 'bruna.melo@gmail.com', 'Feminino', '123', '89898989866', '31977776666', '1999-06-05', 3, 1, 1, '130', '2023-01-10', 'U', 'A', 'A'),
+(17, 'Eduardo Teles', 'eduardo.teles@gmail.com', 'Masculino', '123', '78787878744', '11944443333', '1986-09-19', 1, 1, 2, '233', '2025-03-11', 'U', 'A', 'I'),
+(18, 'Cláudia Moraes', 'claudia.moraes@gmail.com', 'Feminino', '123', '67676767655', '11922224444', '1993-03-01', 2, 1, 3, '345', '2023-02-28', 'U', 'I', 'I'),
+(19, 'Felipe Barros', 'felipe.barros@gmail.com', 'Masculino', '123', '56565656599', '11911113333', '1995-12-12', 3, 1, 4, '556', '2023-05-19', 'U', 'I', 'A'),
+(20, 'Larissa Cunha', 'larissa.cunha@gmail.com', 'Feminino', '123', '45454545411', '11944445555', '1998-10-10', 1, 1, 5, '77', '2023-04-23', 'U', 'I', 'I'),
+(21, 'Felipe', 'felipe@gmail.com', NULL, '$2y$10$Yzy8jPuiiJLH8Ay7RtUMB./OB6ETQ37TDP6EvvXkbu0.yu8f/rSHW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'A', 'M', 'A'),
+(22, 'Felipe', 'felipe@godoy', NULL, '$2y$10$.OyNAjwDYxl/dOTAxcWTuuEjzFEmUDBVp4wOcvowR8oxwAGd8Y5pG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'U', 'M', 'A');
 
 --
 -- Índices para tabelas despejadas
@@ -569,7 +570,7 @@ ALTER TABLE `treino`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_USUARIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `ID_USUARIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Restrições para tabelas despejadas
