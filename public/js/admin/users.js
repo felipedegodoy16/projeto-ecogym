@@ -29,6 +29,16 @@ async function handleSubmitUser(e) {
   if (id) {
     res = await alter(datas, id);
   } else {
+    const datas = Object.fromEntries(new FormData(e.target));
+    if (datas["register-password"].length < 8) {
+      showModal(
+        "error",
+        "Senha Frágil!",
+        "A senha precisa de no mínimo 8 caracteres."
+      );
+      return;
+    }
+
     res = await insert(datas);
   }
 
@@ -252,7 +262,7 @@ function closeCardFocus(card_focus_bg) {
 }
 
 // Function Build Card User
-function buildUser(datas) {
+function buildUser(datas, cont) {
   const li = document.createElement("li");
   const div_header = document.createElement("div");
   const div_img = document.createElement("div");
@@ -288,6 +298,8 @@ function buildUser(datas) {
 
   li.append(div_header);
 
+  li.style.animation = `fadeInUp ${cont}s ease`;
+
   return li;
 }
 
@@ -295,8 +307,11 @@ function buildUser(datas) {
 function addUsers(res) {
   const users_list = document.querySelector("#users-list");
 
+  let cont = 1;
+
   res.forEach((user) => {
-    users_list.append(buildUser(user));
+    users_list.append(buildUser(user, cont * 0.2));
+    cont++;
   });
 }
 

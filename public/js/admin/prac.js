@@ -65,7 +65,7 @@ document
   });
 
 // Function Build Card User
-function buildPrac(datas) {
+function buildPrac(datas, cont) {
   const li = document.createElement("li");
   const h3 = document.createElement("h3");
   const span = document.createElement("span");
@@ -81,6 +81,8 @@ function buildPrac(datas) {
 
   li.append(h3, span);
 
+  li.style.animation = `fadeInUp ${cont}s ease`;
+
   return li;
 }
 
@@ -88,8 +90,11 @@ function buildPrac(datas) {
 function addPracs(res) {
   const prac_list = document.querySelector("#prac-list");
 
+  let cont = 1;
+
   res.forEach((prac) => {
-    prac_list.append(buildPrac(prac));
+    prac_list.append(buildPrac(prac, cont * 0.2));
+    cont++;
   });
 }
 

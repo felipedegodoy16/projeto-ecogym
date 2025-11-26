@@ -44,7 +44,8 @@
                         </button> 
 
                         <div class="user-dropdown" id="userDropdown">
-                          <a href="/perfil">Meu Perfil</a>
+                          <a href="profile.php">Rankings</a>
+                          <a href="profile.php">Meu Perfil</a>
                           <a href="/treinos">Meus Treinos</a>' . 
                           (($_SESSION && $_SESSION['logged'] && $_SESSION['permissao'] === "A") ? '<a href="admin.php">Admin</a>' : '')
                           . '

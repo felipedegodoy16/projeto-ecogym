@@ -50,7 +50,7 @@ const form = document.querySelector("#cadastroEquips");
 form.addEventListener("submit", handleSubmitEquip);
 
 // Function Build Card Equip
-function buildEquip(datas) {
+function buildEquip(datas, cont) {
   const li = document.createElement("li");
   const a_edit = document.createElement("a");
   const a_delete = document.createElement("a");
@@ -143,6 +143,8 @@ function buildEquip(datas) {
 
   li.append(div, ul);
 
+  li.style.animation = `fadeInUp ${cont}s ease`;
+
   return li;
 }
 
@@ -150,8 +152,11 @@ function buildEquip(datas) {
 function addEquips(res) {
   const equips_list = document.querySelector("#equips-list");
 
+  let cont = 1;
+
   res.forEach((equip) => {
-    equips_list.append(buildEquip(equip));
+    equips_list.append(buildEquip(equip, cont * 0.2));
+    cont++;
   });
 }
 
