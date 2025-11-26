@@ -1,16 +1,12 @@
 <?php
     require_once __DIR__ . '/ConnectionFactory.php';
     require_once __DIR__ . '/Address.php';
-    // require_once 'Academia.php';
-    // require_once 'Plano.php';
     
     class User {
         // Atributos
-        private string $name, $cpf, $phone, $permission, $active, $password, $genre, $email;
+        private string $name, $cpf, $phone, $date_nasc, $permission, $active, $password, $genre, $email;
         private int $id;
         private Address $address;
-        // private Academia $academia;
-        // private Plano $plano;
 
         // Método construtor
         public function __construct(){
@@ -32,6 +28,10 @@
 
         public function getPhone(){
             return $this->phone;
+        }
+        
+        public function getDate(){
+            return $this->date_nasc;
         }
 
         public function getPermission(){
@@ -57,14 +57,6 @@
         public function getAddress(){
             return $this->address;
         }
-
-        // public function getAcademia(){
-        //     return $this->academia;
-        // }
-
-        // public function getPlano(){
-        //     return $this->plano;
-        // }
         
         public function setId($id){
             $this->id = $id;
@@ -80,6 +72,10 @@
 
         public function setPhone($phone){
             $this->phone = $phone;
+        }
+        
+        public function setDate($date_nasc){
+            $this->date_nasc = $date_nasc;
         }
 
         public function setPermission($permission){
@@ -105,12 +101,4 @@
         public function setAddress($address){
             $this->address = $address;
         }
-
-        // public function setAcademia($academia){
-        //     $this->academia = $academia;
-        // }
-        
-        // public function setPlano($plano){
-        //     $this->plano = $plano;
-        // }
     }

@@ -30,7 +30,7 @@ export async function insert(datas) {
   }
 }
 
-// Function Select Equipments
+// Function Select Users
 export async function select() {
   try {
     const res = await fetch(API_URL + "select.php", {
@@ -48,7 +48,7 @@ export async function select() {
   }
 }
 
-// Function Insert Equipment
+// Function Alter User
 export async function alter(datas, id) {
   try {
     const res = await fetch(API_URL + "alter.php?id=" + id, {
@@ -67,7 +67,7 @@ export async function alter(datas, id) {
   }
 }
 
-// Function Delete Equipments
+// Function Delete User
 export async function deleteUser(id) {
   try {
     const res = await fetch(API_URL + "delete.php", {
@@ -86,12 +86,50 @@ export async function deleteUser(id) {
   }
 }
 
+// Function Login
 export async function login(datas) {
   try {
     const res = await fetch(API_URL + "login.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(datas),
+    });
+    return await res.json();
+  } catch (erro) {
+    console.log(erro);
+    return {
+      status: "error",
+      title: "Erro!",
+      message: "Erro no servidor, tente novamente mais tarde.",
+    };
+  }
+}
+
+// Function Alter Own
+export async function alter_own(datas) {
+  try {
+    const res = await fetch(API_URL + "alterOwn.php", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(datas),
+    });
+    return await res.json();
+  } catch (erro) {
+    console.log(erro);
+    return {
+      status: "error",
+      title: "Erro!",
+      message: "Erro no servidor, tente novamente mais tarde.",
+    };
+  }
+}
+
+// Function Return User
+export async function return_user() {
+  try {
+    const res = await fetch(API_URL + "return_user.php", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
     });
     return await res.json();
   } catch (erro) {

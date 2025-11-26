@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .perfil-container {
+      display: flex;
+      gap: 24px;
+      padding: 30px;
+      color: #eaeaea;
+    }
+
+    .perfil-sidebar {
+      width: 280px;
+      background: #0d0d0d;
+      padding: 25px;
+      border: 2px solid #20c75b;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .perfil-foto {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #20c75b;
+    }
+
+    .perfil-nome {
+      margin-top: 15px;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .perfil-info {
+      color: #aaa;
+      margin: 4px 0;
+    }
+
+    .btn-upload {
+      margin-top: 15px;
+      padding: 10px 18px;
+      border-radius: 25px;
+      border: 2px solid #20c75b;
+      background: transparent;
+      color: #20c75b;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn-upload:hover {
+      background: #20c75b22;
+    }
+
+    .perfil-conteudo {
+      flex: 1;
+    }
+
+    .perfil-card {
+      background: #0d0d0d;
+      padding: 25px;
+      border-radius: 20px;
+      border: 1px solid #20c75b33;
+      margin-bottom: 25px;
+    }
+
+    .perfil-titulo {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #20c75b;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group.full {
+      grid-column: span 2;
+    }
+
+    .form-group label {
+      margin-bottom: 6px;
+      color: #b4b4b4;
+    }
+
+    .form-group input,
+    .form-group select {
+      padding: 12px 18px;
+      border-radius: 30px;
+      border: none;
+      background: #1c1c1c;
+      color: #ddd;
+      outline: none;
+      font-size: 15px;
+      border: 1px solid #333;
+    }
+
+    .perfil-acoes {
+      display: flex;
+      justify-content: flex-end;
+      gap: 16px;
+    }
+
+    .btn-cancelar {
+      background: #333;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      cursor: pointer;
+      color: #ddd;
+    }
+
+    .btn-salvar {
+      background: #20c75b;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      cursor: pointer;
+      color: #000;
+      font-weight: 600;
+    }
+
+    .btn-salvar:hover {
+      background: #1daf4f;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="perfil-container">
+
+    <div class="perfil-sidebar">
+      <img src="https://via.placeholder.com/160" class="perfil-foto" alt="Foto do Usuário">
+
+      <h2 class="perfil-nome">Mariana Costa</h2>
+      <p class="perfil-info">11223344556</p>
+      <p class="perfil-info">mariana.costa@gmail.com</p>
+
+      <button class="btn-upload">
+        Alterar Foto
+      </button>
+    </div>
+
+    <div class="perfil-conteudo">
+
+      <div class="perfil-card">
+        <h3 class="perfil-titulo">📌 Dados Pessoais</h3>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label>Nome</label>
+            <input type="text" value="Mariana Costa">
+          </div>
+
+          <div class="form-group">
+            <label>CPF</label>
+            <input type="text" value="112.233.445-56" disabled>
+          </div>
+
+          <div class="form-group">
+            <label>E-mail</label>
+            <input type="email" value="mariana.costa@gmail.com">
+          </div>
+
+          <div class="form-group">
+            <label>Telefone</label>
+            <input type="text" value="+55 (11) 92222-3333">
+          </div>
+
+          <div class="form-group">
+            <label>Gênero</label>
+            <select>
+              <option selected>Feminino</option>
+              <option>Masculino</option>
+              <option>Outro</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Plano</label>
+            <select disabled>
+              <option selected>Plano Mensal</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="perfil-card">
+        <h3 class="perfil-titulo">📍 Endereço</h3>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label>CEP</label>
+            <input type="text" value="99999-999">
+          </div>
+
+          <div class="form-group">
+            <label>Estado (UF)</label>
+            <select>
+              <option selected>SP</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Cidade</label>
+            <input type="text" value="São Paulo">
+          </div>
+
+          <div class="form-group">
+            <label>Bairro</label>
+            <input type="text" value="Paulista">
+          </div>
+
+          <div class="form-group full">
+            <label>Logradouro</label>
+            <input type="text" value="Rua das Flores, 120">
+          </div>
+
+        </div>
+      </div>
+
+      <div class="perfil-acoes">
+        <button class="btn-cancelar">Cancelar</button>
+        <button class="btn-salvar">Salvar alterações</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    document.querySelector(".btn-upload").addEventListener("click", () => {
+      alert("Função de trocar foto ainda não implementada!");
+    });
+
+  </script>
+
+</body>
+
+</html>

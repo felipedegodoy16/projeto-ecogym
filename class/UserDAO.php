@@ -198,10 +198,6 @@
         // Method Alter User
         public function alter() {
             try {
-
-                // if($this->consultEmail()) {
-                //     return ["status" => "error", "title" => "Erro!", "message" => "O e-mail utilizado já está cadastrado em nosso sistema."];
-                // }
                 
                 // Query
                 $sql = "UPDATE usuarios SET NOME = :nome, EMAIL = :email, GENERO = :genre, CPF = :cpf, TELEFONE = :phone, FK_CEP_ID = :cep_id, NUMERO_RESIDENCIAL = :res_number WHERE ID_USUARIO = :id;";
@@ -216,6 +212,43 @@
                 $stmt->bindValue(":cpf", $this->getUser()->getCpf(), PDO::PARAM_STR);
                 $stmt->bindValue(":phone", $this->getUser()->getPhone(), PDO::PARAM_STR);
                 $stmt->bindValue(":cep_id", $this->getUser()->getAddress()->getId(), PDO::PARAM_STR);
+                $stmt->bindValue(":res_number", $this->getUser()->getAddress()->getNumber(), PDO::PARAM_STR);
+                $stmt->bindValue(":id", $this->getUser()->getId(), PDO::PARAM_STR);
+                $stmt->execute() or die(print_r($stmt->errorInfo(), true));
+
+                if($stmt->rowCount() > 0){
+
+                    return ["status" => "success", "title" => "Sucesso!", "message" => "Usuário alterado com sucesso."];
+
+                } 
+                
+                return ["status" => "error", "title" => "Erro!", "message" => "Não foi possível alterar o usuário."];
+
+            } catch(Exception $e) {
+
+                echo "Exceção $e";
+
+            }
+        }
+
+        // Method Alter Own User
+        public function alterOwn() {
+            try {
+                
+                // Query
+                $sql = "UPDATE usuarios SET NOME = :nome, EMAIL = :email, GENERO = :genre, CPF = :cpf, TELEFONE = :phone, DATA_NASCIMENTO = :date_nasc, FK_CEP_ID = :cep_id, NUMERO_RESIDENCIAL = :res_number WHERE ID_USUARIO = :id;";
+
+                // Conectando ao banco e preparando a query
+                $stmt = ConnectionFactory::getConnection()->prepare($sql);  
+
+                $stmt = ConnectionFactory::getConnection()->prepare($sql);
+                $stmt->bindValue(":nome", $this->getUser()->getName(), PDO::PARAM_STR);
+                $stmt->bindValue(":email", $this->getUser()->getEmail(), PDO::PARAM_STR);
+                $stmt->bindValue(":genre", $this->getUser()->getGenre(), PDO::PARAM_STR);
+                $stmt->bindValue(":cpf", $this->getUser()->getCpf(), PDO::PARAM_STR);
+                $stmt->bindValue(":phone", $this->getUser()->getPhone(), PDO::PARAM_STR);
+                $stmt->bindValue(":cep_id", $this->getUser()->getAddress()->getId(), PDO::PARAM_STR);
+                $stmt->bindValue(":date_nasc", $this->getUser()->getDate(), PDO::PARAM_STR);
                 $stmt->bindValue(":res_number", $this->getUser()->getAddress()->getNumber(), PDO::PARAM_STR);
                 $stmt->bindValue(":id", $this->getUser()->getId(), PDO::PARAM_STR);
                 $stmt->execute() or die(print_r($stmt->errorInfo(), true));

@@ -1,6 +1,5 @@
 import { waitResponseEquips } from "./equips.js";
 import { waitResponsePracs } from "./prac.js";
-import { callRanking } from "./table.js";
 import { waitResponseUsers } from "./users.js";
 
 // Function Verify Link Active
@@ -13,7 +12,6 @@ function verifyActiveLink(link) {
     if (!dashboard.classList.contains("body-section-active")) {
       body_active.classList.remove("body-section-active");
       dashboard.classList.add("body-section-active");
-      // callRanking();
     }
   } else if (link.innerText.toUpperCase() === "USUÁRIOS") {
     const users = document.querySelector("#users-section");

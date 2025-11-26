@@ -152,8 +152,6 @@
             </div>
           </div>
         </div>
-
-        <!-- <ul id="dashboards-list"></ul> -->
       </div>
 
       <div class="loading-container">
