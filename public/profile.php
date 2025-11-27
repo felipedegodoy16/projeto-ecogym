@@ -56,7 +56,7 @@
     </button>
 
     <!-- Section Dashboard -->
-    <section class="body-section" id="dashboard-section">
+    <section class="body-section body-section-active" id="dashboard-section">
       <header class="header-pages-admin">
         <h2 class="font-1-l cor-3">Informações</h2>
       </header>
@@ -69,6 +69,15 @@
                 <path d="m422-232 207-248H469l29-227-185 267h139l-30 208Zm-62-128H236q-24 0-35.5-21.5T203-423l299-430q10-14 26-19.5t33 .5q17 6 25 21t6 32l-32 259h155q26 0 36.5 23t-6.5 43L416-100q-11 13-27 17t-31-3q-15-7-23.5-21.5T328-139l32-221Zm111-110Z" />
               </svg></div>
             <div class="stat-label">Energia Total Gerada</div>
+            <div class="stat-value" id="kwh-generated">...</div>
+            <div class="stat-change" id="month-kwh">...</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#39b934">
+                <path d="m422-232 207-248H469l29-227-185 267h139l-30 208Zm-62-128H236q-24 0-35.5-21.5T203-423l299-430q10-14 26-19.5t33 .5q17 6 25 21t6 32l-32 259h155q26 0 36.5 23t-6.5 43L416-100q-11 13-27 17t-31-3q-15-7-23.5-21.5T328-139l32-221Zm111-110Z" />
+              </svg></div>
+            <div class="stat-label">Posição no Ranking</div>
             <div class="stat-value" id="kwh-generated">...</div>
             <div class="stat-change" id="month-kwh">...</div>
           </div>
@@ -134,7 +143,7 @@
     </section>
 
     <!-- Section Profile -->
-    <section class="body-section body-section-active" id="prac-section">
+    <section class="body-section" id="profile-section">
       <header class="header-pages-admin">
         <h2 class="font-1-l cor-3">Meu Perfil</h2>
       </header>
@@ -362,7 +371,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <script type="module" src="./js/admin/sidenav.js"></script>
+  <script type="module" src="./js/profile/sidenavProfile.js"></script>
   <script type="module" src="./js/profile/profile.js"></script>
   <script src="./js/admin/exer.js"></script>
   <script type="module" src="./js/admin/prac.js"></script>

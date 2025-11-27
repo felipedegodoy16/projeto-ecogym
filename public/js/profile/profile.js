@@ -113,6 +113,24 @@ async function handleUpdateProfile(e) {
   btn.innerText = "Salvar alterações";
 
   showModal(res["status"], res["title"], res["message"]);
+
+  if (res["status"] === "success") {
+    const user_name_photo = document.querySelector("#user-name-profile-photo");
+    const user_cpf_photo = document.querySelector("#user-cpf-profile-photo");
+    const user_email_photo = document.querySelector(
+      "#user-email-profile-photo"
+    );
+
+    let cpf = datas["update-cpf"];
+
+    if (!cpf) {
+      cpf = "Não informado";
+    }
+
+    user_name_photo.innerHTML = datas["update-name"];
+    user_cpf_photo.innerHTML = cpf;
+    user_email_photo.innerHTML = datas["update-email"];
+  }
 }
 
 const form = document.querySelector("#updateProfileForm");

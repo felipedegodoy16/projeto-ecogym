@@ -3114,6 +3114,7 @@ main#admin {
   padding: 1.75rem;
   border: 1px solid #034100;
   border-radius: 1.5rem;
+  animation: fadeInUp 0.6s ease;
 }
 
 .card-datas-profile {
