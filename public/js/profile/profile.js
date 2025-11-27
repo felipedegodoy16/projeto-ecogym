@@ -1,4 +1,5 @@
 import { alter_own, return_user } from "../apis/users.js";
+import { showModal } from "../modal.js";
 import { validateInput, validateSelect } from "../validFields.js";
 import {
   callEnergyGenerated,
@@ -64,11 +65,19 @@ async function callOwnDatas() {
     }
   });
 
+  const objectDate = new Date(datas["DATA_NASCIMENTO"] + "T00:00:00");
+
+  const formattedDate = new Intl.DateTimeFormat("pt-BR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  }).format(objectDate);
+
   input_name.value = datas["NOME"];
   input_cpf.value = datas["CPF"];
   input_email.value = datas["EMAIL"];
   input_phone.value = datas["TELEFONE"];
-  input_nasc_date.value = datas["DATA_NASCIMENTO"];
+  input_nasc_date.value = formattedDate;
 
   input_cep.value = datas["CEP"];
   input_city.value = datas["CIDADE"];
@@ -96,7 +105,12 @@ async function handleUpdateProfile(e) {
 
   const datas = Object.fromEntries(new FormData(form));
 
+  const btn = form.querySelector(".btn-add-edit");
+  btn.innerText = "Salvando...";
+
   const res = await alter_own(datas);
+
+  btn.innerText = "Salvar alterações";
 
   showModal(res["status"], res["title"], res["message"]);
 }

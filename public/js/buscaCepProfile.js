@@ -1,6 +1,6 @@
 //Função de Busca CEP
 function buscaCep() {
-  let inputCep = document.querySelector("input[name=register-cep]");
+  let inputCep = document.querySelector("input[name=update-cep]");
   let cep = inputCep.value.replace(/[^0-9]/g, "");
 
   if (cep.length == 8) {
@@ -14,11 +14,11 @@ function buscaCep() {
     };
     xhr.send();
   } else {
-    const selectUf = document.querySelector("select[name=register-state]");
+    const selectUf = document.querySelector("select[name=update-state]");
 
-    document.querySelector("input[name=register-street]").value = "";
-    document.querySelector("input[name=register-bairro]").value = "";
-    document.querySelector("input[name=register-city]").value = "";
+    document.querySelector("input[name=update-street]").value = "";
+    document.querySelector("input[name=update-bairro]").value = "";
+    document.querySelector("input[name=update-city]").value = "";
     selectUf.value = "fail-state";
     selectUf.style.color = "#595959";
   }
@@ -26,13 +26,12 @@ function buscaCep() {
 
 function preencheCampos(json) {
   if (json.localidade) {
-    const selectUf = document.querySelector("select[name=register-state]");
+    const selectUf = document.querySelector("select[name=update-state]");
     const options = selectUf.querySelectorAll("option");
 
-    document.querySelector("input[name=register-street]").value =
-      json.logradouro;
-    document.querySelector("input[name=register-bairro]").value = json.bairro;
-    document.querySelector("input[name=register-city]").value = json.localidade;
+    document.querySelector("input[name=update-street]").value = json.logradouro;
+    document.querySelector("input[name=update-bairro]").value = json.bairro;
+    document.querySelector("input[name=update-city]").value = json.localidade;
     options.forEach((element) => {
       if (element.getAttribute("value").toUpperCase() === json.uf) {
         selectUf.value = element.getAttribute("value");

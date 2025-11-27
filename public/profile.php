@@ -203,7 +203,7 @@
               <h2 class="font-1-xs address-informations">Endereço</h2>
               <div class="form-group">
                 <label class="form-label" for="update-cep">CEP</label>
-                <input type="text" class="form-input" id="update-cep" data-mask="00000-000" name="register-cep" placeholder="99999-999" oninput="buscaCep()">
+                <input type="text" class="form-input" id="update-cep" data-mask="00000-000" name="update-cep" placeholder="99999-999" oninput="buscaCep()">
                 <span class="font-2-xs warning-data">Preencha este campo</span>
               </div>
 

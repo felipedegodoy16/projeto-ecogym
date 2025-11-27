@@ -247,8 +247,8 @@
                 $stmt->bindValue(":genre", $this->getUser()->getGenre(), PDO::PARAM_STR);
                 $stmt->bindValue(":cpf", $this->getUser()->getCpf(), PDO::PARAM_STR);
                 $stmt->bindValue(":phone", $this->getUser()->getPhone(), PDO::PARAM_STR);
-                $stmt->bindValue(":cep_id", $this->getUser()->getAddress()->getId(), PDO::PARAM_STR);
                 $stmt->bindValue(":date_nasc", $this->getUser()->getDate(), PDO::PARAM_STR);
+                $stmt->bindValue(":cep_id", $this->getUser()->getAddress()->getId(), PDO::PARAM_STR);
                 $stmt->bindValue(":res_number", $this->getUser()->getAddress()->getNumber(), PDO::PARAM_STR);
                 $stmt->bindValue(":id", $this->getUser()->getId(), PDO::PARAM_STR);
                 $stmt->execute() or die(print_r($stmt->errorInfo(), true));

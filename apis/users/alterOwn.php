@@ -1,9 +1,8 @@
 <?php 
 
   session_start();
-  
   require_once __DIR__ . '/../../class/UserDAO.php';
-  require_once __DIR__ . '/../../class/ConnectionFactory.php';
+  require_once __DIR__ . '/../../class/AddressDAO.php';
 
   header("Content-Type: application/json; charset=UTF-8");
   header("Access-Control-Allow-Origin: *");
@@ -18,6 +17,9 @@
   $phone = trim($datas['update-phone']);
   $genre = trim($datas['update-genre']);
   $nasc_date = trim($datas['update-nasc-date']);
+
+  $objectDate = DateTime::createFromFormat('d/m/Y', $nasc_date);
+  $formattedDate = $objectDate->format('Y-m-d');
 
   if(!validaCPF($cpf)) {
     echo json_encode(["status" => "error", "title" => "Erro!", "message" => "O CPF digitado não é um CPF válido."]);
@@ -46,15 +48,15 @@
   $user = new User();
   $userDAO = new UserDAO($user);
 
-  $user->setId($id);
+  $user->setId($_SESSION['id']);
   $user->setName($name);
   $user->setCpf($cpf);
   $user->setPhone($phone);
-  $user->setDate($date_nasc);
+  $user->setDate($formattedDate);
   $user->setGenre($genre);
   $user->setEmail($email);
   $user->setAddress($address);
-    
+  
   echo json_encode($userDAO->alterOwn());
 
   // Função para validação do CPF
