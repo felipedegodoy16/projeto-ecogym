@@ -66,18 +66,18 @@
         <div class="stats-grid" id="stats-cards">
           <div class="stat-card">
             <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#39b934">
-                <path d="m422-232 207-248H469l29-227-185 267h139l-30 208Zm-62-128H236q-24 0-35.5-21.5T203-423l299-430q10-14 26-19.5t33 .5q17 6 25 21t6 32l-32 259h155q26 0 36.5 23t-6.5 43L416-100q-11 13-27 17t-31-3q-15-7-23.5-21.5T328-139l32-221Zm111-110Z" />
+                <path d="m480-483-68 52q-6 5-12 .5t-4-11.5l26-84-70-56q-5-5-3-11.5t9-6.5h86l26-82q2-7 10-7t10 7l26 82h85q7 0 9.5 6.5T608-582l-71 56 26 84q2 7-4 11.5t-12-.5l-67-52Zm0 363L293-58q-20 7-36.5-5T240-95v-254q-38-42-59-96t-21-115q0-134 93-227t227-93q134 0 227 93t93 227q0 61-21 115t-59 96v254q0 20-16.5 32T667-58l-187-62Zm0-200q100 0 170-70t70-170q0-100-70-170t-170-70q-100 0-170 70t-70 170q0 100 70 170t170 70ZM320-159l160-41 160 41v-124q-35 20-75.5 31.5T480-240q-44 0-84.5-11.5T320-283v124Zm160-62Z" />
               </svg></div>
-            <div class="stat-label">Energia Total Gerada</div>
-            <div class="stat-value" id="kwh-generated">...</div>
-            <div class="stat-change" id="month-kwh">...</div>
+            <div class="stat-label">Minhas garação de energia e colocação</div>
+            <div class="stat-value" id="kwh-generated-month">...</div>
+            <div class="stat-change" id="ranking-position">...</div>
           </div>
 
           <div class="stat-card">
             <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#39b934">
                 <path d="m422-232 207-248H469l29-227-185 267h139l-30 208Zm-62-128H236q-24 0-35.5-21.5T203-423l299-430q10-14 26-19.5t33 .5q17 6 25 21t6 32l-32 259h155q26 0 36.5 23t-6.5 43L416-100q-11 13-27 17t-31-3q-15-7-23.5-21.5T328-139l32-221Zm111-110Z" />
               </svg></div>
-            <div class="stat-label">Posição no Ranking</div>
+            <div class="stat-label">Energia Gerada Pela Academia</div>
             <div class="stat-value" id="kwh-generated">...</div>
             <div class="stat-change" id="month-kwh">...</div>
           </div>

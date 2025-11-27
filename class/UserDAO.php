@@ -105,31 +105,6 @@
             }
         }
 
-        // Method Return Ranking
-        public function returnRanking(){
-            try {
-                // Query SQL
-                $sql = "SELECT SUM(m.CALORIA_GASTA) AS CALORIA, u.NOME, u.ID_USUARIO FROM movimento m INNER JOIN usuarios u ON m.FK_USUARIO_ID = u.ID_USUARIO GROUP BY FK_USUARIO_ID ORDER BY SUM(m.CALORIA_GASTA) DESC LIMIT 10;";
-
-                // Conectando o banco e preparando a query
-                $stmt = ConnectionFactory::getConnection()->prepare($sql);
-                $stmt->execute() or die(print_r($stmt->errorInfo(), true));
-                $datas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                // Executando a query no banco
-                if($stmt->rowCount()) {
-                    return $datas;
-                }
-
-                return ["status" => "error", "title" => "Erro!", "message" => "Ainda não há dados."];
-
-            } catch(Exception $e) {
-                
-                echo "Exceção $e";
-            
-            }
-        }
-
         // Método para fazer login do usuário
         public function login(){
             try {
@@ -300,7 +275,7 @@
             return $this->user;
         }
 
-        // public function setUser($user) {
-        //     $this->user = $user;
-        // }
+        public function setUser($user) {
+            $this->user = $user;
+        }
     }

@@ -1,5 +1,5 @@
 // Default URL
-const API_URL = "http://localhost/projeto-ecogym/apis/prac/";
+const API_URL = `${window.location.protocol}//${window.location.hostname}/projeto-ecogym/apis/prac/`;
 
 // Function Send Datas API
 export async function insert(datas) {

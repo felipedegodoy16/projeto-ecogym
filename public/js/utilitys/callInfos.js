@@ -6,6 +6,8 @@ import {
   ranking_equips,
   bar_chart,
   doghnut_chart,
+  energy_generated_user,
+  position_ranking,
 } from "../apis/dashboard.js";
 
 const formatDec = new Intl.NumberFormat("pt-BR", {
@@ -167,7 +169,9 @@ export async function callRankingUsers() {
              <div class="ranking-name">${element["NOME"]}</div>
              <div class="ranking-detail">${element["CPF"]}</div>
            </div>
-           <div class="ranking-value">${element["CALORIA"]} kWh</div>
+           <div class="ranking-value">${formatDec.format(
+             element["CALORIA"] * 0.001163
+           )} kWh</div>
          </div>`;
     colocacao++;
   });
@@ -187,8 +191,23 @@ export async function callRankingEquips() {
            <div class="ranking-info">
              <div class="ranking-name">${element["NOME"]}</div>
            </div>
-           <div class="ranking-value">${element["CALORIA"]} kWh</div>
+           <div class="ranking-value">${formatDec.format(
+             element["CALORIA"] * 0.001163
+           )} kWh</div>
          </div>`;
     colocacao++;
   });
+}
+
+export async function callGeneratedUserMonth() {
+  const energyValue = document.querySelector("#kwh-generated-month");
+  const monthKwh = document.querySelector("#ranking-position");
+
+  const res = await energy_generated_user();
+
+  const pos = await position_ranking();
+  console.log(pos);
+
+  energyValue.textContent = `${formatDec.format(res["user_kwh_month"])} kWh`;
+  monthKwh.textContent = `Colocação: #${pos["POSICAO"]}`;
 }

@@ -1,5 +1,5 @@
 // Default URL
-const API_URL = "http://localhost/projeto-ecogym/apis/equipments/";
+const API_URL = `${window.location.protocol}//${window.location.hostname}/projeto-ecogym/apis/equipments/`;
 
 // Function Insert Equipment
 export async function insert(datas) {
