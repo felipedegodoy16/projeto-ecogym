@@ -7,6 +7,7 @@ import {
   callRankingUsers,
   callRankingEquips,
   callGeneratedUserMonth,
+  callBarChartUser,
 } from "../utilitys/callInfos.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   callGeneratedUserMonth();
   setInterval(callEnergyGenerated, 100000);
 
+  callBarChartUser();
   callDoghnutChart();
   callRankingUsers();
   callRankingEquips();

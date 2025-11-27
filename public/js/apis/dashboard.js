@@ -162,3 +162,21 @@ export async function position_ranking() {
     };
   }
 }
+
+// Function Energy User
+export async function bar_chart_user() {
+  try {
+    const res = await fetch(API_URL + "bar_chart_user.php", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
+    return await res.json();
+  } catch (erro) {
+    console.log(erro);
+    return {
+      status: "error",
+      title: "Erro!",
+      message: "Erro no servidor, tente novamente mais tarde.",
+    };
+  }
+}

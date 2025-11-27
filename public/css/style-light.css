@@ -2905,6 +2905,10 @@ main#admin {
   font-size: 0.75rem;
   color: #2ca727;
 }
+#dashboard-section .stat-change .position-ranking {
+  margin-right: 0.5rem;
+  font-weight: 600;
+}
 #dashboard-section .content-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;

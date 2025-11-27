@@ -47,6 +47,10 @@
   .stat-change {
     font-size: 0.75rem;
     color: $cor-p2;
+    .position-ranking {
+      margin-right: 0.5rem;
+      font-weight: 600;
+    }
   }
 
   // Content Grid

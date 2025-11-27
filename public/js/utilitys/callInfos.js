@@ -8,6 +8,7 @@ import {
   doghnut_chart,
   energy_generated_user,
   position_ranking,
+  bar_chart_user,
 } from "../apis/dashboard.js";
 
 const formatDec = new Intl.NumberFormat("pt-BR", {
@@ -206,8 +207,64 @@ export async function callGeneratedUserMonth() {
   const res = await energy_generated_user();
 
   const pos = await position_ranking();
-  console.log(pos);
 
   energyValue.textContent = `${formatDec.format(res["user_kwh_month"])} kWh`;
-  monthKwh.textContent = `Colocação: #${pos["POSICAO"]}`;
+  monthKwh.innerHTML = `<span class="position-ranking font-1-s">#${pos["POSICAO"]}</span> no ranking`;
+}
+
+export async function callBarChartUser() {
+  const res = await bar_chart_user();
+
+  const dias = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
+  const reset = [0, 0, 0, 0, 0, 0, 0];
+
+  const labels = [];
+  const data = [];
+
+  let ctx = document.getElementById("barChart");
+
+  if (res["status"]) {
+    dias.forEach((d) => {
+      labels.push(d);
+    });
+    reset.forEach((d) => {
+      data.push(d);
+    });
+  } else {
+    res.forEach((el) => {
+      labels.push(el["DIA"]);
+      data.push(el["KWH"]);
+    });
+  }
+
+  ctx = ctx.getContext("2d");
+  new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: "kWh",
+          data: data,
+          borderRadius: 6,
+          backgroundColor: "#39b934",
+          maxBarThickness: 44,
+        },
+      ],
+    },
+    options: {
+      animation: {
+        duration: 800,
+        easing: "easeOutCubic",
+      },
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { display: false }, ticks: { color: "#9aa19a" } },
+        y: {
+          grid: { color: "rgba(255,255,255,0.03)" },
+          ticks: { color: "#9aa19a" },
+        },
+      },
+    },
+  });
 }
