@@ -208,8 +208,18 @@ export async function callGeneratedUserMonth() {
 
   const pos = await position_ranking();
 
+  let position;
+
+  console.log(pos["POSICAO"]);
+
+  if (pos["POSICAO"]) {
+    position = `<span class="position-ranking font-1-s">#${pos["POSICAO"]}</span> no ranking mensal`;
+  } else {
+    position = `Sem registros`;
+  }
+
   energyValue.textContent = `${formatDec.format(res["user_kwh_month"])} kWh`;
-  monthKwh.innerHTML = `<span class="position-ranking font-1-s">#${pos["POSICAO"]}</span> no ranking`;
+  monthKwh.innerHTML = `${position}`;
 }
 
 export async function callBarChartUser() {
