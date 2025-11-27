@@ -1,6 +1,9 @@
 .form-update-profile {
-  grid-template-columns: minmax(280px, 1fr) 2fr;
+  grid-template-columns: 1fr 2fr;
   gap: 1.5rem;
+  @include device(t) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .card-datas-profile,
@@ -14,12 +17,25 @@
 .card-datas-profile {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  @include device(d) {
+    grid-template-columns: 1fr;
+  }
+  @include device(t) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include device(m) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .card-photo-profile {
   display: flex;
   flex-direction: column;
   align-items: center;
+  @include device(m) {
+    border: none;
+    padding: 0;
+  }
 }
 
 .img-profile {
@@ -40,6 +56,9 @@
   }
   span {
     display: block;
+    @include device(t) {
+      display: none;
+    }
   }
 }
 

@@ -3105,8 +3105,13 @@ main#admin {
 }
 
 .form-update-profile {
-  grid-template-columns: minmax(280px, 1fr) 2fr;
+  grid-template-columns: 1fr 2fr;
   gap: 1.5rem;
+}
+@media screen and (max-width: 768px) {
+  .form-update-profile {
+    grid-template-columns: 1fr;
+  }
 }
 
 .card-datas-profile,
@@ -3121,11 +3126,32 @@ main#admin {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+@media screen and (max-width: 1024px) {
+  .card-datas-profile {
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (max-width: 768px) {
+  .card-datas-profile {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 480px) {
+  .card-datas-profile {
+    grid-template-columns: 1fr;
+  }
+}
 
 .card-photo-profile {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+@media screen and (max-width: 480px) {
+  .card-photo-profile {
+    border: none;
+    padding: 0;
+  }
 }
 
 .img-profile {
@@ -3147,6 +3173,11 @@ main#admin {
 }
 .main-informations span {
   display: block;
+}
+@media screen and (max-width: 768px) {
+  .main-informations span {
+    display: none;
+  }
 }
 
 .card-datas-profile:first-child,
