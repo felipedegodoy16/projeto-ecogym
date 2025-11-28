@@ -1,5 +1,3 @@
-// import { callRanking } from "./table.js";
-
 // Function Alternate Visibility Form
 export function formVisibility(form) {
   form.parentNode.classList.toggle("active-form-modal");

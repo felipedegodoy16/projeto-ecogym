@@ -25,7 +25,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@600&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@600&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./css/style.css" id="css-theme">
 </head>
@@ -159,7 +159,7 @@
       </header>
 
       <div class="users-body-items">
-        <form class="form-cadastro form-update-profile" id="updateProfileForm">
+        <form class="form-cadastro form-update-profile" id="updateProfileForm" enctype="multipart/form-data">
           <div class="card-photo-profile">
             <div class="img-profile"></div>
             <div class="main-informations font-2-xs cor-6">
@@ -167,6 +167,8 @@
               <span id="user-cpf-profile-photo">...</span>
               <span id="user-email-profile-photo">...</span>
             </div>
+
+            <input type="file" name="update-picture" id="update-picture" style="display: none;">
           </div>
 
           <div class="datas-section-profile">

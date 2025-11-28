@@ -1,6 +1,6 @@
 <?php 
 
-  session_start();
+  require_once __DIR__ . '/../files/logged_admin.php';
   require_once __DIR__ . '/../../class/UserDAO.php';
   require_once __DIR__ . '/../../class/AddressDAO.php';
   
@@ -11,7 +11,7 @@
 
   $id = $_GET['id'];
 
-  if($_SESSION['permissao'] !== 'A' && $id !== $_SESSION['id']) {
+  if($id !== $_SESSION['id']) {
     echo json_encode(["status" => "error", "title" => "Erro!", "message" => "Não foi possível fazer a alteração devido a uma validação."]);
     exit();
   }

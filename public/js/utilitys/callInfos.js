@@ -210,8 +210,6 @@ export async function callGeneratedUserMonth() {
 
   let position;
 
-  console.log(pos["POSICAO"]);
-
   if (pos["POSICAO"]) {
     position = `<span class="position-ranking font-1-s">#${pos["POSICAO"]}</span> no ranking mensal`;
   } else {

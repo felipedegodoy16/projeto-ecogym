@@ -109,7 +109,7 @@ export async function login(datas) {
 export async function alter_own(datas) {
   try {
     const res = await fetch(API_URL + "alterOwn.php", {
-      method: "PUT",
+      method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(datas),
     });

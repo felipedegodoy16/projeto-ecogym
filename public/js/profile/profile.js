@@ -139,3 +139,11 @@ async function handleUpdateProfile(e) {
 
 const form = document.querySelector("#updateProfileForm");
 form.addEventListener("submit", handleUpdateProfile);
+
+// Click Input File
+const img_profile = document.querySelector(".img-profile");
+const update_picture = document.querySelector("#update-picture");
+
+img_profile.addEventListener("click", () => {
+  update_picture.click();
+});

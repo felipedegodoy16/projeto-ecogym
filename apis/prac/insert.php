@@ -1,5 +1,6 @@
 <?php 
 
+  require_once __DIR__ . '/../files/logged_user.php';
   require_once __DIR__ . '/../../class/ConnectionFactory.php';
   
   header("Content-Type: application/json; charset=UTF-8");

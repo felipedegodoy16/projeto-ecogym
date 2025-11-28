@@ -18,23 +18,6 @@ function verifyActiveLink(link) {
       users.classList.add("body-section-active");
     }
   }
-  // else if (link.innerText.toUpperCase() === "EQUIPAMENTOS") {
-  //   const equips = document.querySelector("#equips-section");
-
-  //   if (!equips.classList.contains("body-section-active")) {
-  //     body_active.classList.remove("body-section-active");
-  //     equips.classList.add("body-section-active");
-  //     waitResponseEquips();
-  //   }
-  // } else if (link.innerText.toUpperCase() === "TREINOS") {
-  //   const prac = document.querySelector("#prac-section");
-
-  //   if (!prac.classList.contains("body-section-active")) {
-  //     body_active.classList.remove("body-section-active");
-  //     prac.classList.add("body-section-active");
-  //     waitResponsePracs();
-  //   }
-  // }
 }
 
 // Function Active Link Sidenav
@@ -46,6 +29,8 @@ list_links_sidenav.forEach((li) => {
 });
 
 function activeLinkSidenav(e) {
+  if (e.target.tagName === "LI") return;
+
   const active_link = document.querySelector(".active-link-admin");
   active_link.classList.remove("active-link-admin");
 

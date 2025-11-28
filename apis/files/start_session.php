@@ -13,6 +13,7 @@
   $_SESSION['email'] = $_GET['email'];
   $_SESSION['permissao'] = $_GET['permissao'];
 
-  header('Location: http://localhost/projeto-ecogym/public/index.php');
+  $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 'https' : 'http';
+  header('Location: ' . $protocol . '://' . $_SERVER['HTTP_HOST'] . '/projeto-ecogym/public/');
 
 ?>

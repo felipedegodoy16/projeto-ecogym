@@ -1,6 +1,6 @@
 <?php 
 
-  session_start();
+  require_once __DIR__ . '/../files/logged_user.php';
   require_once __DIR__ . '/../../class/ConnectionFactory.php';
 
   header("Content-Type: application/json; charset=UTF-8");
@@ -9,7 +9,6 @@
   header("Access-Control-Allow-Headers: Content-Type");
 
   // Selecting All Equips
-  // $sql = "SELECT DATE_FORMAT(DATA_MOVIMENTO, '%Y-%m-%d') AS FULL_DATA, SUM(CALORIA_GASTA) AS CALORIA FROM movimento WHERE DATA_MOVIMENTO >= DATEADD(day, -7, GETDATE()) GROUP BY FULL_DATA;";
   $sql = "SELECT DATE_FORMAT(DATA_MOVIMENTO, '%Y-%m-%W') AS FULL_DATA, SUM(CALORIA_GASTA) AS CALORIA FROM movimento WHERE FK_USUARIO_ID = :id AND DATA_MOVIMENTO >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) GROUP BY FULL_DATA ORDER BY FULL_DATA DESC;";
 
   $stmt = ConnectionFactory::getConnection()->prepare($sql);

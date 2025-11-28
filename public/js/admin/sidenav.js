@@ -48,6 +48,8 @@ list_links_sidenav.forEach((li) => {
 });
 
 function activeLinkSidenav(e) {
+  if (e.target.tagName === "LI") return;
+
   const active_link = document.querySelector(".active-link-admin");
   active_link.classList.remove("active-link-admin");
 

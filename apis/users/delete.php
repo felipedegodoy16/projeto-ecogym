@@ -1,6 +1,6 @@
 <?php 
 
-  require_once __DIR__ . '/../files/logged.php';
+  require_once __DIR__ . '/../files/logged_admin.php';
   require_once __DIR__ . '/../../class/UserDAO.php';
   
   header("Content-Type: application/json; charset=UTF-8");

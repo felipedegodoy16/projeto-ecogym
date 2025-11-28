@@ -311,7 +311,6 @@ img {
 }
 .form-select option {
   appearance: none;
-  color: #595959;
 }
 
 .form-textarea {
@@ -3166,8 +3165,8 @@ main#admin {
   object-fit: cover;
   box-shadow: inset 0 0 0 6px #111;
   border: 3px solid #39b934;
+  transition: all 0.3s ease-in-out;
 }
-
 .main-informations {
   text-align: center;
   margin-top: 1.5rem;
