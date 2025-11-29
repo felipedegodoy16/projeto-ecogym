@@ -65,6 +65,8 @@ function buildEquip(datas, cont) {
   a_edit.classList.add("card-actions");
   a_delete.classList.add("card-actions");
   div.classList.add("card-img");
+  div.style.backgroundImage =
+    "url('./assets/equipments/equips/equips_default.png')";
   ul.classList.add("card-body");
   li_item_name.className = "font-2-xs cor-4";
   li_item_kcal.className = "font-2-xs cor-4";

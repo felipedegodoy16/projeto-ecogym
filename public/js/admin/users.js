@@ -169,6 +169,10 @@ function openFocusCard(datas) {
 
   const card_focus_bg = document.querySelector("#cardFocusBg");
   const card_focus = card_focus_bg.querySelector("#cardFocus");
+
+  const div_img = card_focus_bg.querySelector(".card-img");
+  div_img.style.backgroundImage = "url('./assets/users/user_default.png')";
+
   const id_card_focus = card_focus_bg.querySelector("#id-card-focus");
   const name_card_focus = card_focus_bg.querySelector("#name-user-card-focus");
   const cpf_card_focus = card_focus_bg.querySelector("#cpf-user-card-focus");
@@ -272,6 +276,7 @@ function buildUser(datas, cont) {
   li.className = "card-item card-user";
   div_header.className = "card-header";
   div_img.className = "card-img";
+  div_img.style.backgroundImage = "url('./assets/users/user_default.png')";
   h3.className = "card-name font-1-s";
   span.className = "card-cpf font-1-xs";
 

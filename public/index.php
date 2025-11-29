@@ -48,7 +48,7 @@
               echo '<li>
                       <div class="user-menu font-1-xs">
                         <button class="user-btn" id="userMenuBtn">
-                          <div class="img-user"><img src="./assets/academia.jpg"></div>' . $name . ' ▾
+                          <div class="img-user"><img src="./assets/users/user_default.png"></div>' . $name . ' ▾
                         </button> 
 
                         <div class="user-dropdown" id="userDropdown">
