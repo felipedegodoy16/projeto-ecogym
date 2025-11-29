@@ -1,4 +1,4 @@
-import { waitResponsePracs } from "../admin/prac.js";
+import { waitResponsePracsUser } from "../admin/prac.js";
 
 // Function Verify Link Active
 function verifyActiveLink(link) {
@@ -16,6 +16,13 @@ function verifyActiveLink(link) {
     if (!users.classList.contains("body-section-active")) {
       body_active.classList.remove("body-section-active");
       users.classList.add("body-section-active");
+    }
+  } else if (link.innerText.toUpperCase() === "MEUS TREINOS") {
+    const users = document.querySelector("#prac-section");
+    if (!users.classList.contains("body-section-active")) {
+      body_active.classList.remove("body-section-active");
+      users.classList.add("body-section-active");
+      waitResponsePracsUser();
     }
   }
 }

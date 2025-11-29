@@ -26,9 +26,11 @@ btns_visible_form.forEach((btn) => {
 document.addEventListener("DOMContentLoaded", () => {
   const active_address = document.querySelector("#li-address-informations");
   const ul_address = document.querySelector("#address-informations-focus");
-  active_address.addEventListener("click", () => {
-    ul_address.classList.toggle("oppen-card-address");
-  });
+  if (ul_address) {
+    active_address.addEventListener("click", () => {
+      ul_address.classList.toggle("oppen-card-address");
+    });
+  }
 
   const btn_css_theme = document.querySelector(".btn-css-theme");
   btn_css_theme.addEventListener("click", alter_theme);

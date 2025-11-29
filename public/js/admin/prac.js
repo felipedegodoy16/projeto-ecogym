@@ -1,5 +1,5 @@
 import { loadingToggle } from "../loading.js";
-import { insert, select, deletePrac } from "../apis/prac.js";
+import { insert, select, deletePrac, select_prac_user } from "../apis/prac.js";
 import { showModal } from "../modal.js";
 import { formVisibility } from "./admin.js";
 import { validateInput, validateSelect } from "../validFields.js";
@@ -208,6 +208,27 @@ export async function waitResponsePracs() {
   loadingToggle(loadingContainer);
 
   const res = await select();
+
+  loadingToggle(loadingContainer);
+
+  if (res) {
+    addPracs(res);
+    return;
+  }
+}
+
+// Function Wait Select Reponse
+export async function waitResponsePracsUser() {
+  const loadingContainer = document
+    .querySelector(".body-section-active")
+    .querySelector(".loading-container");
+
+  const prac_list = document.querySelector("#prac-list");
+  prac_list.innerHTML = "";
+
+  loadingToggle(loadingContainer);
+
+  const res = await select_prac_user();
 
   loadingToggle(loadingContainer);
 

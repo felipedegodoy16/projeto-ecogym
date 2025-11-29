@@ -336,36 +336,31 @@
       </div>
     </section>
 
-    <div class="card-focus-bg" id="cardFocusBg">
-      <div class="card-focus card-item card-user card-focus-visible" id="cardFocus">
-        <span class="card-id font-1-s" id="id-card-focus"></span>
+    <!-- Card Informations Pracs -->
+    <div class="card-focus-bg" id="cardPracFocusBg">
+      <div class="card-focus card-item card-user card-focus-visible card-active" id="cardPracFocus">
         <div class="card-header">
-          <div class="card-img"></div>
-          <h3 class="card-name font-1-l" id="name-user-card-focus"></h3>
+          <h3 class="card-name font-1-l" id="name-prac-card-focus"></h3>
+          <span class="font-2-s" id="relax-card-focus"></span>
         </div>
         <ul class="card-body">
-          <li class="font-1-xs cor-8 aditional-informations">Dados Pessoais</li>
-          <li class="font-2-xs cor-4" id="cpf-user-card-focus"></li>
-          <li class="font-2-xs cor-4" id="dataNasc-user-card-focus"></li>
-          <li class="font-1-xs cor-8 aditional-informations">Contato</li>
-          <li class="font-2-xs cor-4" id="phone-user-card-focus"></li>
-          <li class="font-2-xs cor-4" id="email-user-card-focus"></li>
-          <li class="font-1-xs cor-8 aditional-informations">Dados Contratuais</li>
-          <li class="font-2-xs cor-4"><span>Plano:</span> EcoGym</li>
-          <li class="font-2-xs cor-4 card-situation"><span class="card-tag" id="situation-user-card-focus"></span></li>
+          <li class="li-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Exercício</th>
+                  <th>Séries</th>
+                  <th>Repetições</th>
+                  <th>Carga</th>
+                </tr>
+              </thead>
+              <tbody>
 
-          <li class="font-1-xs cor-8 address-informations" id="li-address-informations">Dados de Endereço <span><img src="./assets/vetores/arrow-down.svg" alt=""></span></li>
-
-          <ul class="card-body" id="address-informations-focus">
-            <li class="font-2-xs cor-4" id="cep-user-card-focus"></li>
-            <li class="font-2-xs cor-4" id="state-user-card-focus"></li>
-            <li class="font-2-xs cor-4" id="city-user-card-focus"></li>
-            <li class="font-2-xs cor-4" id="bairro-user-card-focus"></li>
-            <li class="font-2-xs cor-4" id="street-user-card-focus"></li>
-            <li class="font-2-xs cor-4" id="number-user-card-focus"></li>
-          </ul>
-
-          <li class="font-2-xs cor-4"><span>Ações:</span> <a class="card-actions" id="edit-user">Editar</a><a class="card-actions" id="delete-user">Excluir</a></li>
+              </tbody>
+            </table>
+          </li>
+          <li class="font-2-xs cor-4 card-prac-actions"><span>Ações:</span> <a class="card-actions" id="edit-prac">Editar</a><a class="card-actions" id="delete-prac">Excluir</a></li>
         </ul>
       </div>
     </div>
