@@ -7,7 +7,6 @@
 }
 
 table {
-  margin-top: 2.5rem;
   width: 100%;
   border-collapse: collapse;
   @include device(t) {
@@ -47,155 +46,14 @@ tbody tr:last-child {
 
 td {
   padding: 24px;
-  font-size: 15px;
-  color: #fff;
+  font-size: 1.125rem;
+  color: $cor-3;
   @include device(t) {
     padding: 16px 12px;
   }
 }
 
-/* Coluna de Colocação */
-.rank-cell {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.rank-badge {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 16px;
-  background: linear-gradient(135deg, $cor-p1 0%, $cor-p4 100%);
-  @include device(t) {
-    width: 32px;
-    height: 32px;
-    font-size: 14px;
-  }
-}
-
-tbody tr:first-child td:first-child .rank-badge {
-  background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
-  color: $cor-12;
-}
-
-tbody tr:nth-child(2) td:first-child .rank-badge {
-  background: linear-gradient(135deg, #c0c0c0 0%, #808080 100%);
-  color: $cor-12;
-}
-
-tbody tr:nth-child(3) td:first-child .rank-badge {
-  background: linear-gradient(135deg, #cd7f32 0%, #8b4513 100%);
-  color: $cor-12;
-}
-
-/* ID Badge */
-.id-badge {
-  background: $cor-p6;
-  color: $cor-p1;
-  padding: 6px 14px;
-  border-radius: 20px;
-  display: inline-block;
-}
-
-/* Energia Gerada */
-.energy-cell {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  font-size: 18px;
-  @include device(t) {
-    font-size: 16px;
-  }
-}
-
-.energy-value {
-  color: $cor-p1;
-}
-
-.energy-unit {
-  font-size: 13px;
-  color: $cor-7;
-  font-weight: 500;
-}
-
-.energy-bar {
-  flex: 1;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  overflow: hidden;
-  max-width: 150px;
-  // @include device(d) {
-  //   display: none;
-  // }
-}
-
-.energy-fill {
-  height: 100%;
-  background: linear-gradient(90deg, $cor-p1 0%, $cor-p4 100%);
-  border-radius: 10px;
-  transition: width 0.5s ease;
-}
-
 /* Animação de entrada */
 tbody tr {
   animation: fadeInUp 0.5s ease;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-tbody tr:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-tbody tr:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-tbody tr:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-tbody tr:nth-child(4) {
-  animation-delay: 0.4s;
-}
-
-tbody tr:nth-child(5) {
-  animation-delay: 0.5s;
-}
-
-tbody tr:nth-child(6) {
-  animation-delay: 0.6s;
-}
-
-tbody tr:nth-child(7) {
-  animation-delay: 0.7s;
-}
-
-tbody tr:nth-child(8) {
-  animation-delay: 0.8s;
-}
-
-tbody tr:nth-child(9) {
-  animation-delay: 0.9s;
-}
-
-tbody tr:nth-child(10) {
-  animation-delay: 1s;
 }

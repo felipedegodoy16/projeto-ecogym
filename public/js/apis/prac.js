@@ -59,7 +59,7 @@ export async function alter(datas, id) {
 }
 
 // Function Delete Equipments
-export async function deleteUser(id) {
+export async function deletePrac(id) {
   try {
     const res = await fetch(API_URL + "delete.php", {
       method: "DELETE",

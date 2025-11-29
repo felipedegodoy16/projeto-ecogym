@@ -819,7 +819,6 @@ input[type=radio]:checked + .label-radio::before {
 }
 
 table {
-  margin-top: 2.5rem;
   width: 100%;
   border-collapse: collapse;
 }
@@ -863,8 +862,8 @@ tbody tr:last-child {
 
 td {
   padding: 24px;
-  font-size: 15px;
-  color: #fff;
+  font-size: 1.125rem;
+  color: #404040;
 }
 @media screen and (max-width: 768px) {
   td {
@@ -872,149 +871,9 @@ td {
   }
 }
 
-/* Coluna de Colocação */
-.rank-cell {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.rank-badge {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 16px;
-  background: linear-gradient(135deg, #39b934 0%, #0e760a 100%);
-}
-@media screen and (max-width: 768px) {
-  .rank-badge {
-    width: 32px;
-    height: 32px;
-    font-size: 14px;
-  }
-}
-
-tbody tr:first-child td:first-child .rank-badge {
-  background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
-  color: #fff;
-}
-
-tbody tr:nth-child(2) td:first-child .rank-badge {
-  background: linear-gradient(135deg, #c0c0c0 0%, #808080 100%);
-  color: #fff;
-}
-
-tbody tr:nth-child(3) td:first-child .rank-badge {
-  background: linear-gradient(135deg, #cd7f32 0%, #8b4513 100%);
-  color: #fff;
-}
-
-/* ID Badge */
-.id-badge {
-  background: #034100;
-  color: #39b934;
-  padding: 6px 14px;
-  border-radius: 20px;
-  display: inline-block;
-}
-
-/* Energia Gerada */
-.energy-cell {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  font-size: 18px;
-}
-@media screen and (max-width: 768px) {
-  .energy-cell {
-    font-size: 16px;
-  }
-}
-
-.energy-value {
-  color: #39b934;
-}
-
-.energy-unit {
-  font-size: 13px;
-  color: #b2b2b2;
-  font-weight: 500;
-}
-
-.energy-bar {
-  flex: 1;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  overflow: hidden;
-  max-width: 150px;
-}
-
-.energy-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #39b934 0%, #0e760a 100%);
-  border-radius: 10px;
-  transition: width 0.5s ease;
-}
-
 /* Animação de entrada */
 tbody tr {
   animation: fadeInUp 0.5s ease;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-tbody tr:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-tbody tr:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-tbody tr:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-tbody tr:nth-child(4) {
-  animation-delay: 0.4s;
-}
-
-tbody tr:nth-child(5) {
-  animation-delay: 0.5s;
-}
-
-tbody tr:nth-child(6) {
-  animation-delay: 0.6s;
-}
-
-tbody tr:nth-child(7) {
-  animation-delay: 0.7s;
-}
-
-tbody tr:nth-child(8) {
-  animation-delay: 0.8s;
-}
-
-tbody tr:nth-child(9) {
-  animation-delay: 0.9s;
-}
-
-tbody tr:nth-child(10) {
-  animation-delay: 1s;
 }
 
 .header-bg {
@@ -1852,7 +1711,7 @@ tbody tr:nth-child(10) {
 
 /* Hero Section */
 .hero-bg {
-  background: url("./../assets/about-us/background.jpg") no-repeat center/cover;
+  background: url("./../assets/background.jpg") no-repeat center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3191,6 +3050,10 @@ main#admin {
 .datas-section-profile .btn-actions {
   display: flex;
   justify-content: flex-end;
+}
+
+.card-body .li-table {
+  grid-column: 1/-1;
 }
 
 .fadeInOutRight {

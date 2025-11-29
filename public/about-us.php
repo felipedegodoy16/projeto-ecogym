@@ -37,10 +37,18 @@
           <li><a class="font-1-xs" href="./contact-new.php">Fale Conosco</a></li>
           <?php 
             if($_SESSION && $_SESSION['logged']) {
+              $pos = strpos($_SESSION['name'], " ");
+
+              $name = $_SESSION['name'];
+
+              if($pos !== false) {
+                $name = substr($_SESSION['name'], 0, $pos);
+              }
+              
               echo '<li>
                       <div class="user-menu font-1-xs">
                         <button class="user-btn" id="userMenuBtn">
-                          <div class="img-user"><img src="./assets/academia.jpg"></div>' . $_SESSION['name'] . ' ▾
+                          <div class="img-user"><img src="./assets/users/user_default.png"></div>' . $name . ' ▾
                         </button> 
 
                         <div class="user-dropdown" id="userDropdown">

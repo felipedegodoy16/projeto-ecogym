@@ -1,5 +1,5 @@
 import { loadingToggle } from "../loading.js";
-import { insert, select } from "../apis/prac.js";
+import { insert, select, deletePrac } from "../apis/prac.js";
 import { showModal } from "../modal.js";
 import { formVisibility } from "./admin.js";
 import { validateInput, validateSelect } from "../validFields.js";
@@ -64,6 +64,98 @@ document
     }
   });
 
+// Function Handle Delete
+async function handleDeletePrac() {
+  const card_focus_bg = document.querySelector("#cardPracFocusBg");
+  closeCardFocus(card_focus_bg);
+
+  const name_card_focus = card_focus_bg.querySelector("#name-prac-card-focus");
+  const firstSpace = name_card_focus.textContent.indexOf(" ");
+  const id = name_card_focus.textContent.slice(0, firstSpace).replace("#", "");
+
+  const res = await deletePrac(id);
+
+  showModal(res["status"], res["title"], res["message"]);
+
+  if (res["status"] === "success") {
+    const card_item = document.getElementById(`${id}`);
+    card_item.remove();
+  }
+}
+
+// Function Focus Card
+function openFocusCard(datas) {
+  const card_focus_bg = document.querySelector("#cardPracFocusBg");
+
+  const name_card_focus = card_focus_bg.querySelector("#name-prac-card-focus");
+  const relax_card_focus = card_focus_bg.querySelector("#relax-card-focus");
+
+  name_card_focus.style.marginTop = "1.5rem";
+
+  const min = Math.floor(datas["relax"] / 60);
+  const sec = datas["relax"] - min * 60;
+
+  let relax_time;
+
+  if (min) {
+    relax_time = `${min}min e ${sec}s`;
+  } else {
+    relax_time = `${sec}s`;
+  }
+
+  card_focus_bg.classList.add("card-focus-bg-active");
+  name_card_focus.innerHTML = `#${datas["id_treino"]} ${datas["name_treino"]}`;
+  relax_card_focus.innerHTML = `Descanso: ${relax_time}`;
+
+  const ul_list = card_focus_bg.querySelector(".card-body");
+  const table = ul_list.querySelector("tbody");
+
+  if (!datas["exercises"].length) {
+    table.innerHTML =
+      "<tr><td colspan='5' style='text-align: center;'>Não há exercícios</td></tr>";
+  } else {
+    datas["exercises"].forEach((e) => {
+      table.innerHTML += `
+      <tr>
+        <td>#${e["id_exercise"]}</td>
+        <td>${e["name_exercise"]}</td>
+        <td>${e["series"]}</td>
+        <td>${e["reps"]}</td>
+        <td>${e["charge"]}kg</td>
+      </tr>`;
+    });
+  }
+
+  card_focus_bg.addEventListener("click", function (e) {
+    if (e.target === this) {
+      closeCardFocus(card_focus_bg);
+    }
+  });
+
+  // const btn_edit_prac = document.querySelector("#edit-prac");
+  // btn_edit_prac.addEventListener("click", () => {
+  //   handleEditUser(datas);
+  // });
+}
+
+// Add Event Delete
+const btn_delete_prac = document.querySelector("#delete-prac");
+if (btn_delete_prac) {
+  btn_delete_prac.addEventListener("click", () => {
+    if (confirm("Deseja realmente excluir esse treino?")) {
+      handleDeletePrac();
+    }
+  });
+}
+
+// Fecha Card Focus
+function closeCardFocus(card_focus_bg) {
+  card_focus_bg.classList.remove("card-focus-bg-active");
+  const ul_list = card_focus_bg.querySelector(".card-body");
+  const table = ul_list.querySelector("tbody");
+  table.innerHTML = "";
+}
+
 // Function Build Card User
 function buildPrac(datas, cont) {
   const li = document.createElement("li");
@@ -77,7 +169,13 @@ function buildPrac(datas, cont) {
   const ex_length = datas["exercises"].length;
 
   h3.innerHTML = `${datas["name_treino"]}`;
-  span.innerHTML = `Exercícios: ${ex_length}`;
+  span.innerHTML = `Exercício(s): ${ex_length}`;
+
+  li.id = datas["id_treino"];
+
+  li.addEventListener("click", () => {
+    openFocusCard(datas);
+  });
 
   li.append(h3, span);
 

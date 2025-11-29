@@ -399,7 +399,7 @@
                 <option value="120">2min</option>
               </select>
               <span class="font-2-xs warning-data">Preencha este campo</span>
-              <!-- <span class="position-icon-input"><img src="./assets/img/vetores/arrow-down.svg" alt=""></span> -->
+              <span class="position-icon-input"><img src="./assets/vetores/arrow-down.svg" alt=""></span>
             </div>
 
             <div class="exer-list"></div>
@@ -423,6 +423,7 @@
       </div>
     </section>
 
+    <!-- Card Informations Users -->
     <div class="card-focus-bg" id="cardFocusBg">
       <div class="card-focus card-item card-user card-focus-visible" id="cardFocus">
         <span class="card-id font-1-s" id="id-card-focus"></span>
@@ -453,6 +454,35 @@
           </ul>
 
           <li class="font-2-xs cor-4"><span>Ações:</span> <a class="card-actions" id="edit-user">Editar</a><a class="card-actions" id="delete-user">Excluir</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card Informations Pracs -->
+    <div class="card-focus-bg" id="cardPracFocusBg">
+      <div class="card-focus card-item card-user card-focus-visible card-active" id="cardPracFocus">
+        <div class="card-header">
+          <h3 class="card-name font-1-l" id="name-prac-card-focus"></h3>
+          <span class="font-2-s" id="relax-card-focus"></span>
+        </div>
+        <ul class="card-body">
+          <li class="li-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Exercício</th>
+                  <th>Séries</th>
+                  <th>Repetições</th>
+                  <th>Carga</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              </tbody>
+            </table>
+          </li>
+          <li class="font-2-xs cor-4 card-prac-actions"><span>Ações:</span> <a class="card-actions" id="edit-prac">Editar</a><a class="card-actions" id="delete-prac">Excluir</a></li>
         </ul>
       </div>
     </div>

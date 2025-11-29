@@ -8,7 +8,7 @@
   header("Access-Control-Allow-Methods: GET");
   header("Access-Control-Allow-Headers: Content-Type");
 
-  $sql = "SELECT * FROM treino t LEFT JOIN exercicio e ON t.ID_TREINO = e.FK_TREINO_ID ORDER BY t.ID_TREINO ASC;";
+  $sql = "SELECT * FROM treino t LEFT JOIN exercicio e ON t.ID_TREINO = e.FK_TREINO_ID WHERE t.ATIVO = 'A' ORDER BY t.ID_TREINO ASC;";
 
   // Conectando ao banco e preparando a query
   $stmt = ConnectionFactory::getConnection()->prepare($sql);
