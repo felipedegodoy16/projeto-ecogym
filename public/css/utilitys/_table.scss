@@ -1,9 +1,8 @@
 /* Tabela */
 .table-container {
-  overflow: hidden;
-  @include device(t) {
-    overflow-x: auto;
-  }
+  grid-column: 1/-1;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
 
 table {
@@ -25,19 +24,22 @@ th {
   color: $cor-8;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   @include device(t) {
     padding: 16px 12px;
   }
 }
 
 tbody tr {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba($color: $cor-7, $alpha: 0.5);
   transition: all 0.3s ease;
 }
 
 tbody tr:hover {
   background: $cor-10;
+}
+
+thead tr:first-child {
+  border-bottom: 1px solid rgba($color: $cor-6, $alpha: 0.5);
 }
 
 tbody tr:last-child {

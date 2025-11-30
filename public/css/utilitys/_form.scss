@@ -11,24 +11,34 @@
   .btn-login {
     grid-column: 1/-1;
   }
-  .personal-informations,
-  .address-informations {
-    color: $cor-5;
+}
+
+.personal-informations,
+.address-informations,
+.calc-informations {
+  color: $cor-5;
+  grid-column: 1/-1;
+  margin-bottom: 1rem;
+  margin-left: 10px;
+  padding-left: 18px;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 4px;
+    background: linear-gradient(to right, $cor-p1, $cor-p3);
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.form-calc-physical {
+  grid-template-columns: 1fr;
+  .btn-actions {
     grid-column: 1/-1;
-    margin-bottom: 1rem;
-    margin-left: 10px;
-    padding-left: 18px;
-    position: relative;
-    &::before {
-      content: "";
-      position: absolute;
-      width: 12px;
-      height: 4px;
-      background: linear-gradient(to right, $cor-p1, $cor-p3);
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+    margin-right: 10px;
   }
 }
 

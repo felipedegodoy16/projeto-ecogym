@@ -43,6 +43,9 @@
         <li><a><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px">
               <path d="m826-585-56-56 30-31-128-128-31 30-57-57 30-31q23-23 57-22.5t57 23.5l129 129q23 23 23 56.5T857-615l-31 30ZM346-104q-23 23-56.5 23T233-104L104-233q-23-23-23-56.5t23-56.5l30-30 57 57-31 30 129 129 30-31 57 57-30 30Zm397-336 57-57-303-303-57 57 303 303ZM463-160l57-58-302-302-58 57 303 303Zm-6-234 110-109-64-64-109 110 63 63Zm63 290q-23 23-57 23t-57-23L104-406q-23-23-23-57t23-57l57-57q23-23 56.5-23t56.5 23l63 63 110-110-63-62q-23-23-23-57t23-57l57-57q23-23 56.5-23t56.5 23l303 303q23 23 23 56.5T857-441l-57 57q-23 23-57 23t-57-23l-62-63-110 110 63 63q23 23 23 56.5T577-161l-57 57Z" />
             </svg>Meus Treinos</a></li>
+        <li><a><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#39b934">
+              <path d="M480-720q-33 0-56.5-23.5T400-800q0-33 23.5-56.5T480-880q33 0 56.5 23.5T560-800q0 33-23.5 56.5T480-720ZM360-120v-480H160q-17 0-28.5-11.5T120-640q0-17 11.5-28.5T160-680h640q17 0 28.5 11.5T840-640q0 17-11.5 28.5T800-600H600v480q0 17-11.5 28.5T560-80q-17 0-28.5-11.5T520-120v-200h-80v200q0 17-11.5 28.5T400-80q-17 0-28.5-11.5T360-120Z" />
+            </svg>Perfil Físico</a></li>
         <li><a href="index.php"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#39b934">
               <path d="M240-200h120v-200q0-17 11.5-28.5T400-440h160q17 0 28.5 11.5T600-400v200h120v-360L480-740 240-560v360Zm-80 0v-360q0-19 8.5-36t23.5-28l240-180q21-16 48-16t48 16l240 180q15 11 23.5 28t8.5 36v360q0 33-23.5 56.5T720-120H560q-17 0-28.5-11.5T520-160v-200h-80v200q0 17-11.5 28.5T400-120H240q-33 0-56.5-23.5T160-200Zm320-270Z" />
             </svg>Voltar</a></li>
@@ -336,6 +339,80 @@
       </div>
     </section>
 
+    <!-- Section physical -->
+    <section class="body-section" id="physical-section">
+      <header class="header-pages-admin">
+        <h2 class="font-1-l cor-3">Perfil Físico</h2>
+      </header>
+
+      <div class="users-body-items">
+        <form class="form-cadastro form-calc-physical" id="physicalCalc">
+          <div class="card-datas-profile">
+            <h2 class="font-1-xs calc-informations">Realizar Cálculo</h2>
+
+            <div class="form-group">
+              <label class="form-label" for="physical-weight">Peso (kg)</label>
+              <input type="text" class="register-datas form-input" id="physical-weight" name="physical-weight" data-mask="000" placeholder="999">
+              <span class="font-2-xs warning-data">Preencha este campo</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="physical-height">Altura (m)</label>
+              <input type="text" class="register-datas form-input" id="physical-height" name="physical-height" data-mask="0.00" placeholder="9.99">
+              <span class="font-2-xs warning-data">Preencha este campo</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="physical-waist">Cintura (cm)</label>
+              <input type="text" class="register-datas form-input" id="physical-waist" name="physical-waist" data-mask="000" placeholder="999">
+              <span class="font-2-xs warning-data">Preencha este campo</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="physical-neck">Pescoço (cm)</label>
+              <input type="text" class="register-datas form-input" id="physical-neck" name="physical-weight" data-mask="000" placeholder="999">
+              <span class="font-2-xs warning-data">Preencha este campo</span>
+            </div>
+
+            <!-- <div class="form-group">
+              <label class="form-label" for="physical-hip">Quadril (cm)</label>
+              <input type="text" class="register-datas form-input" id="physical-hip" name="physical-hip" placeholder="999.99">
+              <span class="font-2-xs warning-data">Preencha este campo</span>
+            </div> -->
+
+            <div class="btn-actions">
+              <button class="button btn-primary btn-primary-p6 btn-add-edit">
+                Calcular
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div class="card-datas-profile">
+          <h2 class="font-1-xs calc-informations">Histórico de Cálculos</h2>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Peso (kg)</th>
+                  <th>Cintura (cm)</th>
+                  <th>Pescoço (cm)</th>
+                  <th>IMC</th>
+                  <th>Gordura (%)</th>
+                  <th>Gordura (kg)</th>
+                </tr>
+              </thead>
+              <tbody id="calc-history">
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Card Informations Pracs -->
     <div class="card-focus-bg" id="cardPracFocusBg">
       <div class="card-focus card-item card-user card-focus-visible card-active" id="cardPracFocus">
@@ -380,6 +457,7 @@
 
   <script type="module" src="./js/profile/sidenavProfile.js"></script>
   <script type="module" src="./js/profile/profile.js"></script>
+  <script type="module" src="./js/profile/physical.js"></script>
   <script src="./js/admin/exer.js"></script>
   <script type="module" src="./js/admin/prac.js"></script>
   <script src="./js/animations.js"></script>

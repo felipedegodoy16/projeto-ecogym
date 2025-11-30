@@ -1,4 +1,6 @@
+import { callOwnDatas } from "./profile.js";
 import { waitResponsePracsUser } from "../admin/prac.js";
+import { callCalcsUser } from "./physical.js";
 
 // Function Verify Link Active
 function verifyActiveLink(link) {
@@ -16,6 +18,7 @@ function verifyActiveLink(link) {
     if (!users.classList.contains("body-section-active")) {
       body_active.classList.remove("body-section-active");
       users.classList.add("body-section-active");
+      callOwnDatas();
     }
   } else if (link.innerText.toUpperCase() === "MEUS TREINOS") {
     const users = document.querySelector("#prac-section");
@@ -23,6 +26,13 @@ function verifyActiveLink(link) {
       body_active.classList.remove("body-section-active");
       users.classList.add("body-section-active");
       waitResponsePracsUser();
+    }
+  } else if (link.innerText.toUpperCase() === "PERFIL FÍSICO") {
+    const users = document.querySelector("#physical-section");
+    if (!users.classList.contains("body-section-active")) {
+      body_active.classList.remove("body-section-active");
+      users.classList.add("body-section-active");
+      callCalcsUser();
     }
   }
 }

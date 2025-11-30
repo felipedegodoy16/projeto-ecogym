@@ -19,10 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
   callDoghnutChart();
   callRankingUsers();
   callRankingEquips();
-  callOwnDatas();
 });
 
-async function callOwnDatas() {
+export async function callOwnDatas() {
   let datas = await return_user();
   datas = datas[0];
 
@@ -137,13 +136,14 @@ async function handleUpdateProfile(e) {
   }
 }
 
+// Form Update Profile
 const form = document.querySelector("#updateProfileForm");
 form.addEventListener("submit", handleUpdateProfile);
 
 // Click Input File
-const img_profile = document.querySelector(".img-profile");
-const update_picture = document.querySelector("#update-picture");
+// const img_profile = document.querySelector(".img-profile");
+// const update_picture = document.querySelector("#update-picture");
 
-img_profile.addEventListener("click", () => {
-  update_picture.click();
-});
+// img_profile.addEventListener("click", () => {
+//   update_picture.click();
+// });
