@@ -374,11 +374,16 @@
               <span class="font-2-xs warning-data">Preencha este campo</span>
             </div>
 
-            <!-- <div class="form-group">
-              <label class="form-label" for="physical-hip">Quadril (cm)</label>
-              <input type="text" class="register-datas form-input" id="physical-hip" name="physical-hip" placeholder="999.99">
-              <span class="font-2-xs warning-data">Preencha este campo</span>
-            </div> -->
+            <?php
+            if($_SESSION['genre'] === 'female') {
+              echo
+                '<div class="form-group">
+                  <label class="form-label" for="physical-hip">Quadril (cm)</label>
+                  <input type="text" class="register-datas form-input" id="physical-hip" name="physical-hip" placeholder="999.99">
+                  <span class="font-2-xs warning-data">Preencha este campo</span>
+                </div>';
+            }
+            ?>
 
             <div class="btn-actions">
               <button class="button btn-primary btn-primary-p6 btn-add-edit">

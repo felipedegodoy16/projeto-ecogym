@@ -11,6 +11,7 @@
   $_SESSION['id'] = $_GET['id'];
   $_SESSION['name'] = $_GET['name'];
   $_SESSION['email'] = $_GET['email'];
+  $_SESSION['genre'] = $_GET['genre'];
   $_SESSION['permissao'] = $_GET['permissao'];
 
   $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 'https' : 'http';

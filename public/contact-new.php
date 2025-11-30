@@ -227,7 +227,6 @@
           <h3 class="font-1-s">Navegação</h3>
           <ul class="font-2-xs">
             <li><a href="index.php">Início</a></li>
-            <li><a href="#">Área do Aluno</a></li>
             <li><a href="about-us.php">Sobre nós</a></li>
           </ul>
         </div>

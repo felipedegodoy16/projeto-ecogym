@@ -110,7 +110,7 @@
             try {
 
                 // Query
-                $sql = "SELECT ID_USUARIO, NOME, EMAIL, SENHA, PERMISSAO FROM usuarios WHERE EMAIL = :email LIMIT 1;";
+                $sql = "SELECT ID_USUARIO, NOME, EMAIL, GENERO, SENHA, PERMISSAO FROM usuarios WHERE EMAIL = :email LIMIT 1;";
 
                 // Conectando ao banco e preparando a query
                 $stmt = ConnectionFactory::getConnection()->prepare($sql);
@@ -123,13 +123,14 @@
                     $d['ID_USUARIO'];
                     $d['NOME'];
                     $d['EMAIL'];
+                    $d['GENERO'];
                     $d['SENHA'];
                     $d['PERMISSAO'];
                 }
 
                 if($stmt->rowCount() > 0 && password_verify($this->getUser()->getPassword(), $d['SENHA'])){
                     
-                    return ["id" => $d['ID_USUARIO'], "name" => $d['NOME'], "email" => $d['EMAIL'], "permissao" => $d['PERMISSAO']];
+                    return ["id" => $d['ID_USUARIO'], "name" => $d['NOME'], "email" => $d['EMAIL'], "genre" => $d['GENERO'], "permissao" => $d['PERMISSAO']];
 
                 } 
                 

@@ -125,7 +125,7 @@ async function handleSubmit(e) {
       return;
     }
 
-    window.location.href = `${window.location.protocol}//${window.location.hostname}/projeto-ecogym/apis/files/start_session.php?id=${res["id"]}&name=${res["name"]}&email=${res["email"]}&permissao=${res["permissao"]}`;
+    window.location.href = `${window.location.protocol}//${window.location.hostname}/projeto-ecogym/apis/files/start_session.php?id=${res["id"]}&name=${res["name"]}&email=${res["email"]}&genre=${res["genre"]}&permissao=${res["permissao"]}`;
 
     return;
   }
