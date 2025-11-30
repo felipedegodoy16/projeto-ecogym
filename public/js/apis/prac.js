@@ -2,9 +2,9 @@
 const API_URL = `${window.location.protocol}//${window.location.hostname}/projeto-ecogym/apis/prac/`;
 
 // Function Send Datas API
-export async function insert(datas) {
+export async function insert(datas, user = "admin") {
   try {
-    const res = await fetch(API_URL + "insert.php", {
+    const res = await fetch(API_URL + `insert.php?user=${user}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(datas),

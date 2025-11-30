@@ -19,6 +19,7 @@ function addExercise(e) {
   div.setAttribute("id", "exer_" + cont);
 
   div.innerHTML = `
+    <input type="hidden" name="id-exer">
     <div class="form-group">
       <label class="form-label" for="exer-name">Exercício</label>
       <input type="text" class="form-input" name="exer-name" placeholder="Exercício">

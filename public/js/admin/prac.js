@@ -5,6 +5,7 @@ import {
   deletePrac,
   select_prac_user,
   select_prac,
+  alter,
 } from "../apis/prac.js";
 import { showModal } from "../modal.js";
 import { formVisibility } from "./admin.js";
@@ -30,6 +31,7 @@ document
     }
 
     // Captura os dados do treino
+    const prac_id = document.querySelector("#prac-id").value;
     const prac_name = document.querySelector("#prac-name").value;
     const prac_relax = document.querySelector("#prac-relax").value;
 
@@ -39,6 +41,7 @@ document
 
     div_exercises.forEach((box) => {
       exercises.push({
+        id: box.querySelector('input[name="id-exer"]').value,
         name: box.querySelector('input[name="exer-name"]').value,
         series: box.querySelector('input[name="exer-series"]').value,
         reps: box.querySelector('input[name="exer-reps"]').value,
@@ -49,24 +52,47 @@ document
     // Monta o JSON final
     const datas = {
       practice: {
+        id: prac_id,
         name: prac_name,
         relax: prac_relax,
       },
       exercises: exercises,
     };
 
-    const res = await insert(datas);
+    let res;
+
+    if (prac_id) {
+      res = await alter(datas, prac_id);
+    } else {
+      if (window.location.href.includes("profile.php")) {
+        res = await insert(datas, "user");
+      } else {
+        res = await insert(datas);
+      }
+    }
 
     showModal(res["status"], res["title"], res["message"]);
 
     if (res["status"] === "success") {
       form.reset();
+
+      if (prac_id) {
+        const ul = document.querySelector("#prac-list");
+        ul.innerHTML = "";
+
+        if (window.location.href.includes("profile.php"))
+          waitResponsePracsUser();
+        else waitResponsePracs();
+
+        document.querySelector("#prac-id").value = "";
+      } else {
+        addPracs(res["datas"]);
+      }
+
       formVisibility(form);
 
       const exer_list = document.querySelector(".exer-list");
       exer_list.innerHTML = "";
-
-      addPracs(res["datas"]);
     }
   });
 
@@ -148,6 +174,7 @@ function addExercise(e) {
   div.setAttribute("id", "exer_" + cont);
 
   div.innerHTML = `
+    <input type="hidden" value="${e["id_exercise"]}" name="id-exer">
     <div class="form-group">
       <label class="form-label" for="exer-name">Exercício</label>
       <input type="text" class="form-input" value="${e["name_exercise"]}" name="exer-name" placeholder="Exercício">

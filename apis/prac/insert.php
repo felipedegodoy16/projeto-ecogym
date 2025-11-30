@@ -8,6 +8,10 @@
   header("Access-Control-Allow-Methods: POST");
   header("Access-Control-Allow-Headers: Content-Type");
 
+  if(!isset($_GET['user'])) {
+    echo json_encode(["status" => "error", "title" => "Erro!", "message" => "Você não tem permissão para isso."]);
+  }
+
   $datas = json_decode(file_get_contents("php://input"), true);
 
   $practice = $datas['practice'];
@@ -21,6 +25,17 @@
   $stmt->execute() or die(print_r($stmt->errorInfo(), true));
 
   $id_prac = ConnectionFactory::getConnection()->lastInsertId();
+
+  if($_GET['user'] === 'user') {
+    $sql = "INSERT INTO usuario_treino (FK_ID_USUARIO, FK_ID_TREINO) VALUES (:id_user, :id_prac);";
+
+    $stmt = ConnectionFactory::getConnection()->prepare($sql);
+
+    $stmt->bindValue(":id_user", $_SESSION['id'], PDO::PARAM_INT);
+    $stmt->bindValue(":id_prac", $id_prac, PDO::PARAM_INT);
+
+    $stmt->execute() or die(print_r($stmt->errorInfo(), true));
+  }
 
   $sql = "INSERT INTO exercicio (ID_EXERCICIO, EXERCICIO, SERIES, REPETICOES, CARGA, FK_TREINO_ID) VALUES (DEFAULT, :exercise, :series, :reps, :charge, :id_prac);";
   $stmt2 = ConnectionFactory::getConnection()->prepare($sql);

@@ -11,11 +11,6 @@
 
   $id = $_GET['id'];
 
-  if($id !== $_SESSION['id']) {
-    echo json_encode(["status" => "error", "title" => "Erro!", "message" => "Não foi possível fazer a alteração devido a uma validação."]);
-    exit();
-  }
-
   $datas = json_decode(file_get_contents("php://input"), true);
 
   $name = trim($datas['register-name']);
