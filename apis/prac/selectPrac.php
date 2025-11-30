@@ -8,10 +8,14 @@
   header("Access-Control-Allow-Methods: GET");
   header("Access-Control-Allow-Headers: Content-Type");
 
-  $sql = "SELECT * FROM treino t LEFT JOIN exercicio e ON t.ID_TREINO = e.FK_TREINO_ID WHERE t.ATIVO = 'A' ORDER BY t.ID_TREINO ASC;";
+  $id = intval($_GET['id']);
+
+  $sql = "SELECT * FROM treino t LEFT JOIN exercicio e ON t.ID_TREINO = e.FK_TREINO_ID WHERE t.ATIVO = 'A' AND t.ID_TREINO = :id ORDER BY t.ID_TREINO ASC;";
 
   // Conectando ao banco e preparando a query
   $stmt = ConnectionFactory::getConnection()->prepare($sql);
+
+  $stmt->bindValue(":id", $id, PDO::PARAM_INT);
 
   $stmt->execute() or die(print_r($stmt->errorInfo(), true));
   $datas = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -13,7 +13,7 @@
   $practice = $datas['practice'];
   $exercises = $datas['exercises'];
 
-  $sql = "INSERT INTO treino (ID_TREINO, TREINO, DESCANSO) VALUES (DEFAULT, :prac_name, :relax);";
+  $sql = "INSERT INTO treino (ID_TREINO, TREINO, DESCANSO, ATIVO) VALUES (DEFAULT, :prac_name, :relax, 'A');";
   $stmt = ConnectionFactory::getConnection()->prepare($sql);
 
   $stmt->bindValue(":prac_name", $practice['name'], PDO::PARAM_STR);

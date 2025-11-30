@@ -1,5 +1,11 @@
 import { loadingToggle } from "../loading.js";
-import { insert, select, deletePrac, select_prac_user } from "../apis/prac.js";
+import {
+  insert,
+  select,
+  deletePrac,
+  select_prac_user,
+  select_prac,
+} from "../apis/prac.js";
 import { showModal } from "../modal.js";
 import { formVisibility } from "./admin.js";
 import { validateInput, validateSelect } from "../validFields.js";
@@ -83,6 +89,97 @@ async function handleDeletePrac() {
   }
 }
 
+// Function Handle Edit
+async function handleEditPrac() {
+  const card_focus_bg = document.querySelector("#cardPracFocusBg");
+  const titlePrac = card_focus_bg.querySelector(
+    "#name-prac-card-focus"
+  ).textContent;
+  const indexSpace = titlePrac.indexOf(" ");
+
+  const id_treino = titlePrac.slice(1, indexSpace);
+
+  let datas = await select_prac(id_treino);
+  datas = datas[0];
+
+  closeCardFocus(card_focus_bg);
+
+  const form = document.querySelector("#cadastroPrac");
+  formVisibility(form);
+
+  const input_id = document.querySelector("#prac-id");
+  const input_name = document.querySelector("#prac-name");
+  const select_relax = document.querySelector("#prac-relax");
+
+  const relax = select_relax.querySelectorAll("option");
+
+  relax.forEach((op) => {
+    if (op.value == datas["relax"]) {
+      op.selected = true;
+    }
+  });
+
+  input_id.value = datas["id_treino"];
+  input_name.value = datas["name_treino"];
+
+  if (datas["exercises"]) {
+    datas["exercises"].forEach((e) => {
+      addExercise(e);
+    });
+  }
+
+  const btn_submit = form.querySelector(".btn-add-edit");
+  btn_submit.innerText = "Alterar";
+}
+
+// Function Remove Exer
+function removeExer(id) {
+  document.getElementById("exer_" + id).remove();
+}
+
+let cont = 0;
+
+// Function Add Exer
+function addExercise(e) {
+  cont++;
+
+  const div = document.createElement("div");
+  div.classList.add("div-form-exercise");
+  div.setAttribute("id", "exer_" + cont);
+
+  div.innerHTML = `
+    <div class="form-group">
+      <label class="form-label" for="exer-name">Exercício</label>
+      <input type="text" class="form-input" value="${e["name_exercise"]}" name="exer-name" placeholder="Exercício">
+      <span class="font-2-xs warning-data">Preencha este campo</span>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="exer-series">Séries</label>
+      <input type="text" class="form-input" value="${e["series"]}" name="exer-series" data-mask="00" placeholder="00">
+      <span class="font-2-xs warning-data">Preencha este campo</span>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="exer-reps">Repetições</label>
+      <input type="text" class="form-input" value="${e["reps"]}" name="exer-reps" data-mask="00" placeholder="00">
+      <span class="font-2-xs warning-data">Preencha este campo</span>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="exer-charge">Carga (kg)</label>
+      <input type="text" class="form-input" value="${e["charge"]}" name="exer-charge" data-mask="00" placeholder="00">
+      <span class="font-2-xs warning-data">Preencha este campo</span>
+    </div>
+
+    <div class="btn-remove-exer-form">
+      <button type="button" class="button btn-close" onclick="removeExer(${cont})">Remover Exercício</button>
+    </div>
+  `;
+
+  document.querySelector(".exer-list").appendChild(div);
+}
+
 // Function Focus Card
 function openFocusCard(datas) {
   const card_focus_bg = document.querySelector("#cardPracFocusBg");
@@ -131,12 +228,13 @@ function openFocusCard(datas) {
       closeCardFocus(card_focus_bg);
     }
   });
-
-  // const btn_edit_prac = document.querySelector("#edit-prac");
-  // btn_edit_prac.addEventListener("click", () => {
-  //   handleEditUser(datas);
-  // });
 }
+
+// Add Event Edit
+const btn_edit_prac = document.querySelector("#edit-prac");
+btn_edit_prac.addEventListener("click", () => {
+  handleEditPrac();
+});
 
 // Add Event Delete
 const btn_delete_prac = document.querySelector("#delete-prac");

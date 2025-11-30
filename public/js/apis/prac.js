@@ -39,7 +39,25 @@ export async function select() {
   }
 }
 
-// Function Select Pracs
+// Function Select Prac
+export async function select_prac(id) {
+  try {
+    const res = await fetch(API_URL + `selectPrac.php?id=${id}`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
+    return await res.json();
+  } catch (erro) {
+    console.log(erro);
+    return {
+      status: "error",
+      title: "Erro!",
+      message: "Erro no servidor, tente novamente mais tarde.",
+    };
+  }
+}
+
+// Function Select Pracs User
 export async function select_prac_user() {
   try {
     const res = await fetch(API_URL + "selectPracUser.php", {

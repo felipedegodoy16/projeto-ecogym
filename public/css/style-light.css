@@ -359,6 +359,7 @@ img {
 .form-container-modal .btn-actions {
   display: flex;
   gap: 1.25rem;
+  justify-content: flex-start;
 }
 
 .form-visibility {
@@ -880,11 +881,6 @@ td {
   td {
     padding: 16px 12px;
   }
-}
-
-/* Animação de entrada */
-tbody tr {
-  animation: fadeInUp 0.5s ease;
 }
 
 .header-bg {

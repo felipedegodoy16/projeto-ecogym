@@ -412,7 +412,7 @@
               <button class="button btn-primary btn-primary-p6 btn-add-edit">
                 Adicionar
               </button>
-              <a class="button btn-close btn-visible-form">
+              <a class="button btn-close btn-visible-form" onclick="clearExer()">
                 Fechar
               </a>
             </div>
@@ -507,6 +507,14 @@
   <script type="module" src="./js/admin/admin.js"></script>
   <script src="./js/animations.js"></script>
   <script src="./js/buscaCep.js"></script>
+
+  <script>
+  // Function Clear Exer
+  function clearExer() {
+    const exer_list = document.querySelector(".exer-list");
+    exer_list.innerHTML = "";
+  }
+  </script>
 
   <!-- jQuery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
