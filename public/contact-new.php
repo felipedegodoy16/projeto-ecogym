@@ -117,36 +117,36 @@
         <div class="contact-grid fadeInOutBottom">
           <!-- Contact Form -->
           <form class="contact-form" id="contactForm">
-            <!-- <div class="success-message" id="successMessage">
-              <p>✅ Mensagem enviada com sucesso! Entraremos em contato em breve.</p>
-            </div> -->
-
             <h2 class="font-1-s cor-3 title-contact">Envie sua mensagem</h2>
             <p class="font-2-xs contact-description cor-4">Preencha o formulário abaixo e nossa equipe responderá o mais breve possível.</p>
 
             <div class="form-group">
               <label class="form-label" for="name">Nome completo</label>
-              <input type="text" class="form-input" id="name" name="name" placeholder="Digite seu nome" required>
+              <input type="text" class="form-input" id="name" name="name" placeholder="Digite seu nome">
+              <span class="font-2-xs warning-data">Preencha este campo</span>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="email">E-mail</label>
-              <input type="email" class="form-input" id="email" name="email" placeholder="seu@email.com" required>
+              <input type="email" class="form-input" id="email" name="email" placeholder="seu@email.com">
+              <span class="font-2-xs warning-data">Preencha este campo</span>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="phone">Telefone</label>
-              <input type="tel" class="form-input" id="phone" name="phone" data-mask="+00 (00) 00000-0000" placeholder="+55 (19) 99999-9999" required>
+              <input type="tel" class="form-input" id="phone" name="phone" data-mask="+00 (00) 00000-0000" placeholder="+55 (19) 99999-9999">
+              <span class="font-2-xs warning-data">Preencha este campo</span>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="subject">Assunto</label>
-              <input type="text" class="form-input" id="subject" name="subject" placeholder="Sobre o que deseja falar?" required>
+              <input type="text" class="form-input" id="subject" name="subject" placeholder="Sobre o que deseja falar?">
+              <span class="font-2-xs warning-data">Preencha este campo</span>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="message">Mensagem</label>
-              <textarea class="form-textarea" id="message" name="message" placeholder="Escreva sua mensagem aqui..." required></textarea>
+              <textarea class="form-textarea" id="message" name="message" placeholder="Escreva sua mensagem aqui..." maxlength="1000"></textarea>
             </div>
 
             <button type="submit" class="button btn-primary btn-primary-p6">
@@ -243,7 +243,8 @@
       </div>
     </div>
   </footer>
-  <script src="./js/contact.js"></script>
+
+  <script type="module" src="./js/contact.js"></script>
   <script src="./js/faq.js"></script>
   <script src="./js/navbar.js"></script>
   <script src="./js/animations.js"></script>

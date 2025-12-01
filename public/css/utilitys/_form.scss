@@ -187,6 +187,16 @@ input[type="radio"] {
   }
 }
 
+input:-webkit-autofill {
+  -webkit-box-shadow: inset 0 0 0 60px $cor-11;
+  -webkit-text-fill-color: $cor-3;
+}
+
+input:focus:-webkit-autofill {
+  -webkit-box-shadow: inset 0 0 0 60px $cor-11;
+  -webkit-text-fill-color: $cor-3;
+}
+
 .form-visible {
   animation-name: formVisible;
   animation-duration: 0.5s;

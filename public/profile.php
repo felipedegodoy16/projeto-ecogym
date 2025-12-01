@@ -1,14 +1,5 @@
 <?php 
-
-  session_start();
-
-  $_SESSION['logged'] = $_SESSION['logged'] ?? false;
-  
-  if(!$_SESSION['logged']) {
-    header('Location: http://localhost/projeto-ecogym/public/');
-    exit();
-  }
-
+  require_once __DIR__ . '/../files/logged_user.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EcoGym - Admin</title>
+  <title>EcoGym - Perfil</title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="./assets/vetores/logo.svg" type="image/x-icon">
@@ -339,7 +330,7 @@
       </div>
     </section>
 
-    <!-- Section physical -->
+    <!-- Section Physical -->
     <section class="body-section" id="physical-section">
       <header class="header-pages-admin">
         <h2 class="font-1-l cor-3">Perfil Físico</h2>
@@ -375,15 +366,94 @@
             </div>
 
             <?php
-            if($_SESSION['genre'] === 'female') {
-              echo
-                '<div class="form-group">
-                  <label class="form-label" for="physical-hip">Quadril (cm)</label>
-                  <input type="text" class="register-datas form-input" id="physical-hip" name="physical-hip" placeholder="999.99">
-                  <span class="font-2-xs warning-data">Preencha este campo</span>
-                </div>';
-            }
-            ?>
+          if($_SESSION['genre'] === 'female') {
+            echo
+              '<div class="form-group">
+                <label class="form-label" for="physical-hip">Quadril (cm)</label>
+                <input type="text" class="register-datas form-input" id="physical-hip" name="physical-hip" placeholder="999.99">
+                <span class="font-2-xs warning-data">Preencha este campo</span>
+              </div>';
+          }
+          ?>
+
+            <div class="btn-actions">
+              <button class="button btn-primary btn-primary-p6 btn-add-edit">
+                Calcular
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div class="card-datas-profile">
+          <h2 class="font-1-xs calc-informations">Histórico de Cálculos</h2>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Peso (kg)</th>
+                  <th>Cintura (cm)</th>
+                  <th>Pescoço (cm)</th>
+                  <th>IMC</th>
+                  <th>Gordura (%)</th>
+                  <th>Gordura (kg)</th>
+                </tr>
+              </thead>
+              <tbody id="calc-history">
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Moviment -->
+    <section class="body-section" id="moviment-section">
+      <header class="header-pages-admin">
+        <h2 class="font-1-l cor-3">Registrar Movimento</h2>
+      </header>
+
+      <div class="users-body-items">
+        <form class="form-cadastro form-calc-physical" id="physicalCalc">
+          <div class="card-datas-profile">
+            <h2 class="font-1-xs calc-informations">Realizar Cálculo</h2>
+
+            <div class="form-group">
+              <label class="form-label" for="physical-weight">Peso (kg)</label>
+              <input type="text" class="register-datas form-input" id="physical-weight" name="physical-weight" data-mask="000" placeholder="999">
+              <span class="font-2-xs warning-data">Preencha este campo</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="physical-height">Altura (m)</label>
+              <input type="text" class="register-datas form-input" id="physical-height" name="physical-height" data-mask="0.00" placeholder="9.99">
+              <span class="font-2-xs warning-data">Preencha este campo</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="physical-waist">Cintura (cm)</label>
+              <input type="text" class="register-datas form-input" id="physical-waist" name="physical-waist" data-mask="000" placeholder="999">
+              <span class="font-2-xs warning-data">Preencha este campo</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="physical-neck">Pescoço (cm)</label>
+              <input type="text" class="register-datas form-input" id="physical-neck" name="physical-weight" data-mask="000" placeholder="999">
+              <span class="font-2-xs warning-data">Preencha este campo</span>
+            </div>
+
+            <?php
+          if($_SESSION['genre'] === 'female') {
+            echo
+              '<div class="form-group">
+                <label class="form-label" for="physical-hip">Quadril (cm)</label>
+                <input type="text" class="register-datas form-input" id="physical-hip" name="physical-hip" placeholder="999.99">
+                <span class="font-2-xs warning-data">Preencha este campo</span>
+              </div>';
+          }
+          ?>
 
             <div class="btn-actions">
               <button class="button btn-primary btn-primary-p6 btn-add-edit">

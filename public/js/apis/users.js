@@ -141,3 +141,22 @@ export async function return_user() {
     };
   }
 }
+
+// Function Send Message
+export async function send_message(datas) {
+  try {
+    const res = await fetch(API_URL + "send_message.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(datas),
+    });
+    return await res.json();
+  } catch (erro) {
+    console.log(erro);
+    return {
+      status: "error",
+      title: "Erro!",
+      message: "Erro no servidor, tente novamente mais tarde.",
+    };
+  }
+}

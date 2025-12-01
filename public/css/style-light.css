@@ -412,6 +412,16 @@ input[type=radio]:checked + .label-radio::before {
   box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 9px #39b934;
 }
 
+input:-webkit-autofill {
+  -webkit-box-shadow: inset 0 0 0 60px #f7f7f7;
+  -webkit-text-fill-color: #404040;
+}
+
+input:focus:-webkit-autofill {
+  -webkit-box-shadow: inset 0 0 0 60px #f7f7f7;
+  -webkit-text-fill-color: #404040;
+}
+
 .form-visible {
   animation-name: formVisible;
   animation-duration: 0.5s;
