@@ -28,7 +28,7 @@ e sustentabilidade.
 - Conscientização ambiental dos alunos\
 - Incentivo à prática de exercícios com propósito
 
-## 💡 Sistema para Usuário
+## 👤 Sistema para Usuário
 
 - Acompanhamento de rankings e dashbioards de seus treinos\
 - Controle de seus treinos\
