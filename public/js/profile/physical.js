@@ -190,5 +190,24 @@ export async function callCalcsUser() {
           <td>${e["KILO_GORDURA"]} kg</td>
         </tr>`;
     });
+
+    const current_calc = datas["calcs"][0];
+
+    const current_imc = document.querySelector("#current-imc");
+    current_imc.textContent = current_calc["IMC"];
+
+    const stat_imc = document.querySelector("#stat-imc");
+    if (current_calc["IMC"] < 18.5) stat_imc.textContent = "Abaixo do Peso";
+    else if (current_calc["IMC"] < 25) stat_imc.textContent = "Peso Normal";
+    else if (current_calc["IMC"] < 30) stat_imc.textContent = "Sobrepeso";
+    else if (current_calc["IMC"] < 35)
+      stat_imc.textContent = "Obesidade Grau I";
+    else stat_imc.textContent = "Obesidade Grau III";
+
+    const current_fat_perc = document.querySelector("#current-fat-perc");
+    current_fat_perc.textContent = `${current_calc["PERC_GORDURA"]}%`;
+
+    const current_fat_kg = document.querySelector("#current-fat-kg");
+    current_fat_kg.textContent = `${current_calc["KILO_GORDURA"]} kg`;
   }
 }

@@ -3,7 +3,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" id="html-index">
 
 <head>
   <meta charset="UTF-8">

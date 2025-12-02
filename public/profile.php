@@ -40,6 +40,9 @@
               <path d="m826-585-56-56 30-31-128-128-31 30-57-57 30-31q23-23 57-22.5t57 23.5l129 129q23 23 23 56.5T857-615l-31 30ZM346-104q-23 23-56.5 23T233-104L104-233q-23-23-23-56.5t23-56.5l30-30 57 57-31 30 129 129 30-31 57 57-30 30Zm397-336 57-57-303-303-57 57 303 303ZM463-160l57-58-302-302-58 57 303 303Zm-6-234 110-109-64-64-109 110 63 63Zm63 290q-23 23-57 23t-57-23L104-406q-23-23-23-57t23-57l57-57q23-23 56.5-23t56.5 23l63 63 110-110-63-62q-23-23-23-57t23-57l57-57q23-23 56.5-23t56.5 23l303 303q23 23 23 56.5T857-441l-57 57q-23 23-57 23t-57-23l-62-63-110 110 63 63q23 23 23 56.5T577-161l-57 57Z" />
             </svg>Meus Treinos</a></li>
         <li><a><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#39b934">
+              <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h168q13-36 43.5-58t68.5-22q38 0 68.5 22t43.5 58h168q33 0 56.5 23.5T840-760v201q0 17-11.5 28.5T800-519q-17 0-28.5-11.5T760-559v-201H200v560h200q17 0 28.5 11.5T440-160q0 17-11.5 28.5T400-120H200Zm0-120v40-560 243-3 280Zm120-40h100q17 0 28.5-11.5T460-320q0-17-11.5-28.5T420-360H320q-17 0-28.5 11.5T280-320q0 17 11.5 28.5T320-280Zm0-160h200q17 0 28.5-11.5T560-480q0-17-11.5-28.5T520-520H320q-17 0-28.5 11.5T280-480q0 17 11.5 28.5T320-440Zm0-160h320q17 0 28.5-11.5T680-640q0-17-11.5-28.5T640-680H320q-17 0-28.5 11.5T280-640q0 17 11.5 28.5T320-600Zm160-190q13 0 21.5-8.5T510-820q0-13-8.5-21.5T480-850q-13 0-21.5 8.5T450-820q0 13 8.5 21.5T480-790ZM720-40q-83 0-141.5-58.5T520-240q0-83 58.5-141.5T720-440q83 0 141.5 58.5T920-240q0 83-58.5 141.5T720-40Zm-20-180v80q0 8 6 14t14 6q8 0 14-6t6-14v-80h80q8 0 14-6t6-14q0-8-6-14t-14-6h-80v-80q0-8-6-14t-14-6q-8 0-14 6t-6 14v80h-80q-8 0-14 6t-6 14q0 8 6 14t14 6h80Z" />
+            </svg>Registrar Movimento</a></li>
+        <li><a><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#39b934">
               <path d="M480-720q-33 0-56.5-23.5T400-800q0-33 23.5-56.5T480-880q33 0 56.5 23.5T560-800q0 33-23.5 56.5T480-720ZM360-120v-480H160q-17 0-28.5-11.5T120-640q0-17 11.5-28.5T160-680h640q17 0 28.5 11.5T840-640q0 17-11.5 28.5T800-600H600v480q0 17-11.5 28.5T560-80q-17 0-28.5-11.5T520-120v-200h-80v200q0 17-11.5 28.5T400-80q-17 0-28.5-11.5T360-120Z" />
             </svg>Perfil Físico</a></li>
         <li><a href="index.php"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#39b934">
@@ -342,6 +345,26 @@
       </header>
 
       <div class="users-body-items">
+        <div class="stats-grid div-current-calc">
+          <div class="stat-card">
+            <div class="stat-label">IMC</div>
+            <div class="stat-value" id="current-imc">...</div>
+            <div class="stat-change font-1-s" id="stat-imc">...</div>
+          </div>
+
+          <div class="stat-card" id="div-fat-perc">
+            <div class="stat-label">Gordura (%)</div>
+            <div class="stat-value" id="current-fat-perc">...</div>
+            <!-- <div class="stat-change font-1-s" id="current-imc">...</div> -->
+          </div>
+
+          <div class="stat-card" id="div-fat-kg">
+            <div class="stat-label">Gordura (kg)</div>
+            <div class="stat-value" id="current-fat-kg">...</div>
+            <!-- <div class="stat-change font-1-s" id="ranking-position">...</div> -->
+          </div>
+        </div>
+
         <form class="form-cadastro form-calc-physical" id="physicalCalc">
           <div class="card-datas-profile">
             <h2 class="font-1-xs calc-informations">Realizar Cálculo</h2>

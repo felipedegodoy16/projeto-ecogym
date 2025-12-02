@@ -6,7 +6,6 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
@@ -28,4 +27,8 @@ a {
 
 img {
   max-width: 100%;
+}
+
+html#html-index {
+  overflow-x: hidden;
 }

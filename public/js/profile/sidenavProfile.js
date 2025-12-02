@@ -27,6 +27,12 @@ function verifyActiveLink(link) {
       users.classList.add("body-section-active");
       waitResponsePracsUser();
     }
+  } else if (link.innerText.toUpperCase() === "REGISTRAR MOVIMENTO") {
+    const users = document.querySelector("#moviment-section");
+    if (!users.classList.contains("body-section-active")) {
+      body_active.classList.remove("body-section-active");
+      users.classList.add("body-section-active");
+    }
   } else if (link.innerText.toUpperCase() === "PERFIL FÍSICO") {
     const users = document.querySelector("#physical-section");
     if (!users.classList.contains("body-section-active")) {
