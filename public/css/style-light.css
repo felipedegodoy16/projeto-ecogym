@@ -146,6 +146,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -2269,6 +2270,66 @@ main#admin {
   }
 }
 
+.header-sidenav {
+  display: none;
+  align-items: center;
+  background-color: #fff;
+  height: 80px;
+  position: sticky;
+  top: 0;
+  grid-column: 1/-1;
+  z-index: 10000;
+}
+@media screen and (max-width: 1024px) {
+  .header-sidenav {
+    display: flex;
+  }
+}
+
+.div-hamburguer-sidenav {
+  margin-left: 1.25rem;
+  display: flex;
+  justify-content: center;
+}
+.div-hamburguer-sidenav .icon-hamburguer-sidenav {
+  cursor: pointer;
+  width: 24px;
+  height: 4px;
+  border-radius: 24px;
+  background-color: #000;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+.div-hamburguer-sidenav .icon-hamburguer-sidenav::before, .div-hamburguer-sidenav .icon-hamburguer-sidenav::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 4px;
+  border-radius: 24px;
+  background-color: #000;
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+}
+.div-hamburguer-sidenav .icon-hamburguer-sidenav::before {
+  top: -8px;
+}
+.div-hamburguer-sidenav .icon-hamburguer-sidenav::after {
+  bottom: -8px;
+}
+
+.active-icon {
+  height: 0 !important;
+  margin-top: 8px;
+}
+.active-icon::before {
+  transform: rotate(-45deg);
+}
+.active-icon::after {
+  transform: rotate(45deg);
+  top: -8px;
+}
+
 .side-nav-admin {
   position: sticky;
   max-height: 100vh;
@@ -2278,7 +2339,7 @@ main#admin {
   display: flex;
   flex-direction: column;
   background: #fff;
-  transition: transform 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .side-nav-admin ul {
   height: 100%;
@@ -2310,9 +2371,16 @@ main#admin {
 }
 @media screen and (max-width: 1024px) {
   .side-nav-admin {
+    top: 80px;
+    height: calc(100vh - 80px);
     position: fixed;
     transform: translateX(-100%);
+    z-index: 10000;
   }
+}
+
+.active-sidenav {
+  transform: translateX(0);
 }
 
 .body-section {
@@ -2353,6 +2421,10 @@ main#admin {
   transition: fill 0.3s ease-in-out;
 }
 
+.equips-body-items .form-container-modal {
+  padding: 1.25rem;
+}
+
 .users-body-items .form-container-modal,
 .prac-body-items .form-container-modal {
   overflow-y: scroll;
@@ -2382,10 +2454,6 @@ main#admin {
   .list-items {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
-}
-
-.form-prac-item {
-  max-width: 80%;
 }
 
 .exer-list {
@@ -2434,7 +2502,7 @@ main#admin {
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+  z-index: 10000;
   display: none;
   align-items: flex-start;
   justify-content: center;
@@ -2451,8 +2519,13 @@ main#admin {
 }
 .card-focus-bg .card-user {
   cursor: auto;
-  min-width: 500px;
+  min-width: 300px;
   box-shadow: inset 0 0 0 2px;
+}
+@media screen and (max-width: 768px) {
+  .card-focus-bg .card-user {
+    margin-top: 4rem;
+  }
 }
 .card-focus-bg .card-user:hover {
   transform: scale(1);
@@ -3078,7 +3151,7 @@ main#admin {
 
 .btn-actions {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .fadeInOutRight {

@@ -6,6 +6,66 @@ main#admin {
   }
 }
 
+.header-sidenav {
+  display: none;
+  align-items: center;
+  background-color: $cor-12;
+  height: 80px;
+  position: sticky;
+  top: 0;
+  grid-column: 1 / -1;
+  z-index: 10000;
+  @include device(d) {
+    display: flex;
+  }
+}
+
+.div-hamburguer-sidenav {
+  margin-left: 1.25rem;
+  display: flex;
+  justify-content: center;
+  .icon-hamburguer-sidenav {
+    cursor: pointer;
+    width: 24px;
+    height: 4px;
+    border-radius: 24px;
+    background-color: $cor-0;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 32px;
+      height: 4px;
+      border-radius: 24px;
+      background-color: $cor-0;
+      position: absolute;
+      left: 0;
+      transition: all 0.3s ease-in-out;
+    }
+    &::before {
+      top: -8px;
+    }
+    &::after {
+      bottom: -8px;
+    }
+  }
+}
+
+.active-icon {
+  height: 0 !important;
+  margin-top: 8px;
+  &::before {
+    transform: rotate(-45deg);
+  }
+  &::after {
+    transform: rotate(45deg);
+    top: -8px;
+  }
+}
+
+// Sidenav
 .side-nav-admin {
   position: sticky;
   max-height: 100vh;
@@ -15,7 +75,7 @@ main#admin {
   display: flex;
   flex-direction: column;
   background: $cor-12;
-  transition: transform 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   ul {
     height: 100%;
     display: flex;
@@ -46,9 +106,16 @@ main#admin {
     }
   }
   @include device(d) {
+    top: 80px;
+    height: calc(100vh - 80px);
     position: fixed;
     transform: translateX(-100%);
+    z-index: 10000;
   }
+}
+
+.active-sidenav {
+  transform: translateX(0);
 }
 
 .body-section {
@@ -89,6 +156,12 @@ main#admin {
   }
 }
 
+.equips-body-items {
+  .form-container-modal {
+    padding: 1.25rem;
+  }
+}
+
 .users-body-items,
 .prac-body-items {
   .form-container-modal {
@@ -119,10 +192,6 @@ main#admin {
 }
 
 // Treinos
-.form-prac-item {
-  max-width: 80%;
-}
-
 .exer-list {
   grid-column: 1/-1;
   .div-form-exercise {

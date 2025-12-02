@@ -6,7 +6,7 @@
   bottom: 0;
   left: 0;
   background-color: rgba($color: #000000, $alpha: 0.5);
-  z-index: 1000;
+  z-index: 10000;
   display: none;
   align-items: flex-start;
   justify-content: center;
@@ -20,8 +20,11 @@
   }
   .card-user {
     cursor: auto;
-    min-width: 500px;
+    min-width: 300px;
     box-shadow: inset 0 0 0 2px;
+    @include device(t) {
+      margin-top: 4rem;
+    }
     &:hover {
       transform: scale(1);
     }
