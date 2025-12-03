@@ -1,4 +1,8 @@
-import { register_moviment, select_equips } from "../apis/moviment.js";
+import {
+  register_moviment,
+  select_equips,
+  select_moviments,
+} from "../apis/moviment.js";
 import { showModal } from "../modal.js";
 import { validateInput, validateSelect } from "../validFields.js";
 
@@ -60,6 +64,31 @@ formMovi.addEventListener("submit", handleMoviment);
 
 // Call Calcs Function
 export async function callMovimentsUser() {
+  const datas = await select_moviments();
+
+  const tbody = document.querySelector("#movi-history");
+
+  tbody.innerHTML = "";
+
+  if (datas.hasOwnProperty("movis")) {
+    datas["movis"].forEach((e) => {
+      const objectDate = new Date(e["DATA_MOVIMENTO"]);
+
+      const formattedDate = new Intl.DateTimeFormat("pt-BR", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      }).format(objectDate);
+
+      tbody.innerHTML += `
+        <tr>
+          <td>${formattedDate}</td>
+          <td>${e["NOME"]}</td>
+          <td>${e["CALORIA_GASTA"]}</td>
+        </tr>`;
+    });
+  }
+
   const equips = await select_equips();
 
   const select = document.querySelector("#movi-equip");

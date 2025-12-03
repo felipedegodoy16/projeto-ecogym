@@ -458,7 +458,7 @@
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="movi-kcal">Kcal Gasta</label>
+              <label class="form-label" for="movi-kcal">Kcal</label>
               <input type="text" class="register-datas form-input" id="movi-kcal" name="movi-kcal" data-mask="0000" placeholder="Kcal">
               <span class="font-2-xs warning-data">Preencha este campo</span>
             </div>

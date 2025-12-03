@@ -155,6 +155,22 @@ async function handleCalc(e) {
 
     tbody.prepend(tr);
   }
+
+  const current_imc = document.querySelector("#current-imc");
+  current_imc.textContent = parseInt(imc);
+
+  const stat_imc = document.querySelector("#stat-imc");
+  if (imc < 18.5) stat_imc.textContent = "Abaixo do Peso";
+  else if (imc < 25) stat_imc.textContent = "Peso Normal";
+  else if (imc < 30) stat_imc.textContent = "Sobrepeso";
+  else if (imc < 35) stat_imc.textContent = "Obesidade Grau I";
+  else stat_imc.textContent = "Obesidade Grau III";
+
+  const current_fat_perc = document.querySelector("#current-fat-perc");
+  current_fat_perc.textContent = `${parseInt(fatPerc)}%`;
+
+  const current_fat_kg = document.querySelector("#current-fat-kg");
+  current_fat_kg.textContent = `${parseInt(fatWeightRes)} kg`;
 }
 
 // Form Calc

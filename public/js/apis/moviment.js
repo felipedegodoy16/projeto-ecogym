@@ -21,9 +21,9 @@ export async function register_moviment(datas) {
 }
 
 // Function Send Datas API
-export async function select_calcs() {
+export async function select_moviments() {
   try {
-    const res = await fetch(API_URL + "select_calcs.php", {
+    const res = await fetch(API_URL + "select_moviments.php", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
