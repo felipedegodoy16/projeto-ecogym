@@ -1,6 +1,7 @@
 import { callOwnDatas } from "./profile.js";
 import { waitResponsePracsUser } from "../admin/prac.js";
 import { callCalcsUser } from "./physical.js";
+import { callMovimentsUser } from "./moviment.js";
 
 // Function Verify Link Active
 function verifyActiveLink(link) {
@@ -32,6 +33,7 @@ function verifyActiveLink(link) {
     if (!users.classList.contains("body-section-active")) {
       body_active.classList.remove("body-section-active");
       users.classList.add("body-section-active");
+      callMovimentsUser();
     }
   } else if (link.innerText.toUpperCase() === "PERFIL FÍSICO") {
     const users = document.querySelector("#physical-section");

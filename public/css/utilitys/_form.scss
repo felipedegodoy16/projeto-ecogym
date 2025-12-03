@@ -34,11 +34,12 @@
   }
 }
 
-.form-calc-physical {
+.form-calc-physical,
+.form-register-moviment {
   grid-template-columns: 1fr;
   .btn-actions {
     grid-column: 1/-1;
-    margin-right: 10px;
+    margin-left: 10px;
   }
 }
 

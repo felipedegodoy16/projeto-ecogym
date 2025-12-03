@@ -314,7 +314,7 @@
                 <option value="120">2min</option>
               </select>
               <span class="font-2-xs warning-data">Preencha este campo</span>
-              <span class="position-icon-input"><img src="./assets/img/vetores/arrow-down.svg" alt=""></span>
+              <span class="position-icon-input"><img src="./assets/vetores/arrow-down.svg" alt=""></span>
             </div>
 
             <div class="exer-list"></div>
@@ -371,25 +371,25 @@
 
             <div class="form-group">
               <label class="form-label" for="physical-weight">Peso (kg)</label>
-              <input type="text" class="register-datas form-input" id="physical-weight" name="physical-weight" data-mask="000" placeholder="999">
+              <input type="text" class="register-datas form-input" id="physical-weight" name="physical-weight" data-mask="000" placeholder="Digite o peso">
               <span class="font-2-xs warning-data">Preencha este campo</span>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="physical-height">Altura (m)</label>
-              <input type="text" class="register-datas form-input" id="physical-height" name="physical-height" data-mask="0.00" placeholder="9.99">
+              <input type="text" class="register-datas form-input" id="physical-height" name="physical-height" data-mask="0.00" placeholder="Digite a altura">
               <span class="font-2-xs warning-data">Preencha este campo</span>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="physical-waist">Cintura (cm)</label>
-              <input type="text" class="register-datas form-input" id="physical-waist" name="physical-waist" data-mask="000" placeholder="999">
+              <input type="text" class="register-datas form-input" id="physical-waist" name="physical-waist" data-mask="000" placeholder="Medida da Cintura">
               <span class="font-2-xs warning-data">Preencha este campo</span>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="physical-neck">Pescoço (cm)</label>
-              <input type="text" class="register-datas form-input" id="physical-neck" name="physical-weight" data-mask="000" placeholder="999">
+              <input type="text" class="register-datas form-input" id="physical-neck" name="physical-weight" data-mask="000" placeholder="Medida do Pescoço">
               <span class="font-2-xs warning-data">Preencha este campo</span>
             </div>
 
@@ -398,7 +398,7 @@
             echo
               '<div class="form-group">
                 <label class="form-label" for="physical-hip">Quadril (cm)</label>
-                <input type="text" class="register-datas form-input" id="physical-hip" name="physical-hip" placeholder="999.99">
+                <input type="text" class="register-datas form-input" id="physical-hip" name="physical-hip" placeholder="Medida do Quadril">
                 <span class="font-2-xs warning-data">Preencha este campo</span>
               </div>';
           }
@@ -440,74 +440,50 @@
     <!-- Section Moviment -->
     <section class="body-section" id="moviment-section">
       <header class="header-pages-admin">
-        <h2 class="font-1-l cor-3">Registrar Movimento</h2>
+        <h2 class="font-1-l cor-3">Movimento</h2>
       </header>
 
       <div class="users-body-items">
-        <form class="form-cadastro form-calc-physical" id="physicalCalc">
+        <form class="form-cadastro form-register-moviment" id="formMoviment">
           <div class="card-datas-profile">
-            <h2 class="font-1-xs calc-informations">Realizar Cálculo</h2>
+            <h2 class="font-1-xs calc-informations">Registrar Movimento</h2>
 
             <div class="form-group">
-              <label class="form-label" for="physical-weight">Peso (kg)</label>
-              <input type="text" class="register-datas form-input" id="physical-weight" name="physical-weight" data-mask="000" placeholder="999">
+              <label class="form-label" for="movi-equip">Equipamento</label>
+              <select class="form-select" name="movi-equip" id="movi-equip">
+                <option value="fail-movi">Selecione</option>
+              </select>
               <span class="font-2-xs warning-data">Preencha este campo</span>
+              <span class="position-icon-input"><img src="./assets/vetores/arrow-down.svg" alt=""></span>
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="physical-height">Altura (m)</label>
-              <input type="text" class="register-datas form-input" id="physical-height" name="physical-height" data-mask="0.00" placeholder="9.99">
+              <label class="form-label" for="movi-kcal">Kcal Gasta</label>
+              <input type="text" class="register-datas form-input" id="movi-kcal" name="movi-kcal" data-mask="0000" placeholder="Kcal">
               <span class="font-2-xs warning-data">Preencha este campo</span>
             </div>
-
-            <div class="form-group">
-              <label class="form-label" for="physical-waist">Cintura (cm)</label>
-              <input type="text" class="register-datas form-input" id="physical-waist" name="physical-waist" data-mask="000" placeholder="999">
-              <span class="font-2-xs warning-data">Preencha este campo</span>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="physical-neck">Pescoço (cm)</label>
-              <input type="text" class="register-datas form-input" id="physical-neck" name="physical-weight" data-mask="000" placeholder="999">
-              <span class="font-2-xs warning-data">Preencha este campo</span>
-            </div>
-
-            <?php
-          if($_SESSION['genre'] === 'female') {
-            echo
-              '<div class="form-group">
-                <label class="form-label" for="physical-hip">Quadril (cm)</label>
-                <input type="text" class="register-datas form-input" id="physical-hip" name="physical-hip" placeholder="999.99">
-                <span class="font-2-xs warning-data">Preencha este campo</span>
-              </div>';
-          }
-          ?>
 
             <div class="btn-actions">
               <button class="button btn-primary btn-primary-p6 btn-add-edit">
-                Calcular
+                Registrar
               </button>
             </div>
           </div>
         </form>
 
         <div class="card-datas-profile">
-          <h2 class="font-1-xs calc-informations">Histórico de Cálculos</h2>
+          <h2 class="font-1-xs calc-informations">Histórico de Movimentos</h2>
 
           <div class="table-container">
             <table>
               <thead>
                 <tr>
                   <th>Data</th>
-                  <th>Peso (kg)</th>
-                  <th>Cintura (cm)</th>
-                  <th>Pescoço (cm)</th>
-                  <th>IMC</th>
-                  <th>Gordura (%)</th>
-                  <th>Gordura (kg)</th>
+                  <th>Equipamento</th>
+                  <th>Kcal Gasta</th>
                 </tr>
               </thead>
-              <tbody id="calc-history">
+              <tbody id="movi-history">
 
               </tbody>
             </table>
@@ -561,6 +537,7 @@
   <script type="module" src="./js/profile/sidenavProfile.js"></script>
   <script type="module" src="./js/profile/profile.js"></script>
   <script type="module" src="./js/profile/physical.js"></script>
+  <script type="module" src="./js/profile/moviment.js"></script>
   <script src="./js/sidenav.js"></script>
   <script src="./js/admin/exer.js"></script>
   <script type="module" src="./js/admin/prac.js"></script>

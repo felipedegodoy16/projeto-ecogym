@@ -111,8 +111,11 @@
 .div-current-calc {
   margin-bottom: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)) !important;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
   gap: 1.5rem;
+  @include device(m) {
+    gap: 0.75rem;
+  }
 
   .stat-card {
     display: flex;
@@ -133,17 +136,18 @@
     @include device(t) {
       padding: 1.25rem 0.75rem;
     }
-    @include device(m) {
-      font-size: 24px;
-    }
   }
 
   .stat-label {
     text-transform: uppercase;
+    text-align: center;
     letter-spacing: 0.5px;
     margin-bottom: 0.5rem;
     font-size: 1rem;
     color: $cor-6;
+    @include device(m) {
+      font-size: 0.75rem;
+    }
   }
 
   .stat-value {
@@ -151,11 +155,12 @@
     font-weight: 700;
     color: $cor-p1;
     margin-bottom: 0.5rem;
+    text-align: center;
     @include device(t) {
-      font-size: 32px;
+      font-size: 2rem;
     }
     @include device(m) {
-      font-size: 24px;
+      font-size: 1.5rem;
     }
   }
 

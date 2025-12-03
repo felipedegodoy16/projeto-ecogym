@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   callEnergyGenerated();
   callTotalUsers();
   callActiveEquips();
-  setInterval(callEnergyGenerated, 100000);
+  setInterval(callEnergyGenerated, 5000);
 
   callBarChart();
   callDoghnutChart();

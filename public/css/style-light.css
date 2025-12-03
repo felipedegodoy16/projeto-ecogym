@@ -260,12 +260,14 @@ html#html-index {
   transform: translateY(-50%);
 }
 
-.form-calc-physical {
+.form-calc-physical,
+.form-register-moviment {
   grid-template-columns: 1fr;
 }
-.form-calc-physical .btn-actions {
+.form-calc-physical .btn-actions,
+.form-register-moviment .btn-actions {
   grid-column: 1/-1;
-  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .form-group {
@@ -2813,7 +2815,7 @@ main#admin {
 }
 #dashboard-section .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
   margin-bottom: 2.5rem;
 }
@@ -3160,8 +3162,13 @@ main#admin {
 .div-current-calc {
   margin-bottom: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)) !important;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
   gap: 1.5rem;
+}
+@media screen and (max-width: 480px) {
+  .div-current-calc {
+    gap: 0.75rem;
+  }
 }
 .div-current-calc .stat-card {
   display: flex;
@@ -3185,32 +3192,34 @@ main#admin {
     padding: 1.25rem 0.75rem;
   }
 }
-@media screen and (max-width: 480px) {
-  .div-current-calc .stat-card {
-    font-size: 24px;
-  }
-}
 .div-current-calc .stat-label {
   text-transform: uppercase;
+  text-align: center;
   letter-spacing: 0.5px;
   margin-bottom: 0.5rem;
   font-size: 1rem;
   color: #9c9c9c;
+}
+@media screen and (max-width: 480px) {
+  .div-current-calc .stat-label {
+    font-size: 0.75rem;
+  }
 }
 .div-current-calc .stat-value {
   font-size: 36px;
   font-weight: 700;
   color: #39b934;
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 @media screen and (max-width: 768px) {
   .div-current-calc .stat-value {
-    font-size: 32px;
+    font-size: 2rem;
   }
 }
 @media screen and (max-width: 480px) {
   .div-current-calc .stat-value {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 }
 .div-current-calc .stat-change {

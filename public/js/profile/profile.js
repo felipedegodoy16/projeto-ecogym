@@ -13,7 +13,8 @@ import {
 document.addEventListener("DOMContentLoaded", () => {
   callEnergyGenerated();
   callGeneratedUserMonth();
-  setInterval(callEnergyGenerated, 100000);
+  setInterval(callEnergyGenerated, 5000);
+  setInterval(callGeneratedUserMonth, 5000);
 
   callBarChartUser();
   callDoghnutChart();
