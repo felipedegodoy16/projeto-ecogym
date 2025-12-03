@@ -41,7 +41,7 @@
       </div>
     </div>
 
-    <form class="form-login" id="loginForm" action="./../apis/files/login.php" method="post">
+    <form class="form-login" id="loginForm">
       <div class="form-group">
         <label class="form-label" for="user-email">E-mail</label>
         <input type="email" class="form-input" id="user-email" name="user-email" placeholder="seu@email.com" required>
@@ -51,7 +51,7 @@
         <label class="form-label" for="user-password">Senha</label>
         <input type="password" class="form-input" id="user-password" name="user-password" placeholder="Sua senha" required><span class="position-icon-input reveal-password"><img src="./assets/vetores/visibility.svg" alt=""></span>
         <div class="forgot-password">
-          <a href="#" onclick="alert('Funcionalidade em desenvolvimento!')">Esqueceu sua senha?</a>
+          <a href="./recover_password.php">Esqueceu sua senha?</a>
         </div>
       </div>
 

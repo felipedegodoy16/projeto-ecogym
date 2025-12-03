@@ -315,10 +315,12 @@ function addPracs(res) {
 
   let cont = 1;
 
-  res.forEach((prac) => {
-    prac_list.append(buildPrac(prac, cont * 0.2));
-    cont++;
-  });
+  if (res) {
+    res.forEach((prac) => {
+      prac_list.append(buildPrac(prac, cont * 0.2));
+      cont++;
+    });
+  }
 }
 
 // Function Wait Select Reponse

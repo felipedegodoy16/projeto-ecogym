@@ -160,3 +160,59 @@ export async function send_message(datas) {
     };
   }
 }
+
+// Function Recover Password
+export async function recover_password(email) {
+  try {
+    const res = await fetch(API_URL + "recover_password.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: `email=${email}`,
+    });
+    return await res.json();
+  } catch (erro) {
+    console.log(erro);
+    return {
+      status: "error",
+      title: "Erro!",
+      message: "Erro no servidor, tente novamente mais tarde.",
+    };
+  }
+}
+
+// Function Recover Password
+export async function valid_token(token) {
+  try {
+    const res = await fetch(API_URL + `valid_token.php?token=${token}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    });
+    return await res.json();
+  } catch (erro) {
+    console.log(erro);
+    return {
+      status: "error",
+      title: "Erro!",
+      message: "Erro no servidor, tente novamente mais tarde.",
+    };
+  }
+}
+
+// Function Recover Password
+export async function alterPassword(datas) {
+  try {
+    const res = await fetch(API_URL + "alter_password.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(datas),
+    });
+    return await res.json();
+  } catch (erro) {
+    console.log(erro);
+    return {
+      status: "error",
+      title: "Erro!",
+      message: "Erro no servidor, tente novamente mais tarde.",
+    };
+  }
+}

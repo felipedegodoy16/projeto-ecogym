@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27/11/2025 às 00:13
+-- Tempo de geração: 03/12/2025 às 21:55
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -66,7 +66,53 @@ INSERT INTO `bairro` (`ID_BAIRRO`, `BAIRRO`, `FK_CIDADE_ID`) VALUES
 (2, 'Botafogo', 2),
 (3, 'Savassi', 3),
 (4, 'Moinhos de Vento', 4),
-(5, 'Batel', 5);
+(5, 'Batel', 5),
+(6, 'Parque da Felicidade II', 7);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `calculo_fisico`
+--
+
+CREATE TABLE `calculo_fisico` (
+  `ID_CALCULO` int(11) NOT NULL,
+  `DATA_CALCULO` datetime NOT NULL,
+  `PESO` float NOT NULL,
+  `CINTURA` int(3) NOT NULL,
+  `PESCOCO` int(3) NOT NULL,
+  `QUADRIL` int(3) DEFAULT NULL,
+  `IMC` decimal(10,0) NOT NULL,
+  `PERC_GORDURA` decimal(10,0) NOT NULL,
+  `KILO_GORDURA` decimal(10,0) NOT NULL,
+  `FK_ID_USUARIO` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Despejando dados para a tabela `calculo_fisico`
+--
+
+INSERT INTO `calculo_fisico` (`ID_CALCULO`, `DATA_CALCULO`, `PESO`, `CINTURA`, `PESCOCO`, `QUADRIL`, `IMC`, `PERC_GORDURA`, `KILO_GORDURA`, `FK_ID_USUARIO`) VALUES
+(1, '2025-02-10 02:17:18', 90, 88, 20, NULL, 29, 37, 33, 21),
+(2, '2025-11-13 04:32:28', 90, 70, 10, NULL, 29, 32, 29, 21),
+(3, '2025-11-12 02:23:22', 90, 88, 20, NULL, 29, 37, 33, 21),
+(4, '2025-11-24 01:43:52', 90, 80, 20, NULL, 29, 32, 29, 21),
+(5, '2025-11-19 01:47:18', 90, 88, 20, NULL, 29, 37, 33, 21),
+(6, '2025-11-06 01:47:39', 90, 88, 20, NULL, 29, 37, 33, 21),
+(7, '2025-11-03 01:47:57', 90, 80, 20, NULL, 29, 32, 29, 21),
+(8, '2025-11-30 01:51:19', 90, 88, 20, NULL, 29, 37, 33, 21),
+(9, '2025-11-30 02:28:02', 70, 70, 20, NULL, 25, 27, 19, 21),
+(10, '2025-11-30 02:30:52', 60, 60, 20, NULL, 26, 22, 13, 21),
+(11, '2025-11-30 02:31:44', 80, 70, 20, NULL, 31, 28, 22, 21),
+(12, '2025-11-30 02:33:18', 70, 50, 20, NULL, 22, 6, 4, 21),
+(13, '2025-11-30 02:37:30', 60, 70, 20, NULL, 23, 28, 17, 21),
+(14, '2025-12-03 11:51:50', 70, 70, 25, NULL, 21, 20, 14, 21),
+(15, '2025-12-03 12:31:53', 78, 75, 30, NULL, 27, 23, 18, 21),
+(16, '2025-12-03 12:36:01', 78, 75, 30, NULL, 27, 23, 18, 21),
+(17, '2025-12-03 12:40:37', 78, 75, 30, NULL, 27, 23, 18, 21),
+(18, '2025-12-03 12:44:05', 70, 50, 45, NULL, 31, -55, -38, 21),
+(19, '2025-12-03 12:46:38', 80, 88, 30, NULL, 26, 31, 25, 21),
+(20, '2025-12-03 12:48:45', 80, 60, 25, NULL, 35, 17, 13, 21);
 
 -- --------------------------------------------------------
 
@@ -90,7 +136,8 @@ INSERT INTO `cep` (`ID_CEP`, `CEP`, `LOGRADOURO`, `FK_BAIRRO_ID`) VALUES
 (2, 22222000, 'Rua Voluntários', 2),
 (3, 30130000, 'Av. Contorno', 3),
 (4, 90520000, 'Rua Félix da Cunha', 4),
-(5, 80420000, 'Av. Batel', 5);
+(5, 80420000, 'Av. Batel', 5),
+(6, 13973, 'Rua Hortêncio Canela', 6);
 
 -- --------------------------------------------------------
 
@@ -113,7 +160,8 @@ INSERT INTO `cidade` (`ID_CIDADE`, `CIDADE`, `FK_ESTADO_ID`) VALUES
 (2, 'Rio de Janeiro', 2),
 (3, 'Belo Horizonte', 3),
 (4, 'Porto Alegre', 4),
-(5, 'Curitiba', 5);
+(5, 'Curitiba', 5),
+(7, 'Itapira', 1);
 
 -- --------------------------------------------------------
 
@@ -171,7 +219,8 @@ INSERT INTO `estado` (`ID_ESTADO`, `UF`) VALUES
 (2, 'RJ'),
 (3, 'MG'),
 (4, 'RS'),
-(5, 'PR');
+(5, 'PR'),
+(6, 'FA');
 
 -- --------------------------------------------------------
 
@@ -185,9 +234,43 @@ CREATE TABLE `exercicio` (
   `SERIES` int(3) NOT NULL,
   `REPETICOES` int(3) NOT NULL,
   `CARGA` int(4) NOT NULL,
-  `FK_USUARIO_ID` int(11) DEFAULT NULL,
   `FK_TREINO_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Despejando dados para a tabela `exercicio`
+--
+
+INSERT INTO `exercicio` (`ID_EXERCICIO`, `EXERCICIO`, `SERIES`, `REPETICOES`, `CARGA`, `FK_TREINO_ID`) VALUES
+(3, 'Bulgaro', 4, 12, 50, 16),
+(4, 'Teste', 4, 12, 50, 17),
+(5, 'Supino', 4, 12, 20, 18),
+(6, 'Supino Inclinado', 4, 12, 50, 18),
+(12, 'Supino', 4, 12, 60, 16);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `mensagem`
+--
+
+CREATE TABLE `mensagem` (
+  `ID_MENSAGEM` int(11) NOT NULL,
+  `NOME_MSG` varchar(20) DEFAULT NULL,
+  `TELEFONE_MSG` varchar(12) DEFAULT NULL,
+  `EMAIL_MSG` varchar(30) DEFAULT NULL,
+  `ASSUNTO` varchar(100) NOT NULL,
+  `MENSAGEM` varchar(1000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Despejando dados para a tabela `mensagem`
+--
+
+INSERT INTO `mensagem` (`ID_MENSAGEM`, `NOME_MSG`, `TELEFONE_MSG`, `EMAIL_MSG`, `ASSUNTO`, `MENSAGEM`) VALUES
+(1, 'Felipe Ricardo Pires', 'felipedegodo', '+55 (55) 55555-5555', 'Teste', 'teste'),
+(2, '', '', '', '', ''),
+(3, 'Felipe Ricardo Pires', 'felipedegodo', '+55 (19) 99817-4730', 'Como ta?', 'Teste no cell');
 
 -- --------------------------------------------------------
 
@@ -231,9 +314,9 @@ INSERT INTO `movimento` (`ID_MOVIMENTO`, `FK_USUARIO_ID`, `FK_EQUIPAMENTO_ID`, `
 (19, 19, 11, '06:05:00', '06:44:00', '2025-03-06', 382),
 (20, 1, 4, '16:15:00', '16:44:00', '2025-03-09', 290),
 (21, 3, 2, '18:22:00', '18:55:00', '2025-03-12', 282),
-(22, 20, 13, '09:00:00', '09:29:00', '2025-03-19', 300),
-(23, 12, 3, '15:30:00', '16:02:00', '2025-03-22', 245),
-(24, 7, 6, '08:05:00', '08:35:00', '2025-03-25', 150),
+(22, 21, 13, '09:00:00', '09:29:00', '2025-11-19', 2000),
+(23, 21, 3, '15:30:00', '16:02:00', '2025-11-27', 245),
+(24, 21, 6, '08:05:00', '08:35:00', '2025-11-26', 150),
 (25, 14, 15, '17:40:00', '18:12:00', '2025-03-28', 256),
 (26, 8, 5, '06:40:00', '07:15:00', '2025-04-03', 224),
 (27, 6, 7, '18:22:00', '18:51:00', '2025-04-05', 314),
@@ -309,7 +392,16 @@ INSERT INTO `movimento` (`ID_MOVIMENTO`, `FK_USUARIO_ID`, `FK_EQUIPAMENTO_ID`, `
 (97, 20, 9, '18:44:00', '19:15:00', '2025-12-28', 290),
 (98, 7, 14, '06:55:00', '07:28:00', '2025-12-29', 265),
 (99, 3, 10, '08:10:00', '08:42:00', '2025-12-30', 210),
-(100, 14, 2, '19:20:00', '19:50:00', '2025-12-31', 260);
+(100, 14, 2, '19:20:00', '19:50:00', '2025-12-31', 260),
+(101, 21, 1, '22:24:13', '22:24:13', '2025-12-02', 980),
+(102, 21, 2, '22:44:09', '22:44:09', '2025-12-02', 230),
+(103, 21, 1, '22:44:59', '22:44:59', '2025-12-02', 340),
+(104, 21, 1, '22:45:32', '22:45:32', '2025-12-02', 990),
+(105, 21, 5, '22:47:50', '22:47:50', '2025-12-02', 980),
+(106, 21, 2, '22:48:40', '22:48:40', '2025-12-02', 520),
+(107, 21, 3, '22:50:53', '22:50:53', '2025-12-02', 650),
+(108, 21, 5, '22:51:18', '22:51:18', '2025-12-02', 870),
+(109, 21, 5, '22:52:29', '22:52:29', '2025-12-02', 1000);
 
 -- --------------------------------------------------------
 
@@ -337,6 +429,26 @@ INSERT INTO `plano` (`ID_PLANO`, `NOME_PLANO`, `DESCRICAO`, `PRECO`, `DURACAO_PL
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `tokens_senha`
+--
+
+CREATE TABLE `tokens_senha` (
+  `ID_TOKEN` int(11) NOT NULL,
+  `EMAIL` varchar(255) NOT NULL,
+  `TOKEN` varchar(255) NOT NULL,
+  `TEMPO_EXPIRA` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Despejando dados para a tabela `tokens_senha`
+--
+
+INSERT INTO `tokens_senha` (`ID_TOKEN`, `EMAIL`, `TOKEN`, `TEMPO_EXPIRA`) VALUES
+(1, 'felipe@gmail', '50421c72673bbe4675949c8d735442eceb8de3f35902951dd5b9eaae3114d9900e5d00906af4d7910287f6024927a099c970', '2025-12-03 18:51:52');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `treino`
 --
 
@@ -344,29 +456,39 @@ CREATE TABLE `treino` (
   `ID_TREINO` int(11) NOT NULL,
   `TREINO` varchar(50) NOT NULL,
   `DESCANSO` int(3) NOT NULL,
-  `FK_USUARIO_ID` int(11) DEFAULT NULL
+  `ATIVO` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Despejando dados para a tabela `treino`
 --
 
-INSERT INTO `treino` (`ID_TREINO`, `TREINO`, `DESCANSO`, `FK_USUARIO_ID`) VALUES
-(1, 'Treino A - Pernas', 60, 1),
-(2, 'Treino B - Peito/Tríceps', 90, 2),
-(3, 'Treino C - Costas', 45, 3),
-(4, 'Treino D - Ombros', 60, 4),
-(5, 'Treino E - Braços', 75, 5),
-(6, 'Treino F - Full Body', 90, 6),
-(7, 'Treino G - HIIT', 30, 7),
-(8, 'Treino H - Core', 50, 8),
-(9, 'Treino I - Glúteos', 70, 9),
-(10, 'Treino J - Resistência', 80, 10),
-(11, 'Treino K - Cardio', 40, 11),
-(12, 'Treino L - Mobilidade', 30, 12),
-(13, 'Treino M - Hipertrofia', 90, 13),
-(14, 'Treino N - Funcional', 45, 14),
-(15, 'Treino O - Avançado', 120, 15);
+INSERT INTO `treino` (`ID_TREINO`, `TREINO`, `DESCANSO`, `ATIVO`) VALUES
+(1, 'Treino A - Pernas', 60, 'I'),
+(2, 'Treino B - Peito/Tríceps', 45, 'A'),
+(3, 'Treino C - Costas', 45, 'I'),
+(4, 'Treino D - Ombros', 60, 'I'),
+(5, 'Treino E - Braços', 75, 'I'),
+(6, 'Treino F - Full Body', 90, 'I'),
+(7, 'Treino G - HIIT', 30, 'I'),
+(8, 'Treino H - Core', 50, 'I'),
+(9, 'Treino I - Glúteos', 45, 'A'),
+(10, 'Treino J - Resistência', 80, 'A'),
+(11, 'Treino K - Cardio', 40, 'A'),
+(12, 'Treino L - Mobilidade', 30, 'A'),
+(13, 'Treino M - Hipertrofia', 90, 'A'),
+(14, 'Treino N - Funcional', 45, 'A'),
+(15, 'Treino O - Avançado', 120, 'A'),
+(16, 'Treino Teste', 45, 'A'),
+(17, 'FDS', 30, 'A'),
+(18, 'Treino I - Glúteos', 90, 'I'),
+(19, 'Novo', 45, 'A'),
+(20, 'Novo Treino', 60, 'A'),
+(21, 'Novo Treino', 60, 'A'),
+(22, 'Vaiiiiiiiiiiiiiii', 30, 'A'),
+(23, 'Vaiiiiiiiiiiiiiii', 30, 'A'),
+(24, 'Caguei', 45, 'A'),
+(25, 'Agora', 45, 'A');
 
 -- --------------------------------------------------------
 
@@ -418,8 +540,29 @@ INSERT INTO `usuarios` (`ID_USUARIO`, `NOME`, `EMAIL`, `GENERO`, `SENHA`, `CPF`,
 (18, 'Cláudia Moraes', 'claudia.moraes@gmail.com', 'Feminino', '123', '67676767655', '11922224444', '1993-03-01', 2, 1, 3, '345', '2023-02-28', 'U', 'I', 'I'),
 (19, 'Felipe Barros', 'felipe.barros@gmail.com', 'Masculino', '123', '56565656599', '11911113333', '1995-12-12', 3, 1, 4, '556', '2023-05-19', 'U', 'I', 'A'),
 (20, 'Larissa Cunha', 'larissa.cunha@gmail.com', 'Feminino', '123', '45454545411', '11944445555', '1998-10-10', 1, 1, 5, '77', '2023-04-23', 'U', 'I', 'I'),
-(21, 'Felipe', 'felipe@gmail.com', NULL, '$2y$10$Yzy8jPuiiJLH8Ay7RtUMB./OB6ETQ37TDP6EvvXkbu0.yu8f/rSHW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'A', 'M', 'A'),
+(21, 'Felipe Godoy', 'felipe@gmail', 'male', '$2y$10$Yzy8jPuiiJLH8Ay7RtUMB./OB6ETQ37TDP6EvvXkbu0.yu8f/rSHW', '257.555.298-25', '+55 (19) 99817-4730', '2013-12-11', 1, 1, 1, '152', '2025-04-07', 'A', 'M', 'A'),
 (22, 'Felipe', 'felipe@godoy', NULL, '$2y$10$.OyNAjwDYxl/dOTAxcWTuuEjzFEmUDBVp4wOcvowR8oxwAGd8Y5pG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'U', 'M', 'A');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `usuario_treino`
+--
+
+CREATE TABLE `usuario_treino` (
+  `FK_ID_USUARIO` int(11) NOT NULL,
+  `FK_ID_TREINO` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Despejando dados para a tabela `usuario_treino`
+--
+
+INSERT INTO `usuario_treino` (`FK_ID_USUARIO`, `FK_ID_TREINO`) VALUES
+(21, 1),
+(21, 2),
+(21, 9),
+(21, 25);
 
 --
 -- Índices para tabelas despejadas
@@ -440,6 +583,13 @@ ALTER TABLE `academia`
 ALTER TABLE `bairro`
   ADD PRIMARY KEY (`ID_BAIRRO`),
   ADD KEY `FK_BAIRRO_CIDADE` (`FK_CIDADE_ID`);
+
+--
+-- Índices de tabela `calculo_fisico`
+--
+ALTER TABLE `calculo_fisico`
+  ADD PRIMARY KEY (`ID_CALCULO`),
+  ADD KEY `FK_ID_USUARIO` (`FK_ID_USUARIO`);
 
 --
 -- Índices de tabela `cep`
@@ -473,8 +623,13 @@ ALTER TABLE `estado`
 --
 ALTER TABLE `exercicio`
   ADD PRIMARY KEY (`ID_EXERCICIO`),
-  ADD KEY `FK_USUARIO_ID` (`FK_USUARIO_ID`),
   ADD KEY `FK_TREINO_ID` (`FK_TREINO_ID`);
+
+--
+-- Índices de tabela `mensagem`
+--
+ALTER TABLE `mensagem`
+  ADD PRIMARY KEY (`ID_MENSAGEM`);
 
 --
 -- Índices de tabela `movimento`
@@ -491,11 +646,16 @@ ALTER TABLE `plano`
   ADD PRIMARY KEY (`ID_PLANO`);
 
 --
+-- Índices de tabela `tokens_senha`
+--
+ALTER TABLE `tokens_senha`
+  ADD PRIMARY KEY (`ID_TOKEN`);
+
+--
 -- Índices de tabela `treino`
 --
 ALTER TABLE `treino`
-  ADD PRIMARY KEY (`ID_TREINO`),
-  ADD KEY `treino_ibfk_1` (`FK_USUARIO_ID`);
+  ADD PRIMARY KEY (`ID_TREINO`);
 
 --
 -- Índices de tabela `usuarios`
@@ -507,6 +667,13 @@ ALTER TABLE `usuarios`
   ADD KEY `FK_USUARIOS_PLANO` (`FK_PLANO_ID`),
   ADD KEY `FK_USUARIOS_ACADEMIA` (`FK_ACADEMIA_ID`),
   ADD KEY `FK_USUARIOS_CEP` (`FK_CEP_ID`);
+
+--
+-- Índices de tabela `usuario_treino`
+--
+ALTER TABLE `usuario_treino`
+  ADD PRIMARY KEY (`FK_ID_USUARIO`,`FK_ID_TREINO`),
+  ADD KEY `FK_ID_TREINO` (`FK_ID_TREINO`);
 
 --
 -- AUTO_INCREMENT para tabelas despejadas
@@ -522,19 +689,25 @@ ALTER TABLE `academia`
 -- AUTO_INCREMENT de tabela `bairro`
 --
 ALTER TABLE `bairro`
-  MODIFY `ID_BAIRRO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID_BAIRRO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de tabela `calculo_fisico`
+--
+ALTER TABLE `calculo_fisico`
+  MODIFY `ID_CALCULO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de tabela `cep`
 --
 ALTER TABLE `cep`
-  MODIFY `ID_CEP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID_CEP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `cidade`
 --
 ALTER TABLE `cidade`
-  MODIFY `ID_CIDADE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID_CIDADE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `equipamento`
@@ -546,25 +719,37 @@ ALTER TABLE `equipamento`
 -- AUTO_INCREMENT de tabela `estado`
 --
 ALTER TABLE `estado`
-  MODIFY `ID_ESTADO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID_ESTADO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `exercicio`
 --
 ALTER TABLE `exercicio`
-  MODIFY `ID_EXERCICIO` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_EXERCICIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT de tabela `mensagem`
+--
+ALTER TABLE `mensagem`
+  MODIFY `ID_MENSAGEM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `movimento`
 --
 ALTER TABLE `movimento`
-  MODIFY `ID_MOVIMENTO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `ID_MOVIMENTO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+
+--
+-- AUTO_INCREMENT de tabela `tokens_senha`
+--
+ALTER TABLE `tokens_senha`
+  MODIFY `ID_TOKEN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `treino`
 --
 ALTER TABLE `treino`
-  MODIFY `ID_TREINO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID_TREINO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
@@ -590,6 +775,12 @@ ALTER TABLE `bairro`
   ADD CONSTRAINT `FK_BAIRRO_CIDADE` FOREIGN KEY (`FK_CIDADE_ID`) REFERENCES `cidade` (`ID_CIDADE`);
 
 --
+-- Restrições para tabelas `calculo_fisico`
+--
+ALTER TABLE `calculo_fisico`
+  ADD CONSTRAINT `calculo_fisico_ibfk_1` FOREIGN KEY (`FK_ID_USUARIO`) REFERENCES `usuarios` (`ID_USUARIO`);
+
+--
 -- Restrições para tabelas `cep`
 --
 ALTER TABLE `cep`
@@ -611,7 +802,6 @@ ALTER TABLE `equipamento`
 -- Restrições para tabelas `exercicio`
 --
 ALTER TABLE `exercicio`
-  ADD CONSTRAINT `exercicio_ibfk_1` FOREIGN KEY (`FK_USUARIO_ID`) REFERENCES `usuarios` (`ID_USUARIO`),
   ADD CONSTRAINT `exercicio_ibfk_2` FOREIGN KEY (`FK_TREINO_ID`) REFERENCES `treino` (`ID_TREINO`);
 
 --
@@ -622,18 +812,20 @@ ALTER TABLE `movimento`
   ADD CONSTRAINT `FK_MOVIMENTO_USUARIOS` FOREIGN KEY (`FK_USUARIO_ID`) REFERENCES `usuarios` (`ID_USUARIO`);
 
 --
--- Restrições para tabelas `treino`
---
-ALTER TABLE `treino`
-  ADD CONSTRAINT `treino_ibfk_1` FOREIGN KEY (`FK_USUARIO_ID`) REFERENCES `usuarios` (`ID_USUARIO`);
-
---
 -- Restrições para tabelas `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `FK_USUARIOS_ACADEMIA` FOREIGN KEY (`FK_ACADEMIA_ID`) REFERENCES `academia` (`ID_ACADEMIA`),
   ADD CONSTRAINT `FK_USUARIOS_CEP` FOREIGN KEY (`FK_CEP_ID`) REFERENCES `cep` (`ID_CEP`),
   ADD CONSTRAINT `FK_USUARIOS_PLANO` FOREIGN KEY (`FK_PLANO_ID`) REFERENCES `plano` (`ID_PLANO`);
+
+--
+-- Restrições para tabelas `usuario_treino`
+--
+ALTER TABLE `usuario_treino`
+  ADD CONSTRAINT `usuario_treino_ibfk_1` FOREIGN KEY (`FK_ID_USUARIO`) REFERENCES `usuarios` (`ID_USUARIO`),
+  ADD CONSTRAINT `usuario_treino_ibfk_2` FOREIGN KEY (`FK_ID_TREINO`) REFERENCES `treino` (`ID_TREINO`),
+  ADD CONSTRAINT `usuario_treino_ibfk_3` FOREIGN KEY (`FK_ID_USUARIO`) REFERENCES `usuarios` (`ID_USUARIO`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
