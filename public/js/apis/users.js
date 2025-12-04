@@ -184,7 +184,7 @@ export async function recover_password(email) {
 export async function valid_token(token) {
   try {
     const res = await fetch(API_URL + `valid_token.php?token=${token}`, {
-      method: "POST",
+      method: "GET",
       headers: { "Content-Type": "application/json" },
     });
     return await res.json();
@@ -199,9 +199,9 @@ export async function valid_token(token) {
 }
 
 // Function Recover Password
-export async function alterPassword(datas) {
+export async function alterPassword(datas, token) {
   try {
-    const res = await fetch(API_URL + "alter_password.php", {
+    const res = await fetch(API_URL + `alter_password.php?token=${token}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(datas),

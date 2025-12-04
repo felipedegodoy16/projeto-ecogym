@@ -36,12 +36,19 @@ async function alter_password(e) {
     return;
   }
 
-  const res = await alterPassword(datas);
+  const urlParams = new URLSearchParams(window.location.search);
+  const token = urlParams.get("token");
+
+  const res = await alterPassword(datas, token);
 
   showModal(res["status"], res["title"], res["message"]);
 
-  if (res["status"] === "error") {
-    showModal(res["status"], res["title"], res["message"]);
+  if (res["exit"]) {
+    setTimeout(() => {
+      window.location.href = `${window.location.protocol}//${window.location.hostname}/projeto-ecogym/public/login.php`;
+
+      return;
+    }, 3000);
   }
 }
 
