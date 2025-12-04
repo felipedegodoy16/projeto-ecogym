@@ -144,10 +144,20 @@ async function handleUpdateProfile(e) {
 const form = document.querySelector("#updateProfileForm");
 form.addEventListener("submit", handleUpdateProfile);
 
-// Click Input File
-// const img_profile = document.querySelector(".img-profile");
-// const update_picture = document.querySelector("#update-picture");
-
-// img_profile.addEventListener("click", () => {
-//   update_picture.click();
-// });
+const icons_infos = document.querySelectorAll(".icon-informations");
+icons_infos.forEach((e) => {
+  e.addEventListener("click", (e) => {
+    const legend_info = e.target.nextElementSibling;
+    if (legend_info.classList.value.includes("informations-active")) {
+      legend_info.classList.remove("informations-active");
+      legend_info.classList.add("informations-hidden");
+      setTimeout(() => {
+        legend_info.style.display = "none";
+      }, 200);
+    } else {
+      legend_info.classList.add("informations-active");
+      legend_info.classList.remove("informations-hidden");
+      legend_info.style.display = "block";
+    }
+  });
+});

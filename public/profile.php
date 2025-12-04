@@ -366,6 +366,10 @@
         </div>
 
         <form class="form-cadastro form-calc-physical" id="physicalCalc">
+          <div class="icon-informations"></div>
+          <div class="informations-calc">
+            <p class="font-2-xs cor-5">O cálculo efetuado em nosso sistema não é uma análise corporal. Sendo assim, não utilize esse cálculo como uma avaliação física, apenas como uma base para seus resultados.</p>
+          </div>
           <div class="card-datas-profile">
             <h2 class="font-1-xs calc-informations">Realizar Cálculo</h2>
 
