@@ -1,5 +1,11 @@
 import { loadingToggle } from "../loading.js";
-import { insert, select, deleteUser, alter } from "../apis/users.js";
+import {
+  insert,
+  select,
+  deleteUser,
+  alter,
+  select_user,
+} from "../apis/users.js";
 import { showModal } from "../modal.js";
 import { formVisibility } from "./admin.js";
 import { validateInput, validateSelect } from "../validFields.js";
@@ -84,8 +90,14 @@ async function handleDeleteUser() {
 }
 
 // Function Handle Edit
-async function handleEditUser(datas) {
+async function handleEditUser() {
   const card_focus_bg = document.querySelector("#cardFocusBg");
+
+  const id_card_focus = card_focus_bg.querySelector("#id-card-focus");
+  const id_user = id_card_focus.textContent.replace("#", "");
+
+  const datas = await select_user(id_user);
+
   closeCardFocus(card_focus_bg);
 
   const form = document.querySelector("#cadastroForm");
@@ -224,12 +236,13 @@ function openFocusCard(datas) {
       closeCardFocus(card_focus_bg);
     }
   });
-
-  const btn_edit_user = document.querySelector("#edit-user");
-  btn_edit_user.addEventListener("click", () => {
-    handleEditUser(datas);
-  });
 }
+
+// Add Event Edit
+const btn_edit_user = document.querySelector("#edit-user");
+btn_edit_user.addEventListener("click", () => {
+  handleEditUser();
+});
 
 // Add Event Delete
 const btn_delete_user = document.querySelector("#delete-user");

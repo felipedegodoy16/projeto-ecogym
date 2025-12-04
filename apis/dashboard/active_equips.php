@@ -17,7 +17,7 @@
   $total_equips = $stmt->fetchAll(PDO::FETCH_ASSOC)[0]["COUNT(*)"];
   
   // Selecting Active Equips
-  $sql = "SELECT COUNT(*) FROM equipamento WHERE ATIVO = 'A';";
+  $sql = "SELECT COUNT(*) FROM equipamento WHERE SITUACAO = 'A';";
 
   $stmt = ConnectionFactory::getConnection()->prepare($sql);
 

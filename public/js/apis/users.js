@@ -48,6 +48,24 @@ export async function select() {
   }
 }
 
+// Function Select User
+export async function select_user(id) {
+  try {
+    const res = await fetch(API_URL + `selectUser.php?id=${id}`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
+    return await res.json();
+  } catch (erro) {
+    console.log(erro);
+    return {
+      status: "error",
+      title: "Erro!",
+      message: "Erro no servidor, tente novamente mais tarde.",
+    };
+  }
+}
+
 // Function Alter User
 export async function alter(datas, id) {
   try {
