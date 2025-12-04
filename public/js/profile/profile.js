@@ -69,19 +69,22 @@ export async function callOwnDatas() {
     }
   });
 
-  const objectDate = new Date(datas["DATA_NASCIMENTO"] + "T00:00:00");
+  if (datas["DATA_NASCIMENTO"]) {
+    const objectDate = new Date(datas["DATA_NASCIMENTO"] + "T00:00:00");
 
-  const formattedDate = new Intl.DateTimeFormat("pt-BR", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-  }).format(objectDate);
+    const formattedDate = new Intl.DateTimeFormat("pt-BR", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    }).format(objectDate);
+
+    input_nasc_date.value = formattedDate;
+  }
 
   input_name.value = datas["NOME"];
   input_cpf.value = datas["CPF"];
   input_email.value = datas["EMAIL"];
   input_phone.value = datas["TELEFONE"];
-  input_nasc_date.value = formattedDate;
 
   input_cep.value = datas["CEP"];
   input_city.value = datas["CIDADE"];

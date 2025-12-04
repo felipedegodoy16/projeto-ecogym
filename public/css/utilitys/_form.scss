@@ -146,6 +146,10 @@
   box-shadow: inset 0 0 0 2px $cor-p1;
 }
 
+#alterPassword {
+  grid-template-columns: 1fr;
+}
+
 .form-radio:focus-within .form-label {
   color: $cor-7;
 }

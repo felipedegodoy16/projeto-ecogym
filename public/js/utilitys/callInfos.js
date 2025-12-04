@@ -29,6 +29,10 @@ export async function callEnergyGenerated() {
 
   const res = await energy_generated();
 
+  if (res["status"] === "error") {
+    return;
+  }
+
   energyValue.textContent = `${formatDec.format(res["total_kwh"])} kWh`;
   monthKwh.textContent = `↑ ${formatPerc.format(
     (res["month_kwh"] / res["total_kwh"]) * 100
@@ -207,6 +211,10 @@ export async function callGeneratedUserMonth() {
   const res = await energy_generated_user();
 
   const pos = await position_ranking();
+
+  if (pos["status"] === "error") {
+    return;
+  }
 
   let position;
 

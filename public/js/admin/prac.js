@@ -315,7 +315,7 @@ function addPracs(res) {
 
   let cont = 1;
 
-  if (res) {
+  if (res["status"] !== "error") {
     res.forEach((prac) => {
       prac_list.append(buildPrac(prac, cont * 0.2));
       cont++;

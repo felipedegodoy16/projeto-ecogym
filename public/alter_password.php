@@ -58,7 +58,7 @@
       </div>
 
       <button id="submitRegister" type="submit" class="button btn-primary btn-primary-p6 btn-login btn-cadastro">
-        Cadastrar
+        Alterar
       </button>
     </form>
   </div>

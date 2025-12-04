@@ -10,6 +10,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (res["status"] === "error") {
     showModal(res["status"], res["title"], res["message"]);
+
+    setTimeout(() => {
+      window.location.href = `${window.location.protocol}//${window.location.hostname}/projeto-ecogym/public/login.php`;
+
+      return;
+    }, 3000);
   }
 });
 
