@@ -1,5 +1,6 @@
 <?php 
 
+  require_once __DIR__ . '/../PHPMailer/php_mailer_config.php';
   require_once __DIR__ . '/../../class/ConnectionFactory.php';
 
   header("Content-Type: application/json; charset=UTF-8");
@@ -28,9 +29,27 @@
   
   $stmt->execute() or die(print_r($stmt->errorInfo(), true));
 
-  if($stmt->rowCount()) {
-    echo json_encode(["status" => "success", "title" => "Enviado!", "message" => "Mensagem enviada com sucesso."]);
+  if(!$stmt->rowCount()) {
+    echo json_encode(["status" => "error", "title" => "Erro!", "message" => "Não foi possível enviar a mensagem."]);
     exit();
   }
-    
-  echo json_encode(["status" => "error", "title" => "Erro!", "message" => "Não foi possível enviar a mensagem."]);
+
+  $pos = strpos($name, " ");
+
+  $first_name = $name;
+
+  if ($pos !== false) {
+    $first_name = substr($name, 0, $pos);
+  }
+
+  $subject = "Recebemos seu feedback - EcoGym";
+  $message = "Olá " . $first_name . "!\n\n"
+            . "Ficamos felizes em receber seu feedback/dúvida. Assim que possível nossa equipe retornará seu contato.\n\n"
+            . "Att, Equipe EcoGym.";
+
+  if(sendEmail($email, $subject, $message)) {
+    echo json_encode(["status" => "success", "title" => "Mensagem enviada!", "message" => "Seu feedback foi enviado, enviamos um email com mais informações."]);
+    exit();
+  }
+
+  echo json_encode(["status" => "error", "title" => "Falha no envio!", "message" => "Não foi possível enviar o email."]);

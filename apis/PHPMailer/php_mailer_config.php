@@ -7,7 +7,7 @@
   require __DIR__ . '/../../PHPMailer/src/PHPMailer.php';
   require __DIR__ . '/../../PHPMailer/src/SMTP.php';
 
-  function sendEmail($destiny, $subject, $body) {
+  function sendEmail($destiny, $subject, $body, $remetent = 'EcoGym') {
 
     $mail = new PHPMailer(true);
 
@@ -20,7 +20,11 @@
       $mail->SMTPSecure = 'tls';
       $mail->Port = 587;
 
-      $mail->setFrom('ecogym.contato@gmail.com');
+      if($remetent === 'no-reply') {
+        $mail->addReplyTo('no-reply@ecogym.com', 'No-Reply');
+      }
+      
+      $mail->setFrom('ecogym.contato@gmail.com', $remetent);
       $mail->addAddress($destiny);
       $mail->Subject = $subject;
       $mail->Body = $body;

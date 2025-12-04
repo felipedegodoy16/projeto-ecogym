@@ -11,7 +11,7 @@
   date_default_timezone_set('America/Sao_Paulo');
 
   if(!isset($_GET['token'])) {
-    echo json_encode(["status" => "error", "title" => "Token Inválido!", "message" => "Não foi possível encontrar o seu Token, garanta que você entrou através do link enviado a você."]);
+    echo json_encode(["status" => "error", "title" => "Token inválido!", "message" => "Não foi possível encontrar o seu Token, garanta que você entrou através do link enviado a você."]);
     exit();
   }
 

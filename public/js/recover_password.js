@@ -44,6 +44,12 @@ async function handleSubmit(e) {
 
   if (res["status"] === "success") {
     form.reset();
+
+    setTimeout(() => {
+      window.location.href = `${window.location.protocol}//${window.location.hostname}/projeto-ecogym/public/login.php`;
+
+      return;
+    }, 3000);
   }
 }
 

@@ -51,7 +51,9 @@
   $subject = "Recuperar Senha - EcoGym";
   $message = "Clique no link para redefinir sua senha:\n\n$link\n\nEste link expira em 1 hora.";
 
-  if(sendEmail($email, $subject, $message)) {
+  $remetent = "no-reply";
+
+  if(sendEmail($email, $subject, $message, $remetent)) {
     echo json_encode(["status" => "success", "title" => "Enviado!", "message" => "Te enviamos um email com mais instruções."]);
     exit();
   }
