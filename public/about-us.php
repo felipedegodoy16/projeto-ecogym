@@ -122,8 +122,8 @@
           <img src="./assets/vetores/ecogym.svg" alt="Logo EcoGym no rodapé do site.">
         </div>
         <p>Estamos sempre à disposição para esclarecer suas dúvidas e ouvir suas sugestões. Entre em contato conosco, será um prazer responder sua mensagem.</p>
-        <span><span><img src="./assets/vetores/phone.svg"></span>+55 99 99999-9999</span>
-        <span><span><img src="./assets/vetores/email.svg"></span>contato@ecogym.com.br</span>
+        <span><span><img src="./assets/vetores/phone.svg"></span>+55 (99) 99999-9999</span>
+        <span><span><img src="./assets/vetores/email.svg"></span>ecogym.contato@gmail.com</span>
       </div>
       <div class="pages-footer">
         <div class="navigation-footer fadeInOutTop">

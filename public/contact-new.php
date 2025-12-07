@@ -82,28 +82,28 @@
         <h2 class="font-1-l cor-12 title-faq fadeInOutBottom">Dúvidas frequentes</h2>
         <dl class="faq">
           <div class="fadeInOutBottom">
-            <dt><button class="font-1-xs cor-11" aria-controls="pergunta1" aria-expanded="true">Qual forma de pagamento vocês aceitam?</button></dt>
-            <dd id="pergunta1" class="font-2-xs cor-9 active-faq">Aceitamos pagamentos parcelados em todos os cartões de crédito. Para pagamentos à vista também aceitarmos PIX e Boleto através do PagSeguro.</dd>
+            <dt><button class="font-1-xs cor-11" aria-controls="pergunta1" aria-expanded="true">Quais formas de pagamento vocês aceitam?</button></dt>
+            <dd id="pergunta1" class="font-2-xs cor-9 active-faq">Aceitamos cartão de crédito, débito, PIX, transferência bancária e boleto. Para planos anuais, oferecemos condições especiais de parcelamento.</dd>
           </div>
           <div class="fadeInOutBottom">
-            <dt><button class="font-1-xs cor-11" aria-controls="pergunta2" aria-expanded="false">Como posso entrar em contato?</button></dt>
-            <dd id="pergunta2" class="font-2-xs cor-9">Aceitamos pagamentos parcelados em todos os cartões de crédito. Para pagamentos à vista também aceitarmos PIX e Boleto através do PagSeguro.</dd>
+            <dt><button class="font-1-xs cor-11" aria-controls="pergunta2" aria-expanded="false">Como funciona a geração de energia pelos equipamentos da academia?</button></dt>
+            <dd id="pergunta2" class="font-2-xs cor-9">Nossos equipamentos possuem tecnologia de captação cinética: ao pedalar, correr ou utilizar máquinas específicas, o movimento gera eletricidade. Essa energia é direcionada para baterias internas que abastecem parte da iluminação e dos sistemas eletrônicos do prédio.</dd>
           </div>
           <div class="fadeInOutBottom">
-            <dt><button class="font-1-xs cor-11" aria-controls="pergunta3" aria-expanded="false">Vocês possuem algum desconto?</button></dt>
-            <dd id="pergunta3" class="font-2-xs cor-9">Aceitamos pagamentos parcelados em todos os cartões de crédito. Para pagamentos à vista também aceitarmos PIX e Boleto através do PagSeguro.</dd>
+            <dt><button class="font-1-xs cor-11" aria-controls="pergunta3" aria-expanded="false">Os alunos conseguem acompanhar quanto de energia geraram?</button></dt>
+            <dd id="pergunta3" class="font-2-xs cor-9">Sim! Cada aluno possui um perfil no sistema, onde é possível visualizar a energia gerada por semana. Também é possível participar de rankings e desafios de sustentabilidade promovidos pela academia.</dd>
           </div>
           <div class="fadeInOutBottom">
-            <dt><button class="font-1-xs cor-11" aria-controls="pergunta4" aria-expanded="false">Qual a garantia que possuo?</button></dt>
-            <dd id="pergunta4" class="font-2-xs cor-9">Aceitamos pagamentos parcelados em todos os cartões de crédito. Para pagamentos à vista também aceitarmos PIX e Boleto através do PagSeguro.</dd>
+            <dt><button class="font-1-xs cor-11" aria-controls="pergunta4" aria-expanded="false">Quais são os benefícios de treinar em uma academia sustentável?</button></dt>
+            <dd id="pergunta4" class="font-2-xs cor-9">Além dos benefícios tradicionais do exercício físico, o aluno contribui para a redução do impacto ambiental, participa de ações ecológicas, ajuda a reduzir o consumo total de energia da academia e recebe recompensas baseadas na energia gerada durante os treinos.</dd>
           </div>
           <div class="fadeInOutBottom">
-            <dt><button class="font-1-xs cor-11" aria-controls="pergunta5" aria-expanded="false">Posso parcelar no boleto?</button></dt>
-            <dd id="pergunta5" class="font-2-xs cor-9">Aceitamos pagamentos parcelados em todos os cartões de crédito. Para pagamentos à vista também aceitarmos PIX e Boleto através do PagSeguro.</dd>
+            <dt><button class="font-1-xs cor-11" aria-controls="pergunta5" aria-expanded="false">Vocês oferecem algum desconto para quem gera mais energia?</button></dt>
+            <dd id="pergunta5" class="font-2-xs cor-9">Sim! Temos um programa de incentivo verde. Alunos que ultrapassam determinadas metas mensais de geração de energia recebem descontos progressivos nos planos, brindes sustentáveis ou acesso antecipado a novas funcionalidades do sistema.</dd>
           </div>
           <div class="fadeInOutBottom">
-            <dt><button class="font-1-xs cor-11" aria-controls="pergunta6" aria-expanded="false">Quantas trocas posso fazer ao ano?</button></dt>
-            <dd id="pergunta6" class="font-2-xs cor-9">Aceitamos pagamentos parcelados em todos os cartões de crédito. Para pagamentos à vista também aceitarmos PIX e Boleto através do PagSeguro.</dd>
+            <dt><button class="font-1-xs cor-11" aria-controls="pergunta6" aria-expanded="false">Como é realizada a manutenção dos equipamentos sustentáveis?</button></dt>
+            <dd id="pergunta6" class="font-2-xs cor-9">Nossa equipe técnica realiza inspeções mensais e manutenção preventiva para garantir que todos os equipamentos estejam funcionando corretamente e gerando energia de forma eficiente. Também utilizamos peças recicláveis e materiais de baixo impacto ambiental sempre que possível.</dd>
           </div>
         </dl>
       </div>
@@ -190,8 +190,7 @@
                   <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm640-480L501-453q-5 3-10.5 4.5T480-447q-5 0-10.5-1.5T459-453L160-640v400h640v-400ZM480-520l320-200H160l320 200ZM160-640v10-59 1-32 32-.5 58.5-10 400-400Z" />
                 </svg>E-mail</h3>
               <p class="info-text">
-                <a href="mailto:contato@ecogym.com.br" class="info-link">contato@ecogym.com.br</a><br>
-                <a href="mailto:comercial@ecogym.com.br" class="info-link">comercial@ecogym.com.br</a>
+                <a href="mailto:contato@ecogym.com.br" class="info-link">ecogym.contato@gmail.com</a>
               </p>
             </div>
           </div>
@@ -217,8 +216,8 @@
           <img src="./assets/vetores/ecogym.svg" alt="Logo EcoGym no rodapé do site.">
         </div>
         <p>Estamos sempre à disposição para esclarecer suas dúvidas e ouvir suas sugestões. Entre em contato conosco, será um prazer responder sua mensagem.</p>
-        <span><span><img src="./assets/vetores/phone.svg"></span>+55 99 99999-9999</span>
-        <span><span><img src="./assets/vetores/email.svg"></span>contato@ecogym.com.br</span>
+        <span><span><img src="./assets/vetores/phone.svg"></span>+55 (99) 99999-9999</span>
+        <span><span><img src="./assets/vetores/email.svg"></span>ecogym.contato@gmail.com</span>
       </div>
       <div class="pages-footer">
         <div class="navigation-footer fadeInOutTop">

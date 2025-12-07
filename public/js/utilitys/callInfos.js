@@ -110,7 +110,7 @@ export async function callDoghnutChart() {
   // Doghnut
   const dough = document.getElementById("doughnut").getContext("2d");
   const current = res;
-  const target = 5;
+  const target = 1000;
   const pct = Math.round((current / target) * 100);
   document.getElementById("pct").innerText = pct + "%";
   document.getElementById("raw").innerText =
